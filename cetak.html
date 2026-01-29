@@ -36,21 +36,21 @@
             flex-direction: column;
         }
 
-        /* Header - compact */
+        /* Header */
         .header {
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
-            padding: 8mm 12mm;
+            padding: 6mm 12mm;
             position: relative;
         }
 
         .header::after {
             content: '';
             position: absolute;
-            bottom: -10mm;
+            bottom: -8mm;
             left: 0;
             right: 0;
-            height: 20mm;
+            height: 16mm;
             background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             clip-path: polygon(0 0, 100% 0, 100% 30%, 0 100%);
         }
@@ -70,36 +70,36 @@
         }
 
         .logo {
-            width: 10mm;
-            height: 10mm;
+            width: 9mm;
+            height: 9mm;
             background: linear-gradient(135deg, #22c55e, #0ea5e9);
-            border-radius: 2.5mm;
+            border-radius: 2mm;
             display: flex;
             align-items: center;
             justify-content: center;
         }
 
         .logo svg {
-            width: 6mm;
-            height: 6mm;
+            width: 5mm;
+            height: 5mm;
         }
 
         .title {
-            font-size: 5.5mm;
+            font-size: 5mm;
             font-weight: 800;
         }
 
         .subtitle {
-            font-size: 2.8mm;
+            font-size: 2.5mm;
             color: #94a3b8;
         }
 
         .tahap-badge {
             background: rgba(34, 197, 94, 0.2);
             color: #22c55e;
-            padding: 1.5mm 4mm;
-            border-radius: 3mm;
-            font-size: 2.8mm;
+            padding: 1.2mm 3mm;
+            border-radius: 2mm;
+            font-size: 2.5mm;
             font-weight: 600;
         }
 
@@ -108,14 +108,14 @@
             position: relative;
             z-index: 2;
             padding: 0 12mm;
-            margin-top: -3mm;
+            margin-top: -2mm;
         }
 
         .total-card {
             background: white;
             border-radius: 3mm;
-            padding: 4mm 6mm;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+            padding: 3mm 5mm;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
             display: flex;
             justify-content: space-around;
             text-align: center;
@@ -126,34 +126,109 @@
         }
 
         .total-value {
-            font-size: 6mm;
+            font-size: 5mm;
             font-weight: 800;
             color: #0f172a;
         }
 
         .total-value span {
-            font-size: 3mm;
+            font-size: 2.5mm;
             color: #64748b;
         }
 
         .total-label {
-            font-size: 2mm;
+            font-size: 1.8mm;
             color: #64748b;
             text-transform: uppercase;
             letter-spacing: 0.3mm;
         }
 
+        /* Map Section */
+        .map-section {
+            padding: 4mm 12mm 2mm;
+        }
+
+        .section-title {
+            font-size: 3mm;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 2mm;
+            display: flex;
+            align-items: center;
+            gap: 2mm;
+        }
+
+        .section-title::before {
+            content: '';
+            width: 1mm;
+            height: 3.5mm;
+            background: linear-gradient(135deg, #22c55e, #0ea5e9);
+            border-radius: 0.5mm;
+        }
+
+        .map-container {
+            position: relative;
+            width: 100%;
+            height: 65mm;
+            background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+            border-radius: 3mm;
+            border: 0.2mm solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .map-svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .map-label {
+            position: absolute;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            pointer-events: none;
+        }
+
+        .map-label-value {
+            font-size: 2.8mm;
+            font-weight: 700;
+            color: white;
+            background: #0f172a;
+            padding: 0.8mm 1.5mm;
+            border-radius: 1mm;
+            display: block;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .map-label-name {
+            font-size: 1.6mm;
+            color: #475569;
+            margin-top: 0.5mm;
+            display: block;
+        }
+
+        .map-label.green .map-label-value {
+            background: #16a34a;
+        }
+
+        .map-label.purple .map-label-value {
+            background: #9333ea;
+        }
+
+        .map-label.blue .map-label-value {
+            background: #0284c7;
+        }
+
         /* Categories */
         .categories {
-            padding: 5mm 12mm;
+            padding: 3mm 12mm;
             display: flex;
-            gap: 4mm;
+            gap: 3mm;
         }
 
         .category {
             flex: 1;
-            border-radius: 3mm;
-            padding: 4mm;
+            border-radius: 2.5mm;
+            padding: 3mm;
         }
 
         .cat-perdesaan {
@@ -174,18 +249,18 @@
         .cat-header {
             display: flex;
             align-items: center;
-            gap: 2mm;
-            margin-bottom: 2mm;
+            gap: 1.5mm;
+            margin-bottom: 1.5mm;
         }
 
         .cat-icon {
-            width: 6mm;
-            height: 6mm;
-            border-radius: 1.5mm;
+            width: 5mm;
+            height: 5mm;
+            border-radius: 1.2mm;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3mm;
+            font-size: 2.5mm;
         }
 
         .cat-perdesaan .cat-icon {
@@ -201,7 +276,7 @@
         }
 
         .cat-title {
-            font-size: 3.5mm;
+            font-size: 3mm;
             font-weight: 700;
             color: #1e293b;
         }
@@ -209,19 +284,19 @@
         .cat-stats {
             display: flex;
             gap: 2mm;
-            margin-bottom: 2mm;
+            margin-bottom: 1.5mm;
         }
 
         .cat-stat {
             flex: 1;
             text-align: center;
             background: rgba(255, 255, 255, 0.7);
-            padding: 1.5mm;
-            border-radius: 1.5mm;
+            padding: 1.2mm;
+            border-radius: 1.2mm;
         }
 
         .cat-stat-value {
-            font-size: 3.5mm;
+            font-size: 3mm;
             font-weight: 700;
         }
 
@@ -238,22 +313,22 @@
         }
 
         .cat-stat-label {
-            font-size: 1.8mm;
+            font-size: 1.5mm;
             color: #64748b;
             text-transform: uppercase;
         }
 
         .cat-breakdown {
-            font-size: 2.2mm;
-            max-height: 35mm;
+            font-size: 2mm;
+            max-height: 22mm;
             overflow: hidden;
         }
 
         .cat-row {
             display: flex;
             justify-content: space-between;
-            padding: 0.8mm 0;
-            border-bottom: 0.15mm solid rgba(0, 0, 0, 0.05);
+            padding: 0.6mm 0;
+            border-bottom: 0.1mm solid rgba(0, 0, 0, 0.05);
         }
 
         .cat-row:last-child {
@@ -271,117 +346,102 @@
         /* Chart */
         .chart-section {
             flex: 1;
-            padding: 4mm 12mm;
+            padding: 3mm 12mm;
             display: flex;
             flex-direction: column;
-        }
-
-        .chart-title {
-            font-size: 3.5mm;
-            font-weight: 700;
-            color: #1e293b;
-            margin-bottom: 3mm;
-            display: flex;
-            align-items: center;
-            gap: 2mm;
-        }
-
-        .chart-title::before {
-            content: '';
-            width: 1mm;
-            height: 4mm;
-            background: linear-gradient(135deg, #22c55e, #0ea5e9);
-            border-radius: 0.5mm;
+            min-height: 0;
         }
 
         .chart-container {
             flex: 1;
             display: flex;
-            gap: 4mm;
+            gap: 3mm;
+            min-height: 0;
         }
 
         .chart-bars {
             flex: 2;
             display: flex;
             flex-direction: column;
-            gap: 1.5mm;
+            gap: 1.2mm;
+            overflow: hidden;
         }
 
         .bar-row {
             display: flex;
             align-items: center;
-            gap: 2mm;
+            gap: 1.5mm;
         }
 
         .bar-label {
-            width: 22mm;
-            font-size: 2.2mm;
+            width: 20mm;
+            font-size: 2mm;
             color: #475569;
             text-align: right;
         }
 
         .bar-track {
             flex: 1;
-            height: 4mm;
+            height: 3.5mm;
             background: #f1f5f9;
-            border-radius: 1mm;
+            border-radius: 0.8mm;
             overflow: hidden;
         }
 
         .bar-fill {
             height: 100%;
-            border-radius: 1mm;
+            border-radius: 0.8mm;
             display: flex;
             align-items: center;
             justify-content: flex-end;
-            padding-right: 1.5mm;
+            padding-right: 1.2mm;
         }
 
         .bar-value {
-            font-size: 1.8mm;
+            font-size: 1.6mm;
             font-weight: 600;
             color: white;
         }
 
         .chart-legend {
-            width: 35mm;
-            padding: 3mm;
+            width: 30mm;
+            padding: 2.5mm;
             background: #f8fafc;
             border-radius: 2mm;
         }
 
         .legend-title {
-            font-size: 2.2mm;
+            font-size: 2mm;
             font-weight: 600;
             color: #64748b;
-            margin-bottom: 2mm;
+            margin-bottom: 1.5mm;
         }
 
         .legend-item {
             display: flex;
             align-items: center;
-            gap: 1.5mm;
-            font-size: 2mm;
-            margin-bottom: 1.5mm;
+            gap: 1.2mm;
+            font-size: 1.8mm;
+            margin-bottom: 1.2mm;
             color: #475569;
         }
 
         .legend-color {
-            width: 2.5mm;
-            height: 2.5mm;
-            border-radius: 0.5mm;
+            width: 2.2mm;
+            height: 2.2mm;
+            border-radius: 0.4mm;
         }
 
         .legend-divider {
-            margin-top: 3mm;
-            padding-top: 2mm;
-            border-top: 0.15mm solid #e2e8f0;
+            margin-top: 2mm;
+            padding-top: 1.5mm;
+            border-top: 0.1mm solid #e2e8f0;
         }
 
         /* Footer */
         .footer {
             background: #f8fafc;
-            padding: 4mm 12mm;
+            padding: 3mm 12mm;
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -389,7 +449,7 @@
         }
 
         .footer-left {
-            font-size: 2.2mm;
+            font-size: 2mm;
             color: #64748b;
         }
 
@@ -398,7 +458,7 @@
         }
 
         .footer-right {
-            font-size: 1.8mm;
+            font-size: 1.6mm;
             color: #94a3b8;
         }
 
@@ -490,6 +550,31 @@
             </div>
         </div>
 
+        <div class="map-section">
+            <div class="section-title">Peta Sebaran Alokasi BSPS</div>
+            <div class="map-container">
+                <svg class="map-svg" viewBox="0 0 400 160" preserveAspectRatio="xMidYMid meet">
+                    <!-- Simplified East Java Map Shape -->
+                    <defs>
+                        <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:#e2e8f0" />
+                            <stop offset="100%" style="stop-color:#cbd5e1" />
+                        </linearGradient>
+                    </defs>
+                    <!-- Main Java Island Shape (simplified) -->
+                    <path
+                        d="M10,80 Q30,40 80,35 L120,30 Q150,25 180,30 L220,35 Q260,30 300,35 L340,45 Q370,55 390,70 L395,85 Q390,100 370,110 L340,120 Q300,130 260,125 L220,118 Q180,115 140,118 L100,125 Q60,130 30,115 L15,100 Q5,90 10,80 Z"
+                        fill="url(#mapGrad)" stroke="#94a3b8" stroke-width="0.5" />
+                    <!-- Madura Island -->
+                    <path
+                        d="M280,45 Q290,38 320,35 L350,38 Q365,42 370,50 L368,58 Q360,65 340,68 L310,65 Q290,60 280,52 Z"
+                        fill="url(#mapGrad)" stroke="#94a3b8" stroke-width="0.5" />
+                </svg>
+                <!-- Map Labels - dynamically positioned -->
+                <div id="mapLabels"></div>
+            </div>
+        </div>
+
         <div class="categories">
             <div class="category cat-perdesaan">
                 <div class="cat-header">
@@ -545,7 +630,7 @@
         </div>
 
         <div class="chart-section">
-            <div class="chart-title">Distribusi Alokasi Per Kabupaten/Kota</div>
+            <div class="section-title">Distribusi Alokasi Per Kabupaten/Kota</div>
             <div class="chart-container">
                 <div class="chart-bars" id="chartBars"></div>
                 <div class="chart-legend">
@@ -561,7 +646,7 @@
                     </div>
                     <div class="legend-divider">
                         <div class="legend-title">Dicetak</div>
-                        <div style="font-size:2mm; color:#475569;" id="printDate"></div>
+                        <div style="font-size:1.8mm; color:#475569;" id="printDate"></div>
                     </div>
                 </div>
             </div>
@@ -575,6 +660,23 @@
 
     <script>
         let allData = { desa: [], kota: [], pesisir: [] };
+
+        // Approximate positions for kabupaten/kota on the map (as percentage)
+        const kabPositions = {
+            'KAB. PACITAN': { x: 8, y: 65, type: 'green' },
+            'KAB. MADIUN': { x: 18, y: 45, type: 'green' },
+            'KAB. NGANJUK': { x: 28, y: 50, type: 'green' },
+            'KAB. BOJONEGORO': { x: 35, y: 30, type: 'green' },
+            'KAB. JOMBANG': { x: 42, y: 55, type: 'green' },
+            'KAB. GRESIK': { x: 52, y: 40, type: 'green' },
+            'KAB. PASURUAN': { x: 62, y: 65, type: 'green' },
+            'KAB. MALANG': { x: 70, y: 75, type: 'green' },
+            'KOTA MALANG': { x: 72, y: 60, type: 'purple' },
+            'KOTA PASURUAN': { x: 60, y: 50, type: 'purple' },
+            'KAB. JEMBER': { x: 82, y: 70, type: 'green' },
+            'KAB. SITUBONDO': { x: 88, y: 45, type: 'blue' },
+            'KAB. BANYUWANGI': { x: 95, y: 60, type: 'blue' }
+        };
 
         async function loadAllData() {
             try {
@@ -602,7 +704,27 @@
             renderCategory(kota, 'kota');
             renderCategory(pesisir, 'pesisir');
             renderChart();
+            renderMapLabels();
             document.getElementById('printDate').textContent = new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
+        }
+
+        function renderMapLabels() {
+            const { desa, kota, pesisir } = allData;
+            const all = [...desa, ...kota, ...pesisir];
+            const grouped = {};
+            all.forEach(i => { grouped[i.kb] = (grouped[i.kb] || 0) + i.j; });
+
+            const labelsHtml = Object.entries(grouped).map(([kab, unit]) => {
+                const pos = kabPositions[kab];
+                if (!pos) return '';
+                const shortName = kab.replace('KAB. ', '').replace('KOTA ', '');
+                return `<div class="map-label ${pos.type}" style="left:${pos.x}%;top:${pos.y}%;">
+                    <span class="map-label-value">${unit}</span>
+                    <span class="map-label-name">${shortName}</span>
+                </div>`;
+            }).join('');
+
+            document.getElementById('mapLabels').innerHTML = labelsHtml;
         }
 
         function renderCategory(data, prefix) {

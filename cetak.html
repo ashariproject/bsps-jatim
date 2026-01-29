@@ -173,10 +173,80 @@
         .map-container {
             position: relative;
             width: 100%;
-            height: 70mm;
+            height: 75mm;
             border-radius: 3mm;
             border: 0.2mm solid #e2e8f0;
+            overflow: visible;
+        }
+
+        .map-wrapper {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .map-labels-left,
+        .map-labels-right {
+            width: 22mm;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            padding: 2mm 0;
+            font-size: 5px;
+        }
+
+        .map-labels-left {
+            align-items: flex-end;
+            padding-right: 1mm;
+        }
+
+        .map-labels-right {
+            align-items: flex-start;
+            padding-left: 1mm;
+        }
+
+        .map-center {
+            flex: 1;
+            position: relative;
+            border-radius: 2mm;
             overflow: hidden;
+        }
+
+        .ext-label {
+            background: white;
+            border: 0.5px solid #cbd5e1;
+            padding: 1px 3px;
+            border-radius: 2px;
+            text-align: center;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            white-space: nowrap;
+            margin: 1mm 0;
+        }
+
+        .ext-label .ext-name {
+            font-weight: 600;
+            color: #475569;
+            font-size: 5px;
+            display: block;
+        }
+
+        .ext-label .ext-value {
+            font-weight: 800;
+            font-size: 7px;
+            display: block;
+        }
+
+        .ext-label.green .ext-value {
+            color: #16a34a;
+        }
+
+        .ext-label.purple .ext-value {
+            color: #9333ea;
+        }
+
+        .ext-label.blue .ext-value {
+            color: #0284c7;
         }
 
         #printMap {
@@ -460,73 +530,24 @@
             transform: translateY(-2px);
         }
 
-        /* Custom marker callout labels */
-        .marker-callout {
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .marker-callout .callout-box {
-            background: white;
-            border: 1px solid #cbd5e1;
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-size: 6px;
-            text-align: center;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
-            white-space: nowrap;
-        }
-
-        .marker-callout .callout-name {
-            font-weight: 700;
-            color: #1e293b;
-            font-size: 5.5px;
-            display: block;
-        }
-
-        .marker-callout .callout-value {
-            font-weight: 800;
-            font-size: 7px;
-            display: block;
-        }
-
-        .marker-callout.green .callout-value {
-            color: #16a34a;
-        }
-
-        .marker-callout.purple .callout-value {
-            color: #9333ea;
-        }
-
-        .marker-callout.blue .callout-value {
-            color: #0284c7;
-        }
-
-        .marker-callout .callout-line {
-            width: 1px;
-            height: 12px;
-            background: #94a3b8;
-        }
-
-        .marker-callout .callout-dot {
-            width: 6px;
-            height: 6px;
+        /* Map dot markers */
+        .map-dot {
+            width: 5px;
+            height: 5px;
             border-radius: 50%;
             border: 1px solid white;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.4);
         }
 
-        .marker-callout.green .callout-dot {
+        .map-dot.green {
             background: #16a34a;
         }
 
-        .marker-callout.purple .callout-dot {
+        .map-dot.purple {
             background: #9333ea;
         }
 
-        .marker-callout.blue .callout-dot {
+        .map-dot.blue {
             background: #0284c7;
         }
 
@@ -604,7 +625,13 @@
         <div class="map-section">
             <div class="section-title">Peta Sebaran Alokasi BSPS Jawa Timur</div>
             <div class="map-container">
-                <div id="printMap"></div>
+                <div class="map-wrapper">
+                    <div class="map-labels-left" id="labelsLeft"></div>
+                    <div class="map-center">
+                        <div id="printMap" style="width:100%;height:100%;"></div>
+                    </div>
+                    <div class="map-labels-right" id="labelsRight"></div>
+                </div>
             </div>
         </div>
 
@@ -782,22 +809,39 @@
             const grouped = {};
             all.forEach(i => { grouped[i.kb] = (grouped[i.kb] || 0) + i.j; });
 
-            Object.entries(grouped).forEach(([kab, unit]) => {
-                const center = kabCenters[kab];
-                if (!center) return;
+            // Sort by longitude to split left/right
+            const sorted = Object.entries(grouped).map(([kab, unit]) => ({
+                kab, unit,
+                center: kabCenters[kab],
+                type: kabTypes[kab] || 'green'
+            })).filter(d => d.center).sort((a, b) => a.center.lng - b.center.lng);
 
-                const type = kabTypes[kab] || 'green';
-                const shortName = kab.replace('KAB. ', '').replace('KOTA ', '');
+            const midIndex = Math.ceil(sorted.length / 2);
+            const leftItems = sorted.slice(0, midIndex);
+            const rightItems = sorted.slice(midIndex);
 
-                // Create custom callout icon with leader line and dot
+            // Render labels on left side
+            const labelsLeftHtml = leftItems.map(d => {
+                const shortName = d.kab.replace('KAB. ', '').replace('KOTA ', '');
+                return `<div class="ext-label ${d.type}"><span class="ext-name">${shortName}</span><span class="ext-value">${d.unit}</span></div>`;
+            }).join('');
+            document.getElementById('labelsLeft').innerHTML = labelsLeftHtml;
+
+            // Render labels on right side
+            const labelsRightHtml = rightItems.map(d => {
+                const shortName = d.kab.replace('KAB. ', '').replace('KOTA ', '');
+                return `<div class="ext-label ${d.type}"><span class="ext-name">${shortName}</span><span class="ext-value">${d.unit}</span></div>`;
+            }).join('');
+            document.getElementById('labelsRight').innerHTML = labelsRightHtml;
+
+            // Render dots on map
+            sorted.forEach(d => {
                 const icon = L.divIcon({
-                    className: 'marker-callout ' + type,
-                    html: `<div class="callout-box"><span class="callout-name">${shortName}</span><span class="callout-value">${unit}</span></div><div class="callout-line"></div><div class="callout-dot"></div>`,
-                    iconSize: [60, 40],
-                    iconAnchor: [30, 40]
+                    className: 'map-dot ' + d.type,
+                    iconSize: [5, 5],
+                    iconAnchor: [2.5, 2.5]
                 });
-
-                L.marker([center.lat, center.lng], { icon }).addTo(printMap);
+                L.marker([d.center.lat, d.center.lng], { icon }).addTo(printMap);
             });
 
             // Force map to redraw

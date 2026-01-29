@@ -1,0 +1,1046 @@
+[
+  {
+    "k": "3501072002",
+    "d": "MUJING",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 241,
+    "lat": -8.14185,
+    "lng": 111.02419
+  },
+  {
+    "k": "3501082002",
+    "d": "NGUNUT",
+    "kc": "BANDAR",
+    "kb": "KAB. PACITAN",
+    "j": 161,
+    "lat": -8.0226,
+    "lng": 111.2379
+  },
+  {
+    "k": "3514052007",
+    "d": "AMPELSARI",
+    "kc": "PASREPAN",
+    "kb": "KAB. PASURUAN",
+    "j": 156,
+    "lat": -7.65693,
+    "lng": 112.78103
+  },
+  {
+    "k": "3501082005",
+    "d": "TUMPUK",
+    "kc": "BANDAR",
+    "kb": "KAB. PACITAN",
+    "j": 140,
+    "lat": -7.9698,
+    "lng": 111.2895
+  },
+  {
+    "k": "3522222005",
+    "d": "MEDURI",
+    "kc": "MARGOMULYO",
+    "kb": "KAB. BOJONEGORO",
+    "j": 121,
+    "lat": -7.3236,
+    "lng": 111.5333
+  },
+  {
+    "k": "3501082008",
+    "d": "JERUK",
+    "kc": "BANDAR",
+    "kb": "KAB. PACITAN",
+    "j": 98,
+    "lat": -7.953,
+    "lng": 111.228
+  },
+  {
+    "k": "3517042004",
+    "d": "KARANGAN",
+    "kc": "BARENG",
+    "kb": "KAB. JOMBANG",
+    "j": 90,
+    "lat": -7.52368,
+    "lng": 112.32463
+  },
+  {
+    "k": "3507072015",
+    "d": "PONCOKUSUMO",
+    "kc": "PONCOKUSUMO",
+    "kb": "KAB. MALANG",
+    "j": 88,
+    "lat": -8.0551,
+    "lng": 112.8133
+  },
+  {
+    "k": "3501062001",
+    "d": "MLATI",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 87,
+    "lat": -8.1128,
+    "lng": 111.1136
+  },
+  {
+    "k": "3501072003",
+    "d": "SEMPU",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 84,
+    "lat": -7.9948,
+    "lng": 111.2204
+  },
+  {
+    "k": "3517182010",
+    "d": "KARANGDAGANGAN",
+    "kc": "BANDARKEDUNGMULYO",
+    "kb": "KAB. JOMBANG",
+    "j": 84,
+    "lat": -7.68726,
+    "lng": 112.20481
+  },
+  {
+    "k": "3518012008",
+    "d": "MARGOPATUT",
+    "kc": "SAWAHAN",
+    "kb": "KAB. NGANJUK",
+    "j": 84,
+    "lat": -7.66954,
+    "lng": 111.77175
+  },
+  {
+    "k": "3501082004",
+    "d": "KLEDUNG",
+    "kc": "BANDAR",
+    "kb": "KAB. PACITAN",
+    "j": 83,
+    "lat": -8.0067,
+    "lng": 111.2863
+  },
+  {
+    "k": "3519052007",
+    "d": "CERMO",
+    "kc": "KARE",
+    "kb": "KAB. MADIUN",
+    "j": 78,
+    "lat": -7.57363,
+    "lng": 111.58103
+  },
+  {
+    "k": "3501072001",
+    "d": "GONDANG",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 75,
+    "lat": -8.042,
+    "lng": 111.1876
+  },
+  {
+    "k": "3501032003",
+    "d": "PUNUNG",
+    "kc": "PUNUNG",
+    "kb": "KAB. PACITAN",
+    "j": 54,
+    "lat": -8.1328,
+    "lng": 111.0136
+  },
+  {
+    "k": "3501022006",
+    "d": "POKO",
+    "kc": "PRINGKUKU",
+    "kb": "KAB. PACITAN",
+    "j": 53,
+    "lat": -8.2349,
+    "lng": 111.0421
+  },
+  {
+    "k": "3519052004",
+    "d": "BOLO",
+    "kc": "KARE",
+    "kb": "KAB. MADIUN",
+    "j": 53,
+    "lat": -7.59038,
+    "lng": 111.74133
+  },
+  {
+    "k": "3501042010",
+    "d": "SEDENG",
+    "kc": "PACITAN",
+    "kb": "KAB. PACITAN",
+    "j": 49,
+    "lat": -8.1802,
+    "lng": 111.0701
+  },
+  {
+    "k": "3501092007",
+    "d": "PLOSO",
+    "kc": "TEGALOMBO",
+    "kb": "KAB. PACITAN",
+    "j": 49,
+    "lat": -8.0189,
+    "lng": 111.3183
+  },
+  {
+    "k": "3501062007",
+    "d": "GEMBONG",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 46,
+    "lat": -8.1347,
+    "lng": 111.1642
+  },
+  {
+    "k": "3517182006",
+    "d": "BRODOT",
+    "kc": "BANDARKEDUNGMULYO",
+    "kb": "KAB. JOMBANG",
+    "j": 44,
+    "lat": -7.62753,
+    "lng": 112.37483
+  },
+  {
+    "k": "3522222006",
+    "d": "GENENG",
+    "kc": "MARGOMULYO",
+    "kb": "KAB. BOJONEGORO",
+    "j": 44,
+    "lat": -7.22753,
+    "lng": 112.02483
+  },
+  {
+    "k": "3501022005",
+    "d": "CANDI",
+    "kc": "PRINGKUKU",
+    "kb": "KAB. PACITAN",
+    "j": 42,
+    "lat": -8.2388,
+    "lng": 111.0107
+  },
+  {
+    "k": "3501062016",
+    "d": "KARANGREJO",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 42,
+    "lat": -8.06919,
+    "lng": 111.15407
+  },
+  {
+    "k": "3501052019",
+    "d": "KETRO",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 41,
+    "lat": -8.1676,
+    "lng": 111.1984
+  },
+  {
+    "k": "3517042003",
+    "d": "PAKEL",
+    "kc": "BARENG",
+    "kb": "KAB. JOMBANG",
+    "j": 41,
+    "lat": -7.55231,
+    "lng": 112.21698
+  },
+  {
+    "k": "3509172001",
+    "d": "SUKAMAKMUR",
+    "kc": "AJUNG",
+    "kb": "KAB. JEMBER",
+    "j": 40,
+    "lat": -8.27226,
+    "lng": 113.5743
+  },
+  {
+    "k": "3501072004",
+    "d": "NAWANGAN",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 39,
+    "lat": -7.9736,
+    "lng": 111.1767
+  },
+  {
+    "k": "3501072008",
+    "d": "PAKIS BARU",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 37,
+    "lat": -7.9345,
+    "lng": 111.1792
+  },
+  {
+    "k": "3501012003",
+    "d": "KALAK",
+    "kc": "DONOROJO",
+    "kb": "KAB. PACITAN",
+    "j": 36,
+    "lat": -8.1944,
+    "lng": 110.9326
+  },
+  {
+    "k": "3501012009",
+    "d": "SUKODONO",
+    "kc": "DONOROJO",
+    "kb": "KAB. PACITAN",
+    "j": 36,
+    "lat": -8.1167,
+    "lng": 110.9635
+  },
+  {
+    "k": "3517042007",
+    "d": "BARENG",
+    "kc": "BARENG",
+    "kb": "KAB. JOMBANG",
+    "j": 35,
+    "lat": -7.50693,
+    "lng": 112.16433
+  },
+  {
+    "k": "3517182007",
+    "d": "PUCANGSIMO",
+    "kc": "BANDARKEDUNGMULYO",
+    "kb": "KAB. JOMBANG",
+    "j": 35,
+    "lat": -7.50693,
+    "lng": 112.16433
+  },
+  {
+    "k": "3522222003",
+    "d": "MARGOMULYO",
+    "kc": "MARGOMULYO",
+    "kb": "KAB. BOJONEGORO",
+    "j": 35,
+    "lat": -7.15231,
+    "lng": 111.86698
+  },
+  {
+    "k": "3501072006",
+    "d": "JETIS LOR",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 34,
+    "lat": -7.9808,
+    "lng": 111.1803
+  },
+  {
+    "k": "3507042006",
+    "d": "KEDUNGBANTENG",
+    "kc": "SUMBERMANJING WETAN",
+    "kb": "KAB. MALANG",
+    "j": 34,
+    "lat": -8.22753,
+    "lng": 112.79153
+  },
+  {
+    "k": "3501062017",
+    "d": "JATIMALANG",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 33,
+    "lat": -8.1078,
+    "lng": 111.1517
+  },
+  {
+    "k": "3519052001",
+    "d": "KARE",
+    "kc": "KARE",
+    "kb": "KAB. MADIUN",
+    "j": 33,
+    "lat": -7.71656,
+    "lng": 111.5243
+  },
+  {
+    "k": "3501022008",
+    "d": "PRINGKUKU",
+    "kc": "PRINGKUKU",
+    "kb": "KAB. PACITAN",
+    "j": 32,
+    "lat": -8.1892,
+    "lng": 111.0383
+  },
+  {
+    "k": "3501072007",
+    "d": "PENGGUNG",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 32,
+    "lat": -7.9497,
+    "lng": 111.1628
+  },
+  {
+    "k": "3501062003",
+    "d": "TREMAS",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 30,
+    "lat": -8.1225,
+    "lng": 111.1394
+  },
+  {
+    "k": "3501082003",
+    "d": "BANDAR",
+    "kc": "BANDAR",
+    "kb": "KAB. PACITAN",
+    "j": 30,
+    "lat": -7.9911,
+    "lng": 111.2611
+  },
+  {
+    "k": "3507072013",
+    "d": "BELUNG",
+    "kc": "PONCOKUSUMO",
+    "kb": "KAB. MALANG",
+    "j": 30,
+    "lat": -8.09737,
+    "lng": 112.7869
+  },
+  {
+    "k": "3517042001",
+    "d": "KEBONDALEM",
+    "kc": "BARENG",
+    "kb": "KAB. JOMBANG",
+    "j": 29,
+    "lat": -7.64986,
+    "lng": 112.1076
+  },
+  {
+    "k": "3517042009",
+    "d": "MOJOTENGAH",
+    "kc": "BARENG",
+    "kb": "KAB. JOMBANG",
+    "j": 29,
+    "lat": -7.68193,
+    "lng": 112.3444
+  },
+  {
+    "k": "3518012007",
+    "d": "SIWALAN",
+    "kc": "SAWAHAN",
+    "kb": "KAB. NGANJUK",
+    "j": 29,
+    "lat": -7.55693,
+    "lng": 111.83103
+  },
+  {
+    "k": "3501032010",
+    "d": "PLOSO",
+    "kc": "PUNUNG",
+    "kb": "KAB. PACITAN",
+    "j": 28,
+    "lat": -8.0838,
+    "lng": 111.049
+  },
+  {
+    "k": "3501072005",
+    "d": "TOKAWI",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 28,
+    "lat": -7.9967,
+    "lng": 111.145
+  },
+  {
+    "k": "3501092009",
+    "d": "KEMUNING",
+    "kc": "TEGALOMBO",
+    "kb": "KAB. PACITAN",
+    "j": 28,
+    "lat": -8.05,
+    "lng": 111.27
+  },
+  {
+    "k": "3501022013",
+    "d": "TAMANASRI",
+    "kc": "PRINGKUKU",
+    "kb": "KAB. PACITAN",
+    "j": 26,
+    "lat": -8.1261,
+    "lng": 111.0862
+  },
+  {
+    "k": "3501052010",
+    "d": "GAWANG",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 26,
+    "lat": -8.2264,
+    "lng": 111.1739
+  },
+  {
+    "k": "3501052018",
+    "d": "KETEPUNG",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 26,
+    "lat": -8.0735,
+    "lng": 110.9663
+  },
+  {
+    "k": "3518012002",
+    "d": "SAWAHAN",
+    "kc": "SAWAHAN",
+    "kb": "KAB. NGANJUK",
+    "j": 26,
+    "lat": -7.55365,
+    "lng": 111.83919
+  },
+  {
+    "k": "3501052007",
+    "d": "SIDOMULYO",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 25,
+    "lat": -8.2397,
+    "lng": 111.2773
+  },
+  {
+    "k": "3518012001",
+    "d": "BENDOLO",
+    "kc": "SAWAHAN",
+    "kb": "KAB. NGANJUK",
+    "j": 25,
+    "lat": -7.69986,
+    "lng": 111.7743
+  },
+  {
+    "k": "3518012006",
+    "d": "DUREN",
+    "kc": "SAWAHAN",
+    "kb": "KAB. NGANJUK",
+    "j": 25,
+    "lat": -7.67753,
+    "lng": 112.04153
+  },
+  {
+    "k": "3501012011",
+    "d": "DONOROJO",
+    "kc": "DONOROJO",
+    "kb": "KAB. PACITAN",
+    "j": 24,
+    "lat": -8.0947,
+    "lng": 111.0
+  },
+  {
+    "k": "3501052011",
+    "d": "KEBONAGUNG",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 24,
+    "lat": -8.2223,
+    "lng": 111.1759
+  },
+  {
+    "k": "3501062009",
+    "d": "GEGERAN",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 24,
+    "lat": -8.116,
+    "lng": 111.1823
+  },
+  {
+    "k": "3517182009",
+    "d": "BRANGKAL",
+    "kc": "BANDARKEDUNGMULYO",
+    "kb": "KAB. JOMBANG",
+    "j": 24,
+    "lat": -7.68193,
+    "lng": 112.3444
+  },
+  {
+    "k": "3501042020",
+    "d": "SEMANTEN",
+    "kc": "PACITAN",
+    "kb": "KAB. PACITAN",
+    "j": 23,
+    "lat": -8.04232,
+    "lng": 111.19702
+  },
+  {
+    "k": "3501062013",
+    "d": "TEMON",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 23,
+    "lat": -8.0775,
+    "lng": 111.1706
+  },
+  {
+    "k": "3501062014",
+    "d": "KARANGGEDE",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 22,
+    "lat": -8.0445,
+    "lng": 111.1525
+  },
+  {
+    "k": "3507072004",
+    "d": "NGADIRESO",
+    "kc": "PONCOKUSUMO",
+    "kb": "KAB. MALANG",
+    "j": 22,
+    "lat": -8.12368,
+    "lng": 112.74133
+  },
+  {
+    "k": "3501022007",
+    "d": "DADAPAN",
+    "kc": "PRINGKUKU",
+    "kb": "KAB. PACITAN",
+    "j": 21,
+    "lat": -8.2168,
+    "lng": 111.058
+  },
+  {
+    "k": "3501042022",
+    "d": "BANJARSARI",
+    "kc": "PACITAN",
+    "kb": "KAB. PACITAN",
+    "j": 21,
+    "lat": -8.1677,
+    "lng": 111.0944
+  },
+  {
+    "k": "3501052003",
+    "d": "KALIPELUS",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 21,
+    "lat": -8.26,
+    "lng": 111.1492
+  },
+  {
+    "k": "3525042018",
+    "d": "KEDUNGSEKAR",
+    "kc": "BENJENG",
+    "kb": "KAB. GRESIK",
+    "j": 21,
+    "lat": -7.0353,
+    "lng": 112.5313
+  },
+  {
+    "k": "3501062010",
+    "d": "KEDUNGBENDO",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 20,
+    "lat": -8.0972,
+    "lng": 111.1992
+  },
+  {
+    "k": "3501062015",
+    "d": "GAYUHAN",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 20,
+    "lat": -8.11692,
+    "lng": 111.09027
+  },
+  {
+    "k": "3517042002",
+    "d": "MUNDUSEWU",
+    "kc": "BARENG",
+    "kb": "KAB. JOMBANG",
+    "j": 20,
+    "lat": -7.50365,
+    "lng": 112.17249
+  },
+  {
+    "k": "3517182001",
+    "d": "BANDARKEDUNGMULYO",
+    "kc": "BANDARKEDUNGMULYO",
+    "kb": "KAB. JOMBANG",
+    "j": 20,
+    "lat": -7.64986,
+    "lng": 112.1076
+  },
+  {
+    "k": "3501062002",
+    "d": "SEDAYU",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 19,
+    "lat": -8.1323,
+    "lng": 111.1205
+  },
+  {
+    "k": "3501062008",
+    "d": "BORANG",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 19,
+    "lat": -8.133,
+    "lng": 111.1853
+  },
+  {
+    "k": "3519052005",
+    "d": "KUWIRAN",
+    "kc": "KARE",
+    "kb": "KAB. MADIUN",
+    "j": 19,
+    "lat": -7.6825,
+    "lng": 111.6553
+  },
+  {
+    "k": "3501022012",
+    "d": "PELEM",
+    "kc": "PRINGKUKU",
+    "kb": "KAB. PACITAN",
+    "j": 17,
+    "lat": -8.1296,
+    "lng": 111.0577
+  },
+  {
+    "k": "3501032006",
+    "d": "KENDAL",
+    "kc": "PUNUNG",
+    "kb": "KAB. PACITAN",
+    "j": 17,
+    "lat": -8.1417,
+    "lng": 111.0019
+  },
+  {
+    "k": "3501082006",
+    "d": "WATUPATOK",
+    "kc": "BANDAR",
+    "kb": "KAB. PACITAN",
+    "j": 17,
+    "lat": -7.9575,
+    "lng": 111.3096
+  },
+  {
+    "k": "3519052003",
+    "d": "BODAG",
+    "kc": "KARE",
+    "kb": "KAB. MADIUN",
+    "j": 17,
+    "lat": -7.61901,
+    "lng": 111.63368
+  },
+  {
+    "k": "3501012001",
+    "d": "WIDORO",
+    "kc": "DONOROJO",
+    "kb": "KAB. PACITAN",
+    "j": 16,
+    "lat": -8.1971,
+    "lng": 110.91
+  },
+  {
+    "k": "3501022010",
+    "d": "NGADIREJAN",
+    "kc": "PRINGKUKU",
+    "kb": "KAB. PACITAN",
+    "j": 15,
+    "lat": -8.1639,
+    "lng": 111.0471
+  },
+  {
+    "k": "3501032002",
+    "d": "SOOKA",
+    "kc": "PUNUNG",
+    "kb": "KAB. PACITAN",
+    "j": 15,
+    "lat": -8.1585,
+    "lng": 111.014
+  },
+  {
+    "k": "3501042021",
+    "d": "SAMBONG",
+    "kc": "PACITAN",
+    "kb": "KAB. PACITAN",
+    "j": 15,
+    "lat": -8.15641,
+    "lng": 111.15501
+  },
+  {
+    "k": "3501052013",
+    "d": "BANJARJO",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 14,
+    "lat": -8.2089,
+    "lng": 111.1636
+  },
+  {
+    "k": "3501062006",
+    "d": "PAGUTAN",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 14,
+    "lat": -8.1425,
+    "lng": 111.1622
+  },
+  {
+    "k": "3501062012",
+    "d": "JETISKIDUL",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 14,
+    "lat": -8.0847,
+    "lng": 111.1903
+  },
+  {
+    "k": "3517182011",
+    "d": "TINGGAR",
+    "kc": "BANDARKEDUNGMULYO",
+    "kb": "KAB. JOMBANG",
+    "j": 14,
+    "lat": -7.42181,
+    "lng": 112.24502
+  },
+  {
+    "k": "3501052005",
+    "d": "KATIPUGAL",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 13,
+    "lat": -8.2561,
+    "lng": 111.1639
+  },
+  {
+    "k": "3501082001",
+    "d": "PETUNGSINARANG",
+    "kc": "BANDAR",
+    "kb": "KAB. PACITAN",
+    "j": 13,
+    "lat": -8.063,
+    "lng": 111.233
+  },
+  {
+    "k": "3507042015",
+    "d": "SIDOASRI",
+    "kc": "SUMBERMANJING WETAN",
+    "kb": "KAB. MALANG",
+    "j": 13,
+    "lat": -8.3674,
+    "lng": 112.7804
+  },
+  {
+    "k": "3507082012",
+    "d": "WAJAK",
+    "kc": "WAJAK",
+    "kb": "KAB. MALANG",
+    "j": 13,
+    "lat": -8.27861,
+    "lng": 112.61337
+  },
+  {
+    "k": "3501012002",
+    "d": "SAWAHAN",
+    "kc": "DONOROJO",
+    "kb": "KAB. PACITAN",
+    "j": 12,
+    "lat": -8.1772,
+    "lng": 110.9192
+  },
+  {
+    "k": "3501022004",
+    "d": "JLUBANG",
+    "kc": "PRINGKUKU",
+    "kb": "KAB. PACITAN",
+    "j": 12,
+    "lat": -8.2133,
+    "lng": 111.0019
+  },
+  {
+    "k": "3501032013",
+    "d": "TINATAR",
+    "kc": "PUNUNG",
+    "kb": "KAB. PACITAN",
+    "j": 12,
+    "lat": -8.083,
+    "lng": 111.0979
+  },
+  {
+    "k": "3501042004",
+    "d": "SUKOHARJO",
+    "kc": "PACITAN",
+    "kb": "KAB. PACITAN",
+    "j": 12,
+    "lat": -8.1956,
+    "lng": 111.0997
+  },
+  {
+    "k": "3501042025",
+    "d": "TAMBAKREJO",
+    "kc": "PACITAN",
+    "kb": "KAB. PACITAN",
+    "j": 12,
+    "lat": -8.1472,
+    "lng": 111.1334
+  },
+  {
+    "k": "3501052009",
+    "d": "MANTREN",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 12,
+    "lat": -8.225,
+    "lng": 111.1981
+  },
+  {
+    "k": "3501062005",
+    "d": "GUNUNGSARI",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 12,
+    "lat": -8.1404,
+    "lng": 111.145
+  },
+  {
+    "k": "3514132008",
+    "d": "GUNUNGSARI",
+    "kc": "BEJI",
+    "kb": "KAB. PASURUAN",
+    "j": 12,
+    "lat": -7.76954,
+    "lng": 112.72175
+  },
+  {
+    "k": "3514141012",
+    "d": "KALIANYAR",
+    "kc": "BANGIL",
+    "kb": "KAB. PASURUAN",
+    "j": 12,
+    "lat": -7.84198,
+    "lng": 112.93784
+  },
+  {
+    "k": "3517042005",
+    "d": "NGAMPUNGAN",
+    "kc": "BARENG",
+    "kb": "KAB. JOMBANG",
+    "j": 12,
+    "lat": -7.64583,
+    "lng": 112.36279
+  },
+  {
+    "k": "3517182002",
+    "d": "MOJOKAMBANG",
+    "kc": "BANDARKEDUNGMULYO",
+    "kb": "KAB. JOMBANG",
+    "j": 12,
+    "lat": -7.50365,
+    "lng": 112.17249
+  },
+  {
+    "k": "3501012008",
+    "d": "GENDARAN",
+    "kc": "DONOROJO",
+    "kb": "KAB. PACITAN",
+    "j": 11,
+    "lat": -8.0996,
+    "lng": 110.9613
+  },
+  {
+    "k": "3501032008",
+    "d": "MANTREN",
+    "kc": "PUNUNG",
+    "kb": "KAB. PACITAN",
+    "j": 11,
+    "lat": -8.1077,
+    "lng": 111.0114
+  },
+  {
+    "k": "3501042023",
+    "d": "BOLOSINGO",
+    "kc": "PACITAN",
+    "kb": "KAB. PACITAN",
+    "j": 11,
+    "lat": -8.2416,
+    "lng": 111.20213
+  },
+  {
+    "k": "3501052017",
+    "d": "WONOGONDO",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 11,
+    "lat": -8.1883,
+    "lng": 111.1567
+  },
+  {
+    "k": "3517182005",
+    "d": "GONDANGMANIS",
+    "kc": "BANDARKEDUNGMULYO",
+    "kb": "KAB. JOMBANG",
+    "j": 11,
+    "lat": -7.64583,
+    "lng": 112.36279
+  },
+  {
+    "k": "3518012005",
+    "d": "SIDOREJO",
+    "kc": "SAWAHAN",
+    "kb": "KAB. NGANJUK",
+    "j": 11,
+    "lat": -7.69583,
+    "lng": 112.02949
+  },
+  {
+    "k": "3525042017",
+    "d": "GURANGPLOSO",
+    "kc": "BENJENG",
+    "kb": "KAB. GRESIK",
+    "j": 11,
+    "lat": -7.2797,
+    "lng": 112.5019
+  },
+  {
+    "k": "3501022003",
+    "d": "WATUKARUNG",
+    "kc": "PRINGKUKU",
+    "kb": "KAB. PACITAN",
+    "j": 10,
+    "lat": -8.2259,
+    "lng": 110.9773
+  },
+  {
+    "k": "3501032012",
+    "d": "KEBONSARI",
+    "kc": "PUNUNG",
+    "kb": "KAB. PACITAN",
+    "j": 10,
+    "lat": -8.0518,
+    "lng": 111.0806
+  },
+  {
+    "k": "3501042019",
+    "d": "WIDORO",
+    "kc": "PACITAN",
+    "kb": "KAB. PACITAN",
+    "j": 10,
+    "lat": -8.179,
+    "lng": 111.1188
+  },
+  {
+    "k": "3501052014",
+    "d": "GEMBUK",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 10,
+    "lat": -8.2099,
+    "lng": 111.198
+  },
+  {
+    "k": "3514122001",
+    "d": "WONOSUNYO",
+    "kc": "GEMPOL",
+    "kb": "KAB. PASURUAN",
+    "j": 10,
+    "lat": -7.79986,
+    "lng": 112.7243
+  },
+  {
+    "k": "3514122008",
+    "d": "BULUSARI",
+    "kc": "GEMPOL",
+    "kb": "KAB. PASURUAN",
+    "j": 10,
+    "lat": -7.76954,
+    "lng": 112.72175
+  }
+]

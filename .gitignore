@@ -1,0 +1,18 @@
+# Temporary files
+~$*
+*.tmp
+
+# Python files (development only)
+*.py
+
+# Excel source files (not needed for web)
+*.xlsx
+
+# Old/backup files
+*.txt
+BSPS Desa.html
+jatim2026.html
+reesajatim.html
+
+# Data folder (if contains development files)
+data/

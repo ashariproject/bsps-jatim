@@ -1,0 +1,227 @@
+[
+  {
+    "k": "3510022007",
+    "d": "RINGINTELU",
+    "kc": "BANGOREJO",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.4932444,
+    "lng": 114.1285659,
+    "j": 18
+  },
+  {
+    "k": "3510022006",
+    "d": "SAMBIMULYO",
+    "kc": "BANGOREJO",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.66,
+    "lng": 114.2,
+    "j": 19
+  },
+  {
+    "k": "3510022002",
+    "d": "SAMBIREJO",
+    "kc": "BANGOREJO",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.51,
+    "lng": 114.15,
+    "j": 26
+  },
+  {
+    "k": "3510022003",
+    "d": "TEMUREJO",
+    "kc": "BANGOREJO",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.57,
+    "lng": 114.2,
+    "j": 27
+  },
+  {
+    "k": "3510161004",
+    "d": "KAMPUNG MELAYU",
+    "kc": "BANYUWANGI",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.21,
+    "lng": 114.38,
+    "j": 16
+  },
+  {
+    "k": "3510161007",
+    "d": "KARANGREJO",
+    "kc": "BANYUWANGI",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.22,
+    "lng": 114.38,
+    "j": 26
+  },
+  {
+    "k": "3510161003",
+    "d": "KEBALENAN",
+    "kc": "BANYUWANGI",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.23,
+    "lng": 114.35,
+    "j": 18
+  },
+  {
+    "k": "3510161001",
+    "d": "PAKIS",
+    "kc": "BANYUWANGI",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.25,
+    "lng": 114.37,
+    "j": 30
+  },
+  {
+    "k": "3510161005",
+    "d": "PENGANTIGAN",
+    "kc": "BANYUWANGI",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.2,
+    "lng": 114.37,
+    "j": 13
+  },
+  {
+    "k": "3510161008",
+    "d": "SOBO",
+    "kc": "BANYUWANGI",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.24,
+    "lng": 114.37,
+    "j": 28
+  },
+  {
+    "k": "3510161009",
+    "d": "TEMENGGUNGAN",
+    "kc": "BANYUWANGI",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.2084044,
+    "lng": 114.3746728,
+    "j": 12
+  },
+  {
+    "k": "3511012001",
+    "d": "BADEAN",
+    "kc": "BLIMBINGSARI",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.3,
+    "lng": 114.35,
+    "j": 17
+  },
+  {
+    "k": "3520022014",
+    "d": "LUBAWANG",
+    "kc": "BANYUGLUGUR",
+    "kb": "KAB. SITUBONDO",
+    "lat": -7.766389,
+    "lng": 113.665556,
+    "j": 13
+  },
+  {
+    "k": "3520022013",
+    "d": "TEPOS",
+    "kc": "BANYUGLUGUR",
+    "kb": "KAB. SITUBONDO",
+    "lat": -7.7811804,
+    "lng": 113.6079394,
+    "j": 10
+  },
+  {
+    "k": "3520042015",
+    "d": "SEMAMBUNG",
+    "kc": "JATIBANTENG",
+    "kb": "KAB. SITUBONDO",
+    "lat": -7.81,
+    "lng": 113.7,
+    "j": 13
+  },
+  {
+    "k": "3520082007",
+    "d": "BADERAN",
+    "kc": "SUMBERMALANG",
+    "kb": "KAB. SITUBONDO",
+    "lat": -7.9011,
+    "lng": 113.665,
+    "j": 13
+  },
+  {
+    "k": "3520082008",
+    "d": "PLALANGAN",
+    "kc": "SUMBERMALANG",
+    "kb": "KAB. SITUBONDO",
+    "lat": -7.8073371,
+    "lng": 113.7137961,
+    "j": 12
+  },
+  {
+    "k": "3520142002",
+    "d": "GUNUNG MALANG",
+    "kc": "SUBOH",
+    "kb": "KAB. SITUBONDO",
+    "lat": -7.7782077,
+    "lng": 113.7329252,
+    "j": 18
+  },
+  {
+    "k": "3520142003",
+    "d": "GUNUNG PUTRI",
+    "kc": "SUBOH",
+    "kb": "KAB. SITUBONDO",
+    "lat": -7.7775681,
+    "lng": 113.7456788,
+    "j": 16
+  },
+  {
+    "k": "3520142004",
+    "d": "BUDUAN",
+    "kc": "SUBOH",
+    "kb": "KAB. SITUBONDO",
+    "lat": -7.7356593,
+    "lng": 113.7269268,
+    "j": 13
+  },
+  {
+    "k": "3510022007",
+    "d": "RINGINTELU",
+    "kc": "BANGOREJO",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.4932444,
+    "lng": 114.1285659,
+    "j": 18
+  },
+  {
+    "k": "3510022006",
+    "d": "SAMBIMULYO",
+    "kc": "BANGOREJO",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.66,
+    "lng": 114.2,
+    "j": 19
+  },
+  {
+    "k": "3510022002",
+    "d": "SAMBIREJO",
+    "kc": "BANGOREJO",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.51,
+    "lng": 114.15,
+    "j": 26
+  },
+  {
+    "k": "3510022003",
+    "d": "TEMUREJO",
+    "kc": "BANGOREJO",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.57,
+    "lng": 114.2,
+    "j": 27
+  },
+  {
+    "k": "3510161001",
+    "d": "PAKIS",
+    "kc": "BANYUWANGI",
+    "kb": "KAB. BANYUWANGI",
+    "lat": -8.25,
+    "lng": 114.37,
+    "j": 30
+  }
+]

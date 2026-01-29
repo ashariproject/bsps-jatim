@@ -1,0 +1,137 @@
+[
+  {
+    "k": "3573011011",
+    "d": "JODIPAN",
+    "kc": "BLIMBING",
+    "kb": "KOTA MALANG",
+    "j": 22,
+    "lat": -7.9922,
+    "lng": 112.6394
+  },
+  {
+    "k": "3573011008",
+    "d": "BUNULREJO",
+    "kc": "BLIMBING",
+    "kb": "KOTA MALANG",
+    "j": 20,
+    "lat": -7.9692,
+    "lng": 112.6425
+  },
+  {
+    "k": "3573031006",
+    "d": "KEDUNGKANDANG",
+    "kc": "KEDUNGKANDANG",
+    "kb": "KOTA MALANG",
+    "j": 17,
+    "lat": -7.9811,
+    "lng": 112.6644
+  },
+  {
+    "k": "3573051003",
+    "d": "TLOGOMAS",
+    "kc": "LOWOKWARU",
+    "kb": "KOTA MALANG",
+    "j": 17,
+    "lat": -7.9288,
+    "lng": 112.6042
+  },
+  {
+    "k": "3573011005",
+    "d": "BLIMBING",
+    "kc": "BLIMBING",
+    "kb": "KOTA MALANG",
+    "j": 16,
+    "lat": -7.9405,
+    "lng": 112.6511
+  },
+  {
+    "k": "3573031001",
+    "d": "KOTALAMA",
+    "kc": "KEDUNGKANDANG",
+    "kb": "KOTA MALANG",
+    "j": 15,
+    "lat": -7.9961,
+    "lng": 112.6375
+  },
+  {
+    "k": "3573021007",
+    "d": "KAUMAN",
+    "kc": "KLOJEN",
+    "kb": "KOTA MALANG",
+    "j": 12,
+    "lat": -7.9836,
+    "lng": 112.6272
+  },
+  {
+    "k": "3573021008",
+    "d": "ORO-ORO DOWO",
+    "kc": "KLOJEN",
+    "kb": "KOTA MALANG",
+    "j": 12,
+    "lat": -7.9714,
+    "lng": 112.6192
+  },
+  {
+    "k": "3573021002",
+    "d": "RAMPALCELAKET",
+    "kc": "KLOJEN",
+    "kb": "KOTA MALANG",
+    "j": 11,
+    "lat": -7.9678,
+    "lng": 112.6361
+  },
+  {
+    "k": "3575011009",
+    "d": "GADINGREJO",
+    "kc": "GADINGREJO",
+    "kb": "KOTA PASURUAN",
+    "j": 25,
+    "lat": -7.6347,
+    "lng": 112.9022
+  },
+  {
+    "k": "3575011007",
+    "d": "KRAPYAKREJO",
+    "kc": "GADINGREJO",
+    "kb": "KOTA PASURUAN",
+    "j": 14,
+    "lat": -7.6508,
+    "lng": 112.8797
+  },
+  {
+    "k": "3575041005",
+    "d": "KEBONSARI",
+    "kc": "PANGGUNGREJO",
+    "kb": "KOTA PASURUAN",
+    "j": 13,
+    "lat": -7.6547,
+    "lng": 112.8986
+  },
+  {
+    "k": "3575041013",
+    "d": "MANDARANREJO",
+    "kc": "PANGGUNGREJO",
+    "kb": "KOTA PASURUAN",
+    "j": 12,
+    "lat": -7.6367,
+    "lng": 112.9167
+  },
+  {
+    "k": "3575041003",
+    "d": "TRAJENG",
+    "kc": "PANGGUNGREJO",
+    "kb": "KOTA PASURUAN",
+    "j": 11,
+    "lat": -7.6436,
+    "lng": 112.9083
+  },
+  {
+    "k": "3575031002",
+    "d": "KEPEL",
+    "kc": "BUGUL KIDUL",
+    "kb": "KOTA PASURUAN",
+    "j": 10,
+    "lat": -7.6389,
+    "lng": 112.9361
+  }
+]

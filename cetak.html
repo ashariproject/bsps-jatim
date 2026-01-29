@@ -173,104 +173,29 @@
         .map-container {
             position: relative;
             width: 100%;
-            aspect-ratio: 3 / 2;
-            max-height: 80mm;
+            aspect-ratio: 4 / 3;
             border-radius: 3mm;
-            overflow: visible;
-        }
-
-        .map-wrapper {
-            position: relative;
-            width: 100%;
-            height: 100%;
-            display: flex;
-        }
-
-        .map-labels-left,
-        .map-labels-right {
-            width: 18mm;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            padding: 1mm 0;
-            font-size: 5px;
-        }
-
-        .map-labels-left {
-            align-items: flex-end;
-            padding-right: 0.5mm;
-        }
-
-        .map-labels-right {
-            align-items: flex-start;
-            padding-left: 0.5mm;
-        }
-
-        .map-center {
-            flex: 1;
-            position: relative;
-            border-radius: 2mm;
             border: 0.2mm solid #e2e8f0;
             overflow: hidden;
-        }
-
-        .ext-label {
-            background: white;
-            border: 0.5px solid #cbd5e1;
-            padding: 0.8px 2.5px;
-            border-radius: 2px;
-            text-align: center;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
-            white-space: nowrap;
-            margin: 0.5mm 0;
-            position: relative;
-        }
-
-        .ext-label::after {
-            content: '';
-            position: absolute;
-            top: 50%;
-            width: 3mm;
-            height: 0.3mm;
-            background: #94a3b8;
-        }
-
-        .map-labels-left .ext-label::after {
-            right: -3.5mm;
-        }
-
-        .map-labels-right .ext-label::after {
-            left: -3.5mm;
-        }
-
-        .ext-label .ext-name {
-            font-weight: 600;
-            color: #475569;
-            font-size: 4.5px;
-            display: block;
-        }
-
-        .ext-label .ext-value {
-            font-weight: 800;
-            font-size: 6.5px;
-            display: block;
-        }
-
-        .ext-label.green .ext-value {
-            color: #16a34a;
-        }
-
-        .ext-label.purple .ext-value {
-            color: #9333ea;
-        }
-
-        .ext-label.blue .ext-value {
-            color: #0284c7;
+            background: #f8fafc;
         }
 
         #printMap {
             width: 100%;
             height: 100%;
+            z-index: 1;
+        }
+
+        /* Float Labels */
+        .float-label {
+            position: absolute;
+            background: white;
+            border: 0.5px solid #cbd5e1;
+            padding: 1px 3px;
+            border-radius: 2px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+            white-space: nowrap;
         }
 
         .leaflet-control-attribution {
@@ -644,13 +569,8 @@
         <div class="map-section">
             <div class="section-title">Peta Sebaran Alokasi BSPS Jawa Timur</div>
             <div class="map-container">
-                <div class="map-wrapper">
-                    <div class="map-labels-left" id="labelsLeft"></div>
-                    <div class="map-center">
-                        <div id="printMap" style="width:100%;height:100%;"></div>
-                    </div>
-                    <div class="map-labels-right" id="labelsRight"></div>
-                </div>
+                <div id="printMap"></div>
+                <div id="mapOverlay"></div>
             </div>
         </div>
 
@@ -828,42 +748,63 @@
             const grouped = {};
             all.forEach(i => { grouped[i.kb] = (grouped[i.kb] || 0) + i.j; });
 
-            // Sort by longitude to split left/right
-            const sorted = Object.entries(grouped).map(([kab, unit]) => ({
-                kab, unit,
-                center: kabCenters[kab],
-                type: kabTypes[kab] || 'green'
-            })).filter(d => d.center).sort((a, b) => a.center.lng - b.center.lng);
+            // Manual offset for labels to avoid overlap [lat_offset, lng_offset]
+            const labelOffsets = {
+                'KAB. PACITAN': [0.15, 0],
+                'KAB. MADIUN': [0, -0.15],
+                'KAB. NGANJUK': [0.15, 0],
+                'KAB. BOJONEGORO': [-0.2, 0],
+                'KAB. JOMBANG': [0.15, 0],
+                'KAB. GRESIK': [-0.15, 0],
+                'KAB. PASURUAN': [0.2, 0.1],
+                'KAB. MALANG': [0.2, -0.1],
+                'KOTA MALANG': [-0.15, 0],
+                'KOTA PASURUAN': [-0.3, 0.1],
+                'KAB. JEMBER': [0.15, 0],
+                'KAB. SITUBONDO': [-0.15, 0],
+                'KAB. BANYUWANGI': [0, 0.15]
+            };
 
-            const midIndex = Math.ceil(sorted.length / 2);
-            const leftItems = sorted.slice(0, midIndex);
-            const rightItems = sorted.slice(midIndex);
+            Object.entries(grouped).forEach(([kab, unit]) => {
+                const center = kabCenters[kab];
+                if (!center) return;
 
-            // Render labels on left side
-            const labelsLeftHtml = leftItems.map(d => {
-                const shortName = d.kab.replace('KAB. ', '').replace('KOTA ', '');
-                return `<div class="ext-label ${d.type}"><span class="ext-name">${shortName}</span><span class="ext-value">${d.unit}</span></div>`;
-            }).join('');
-            document.getElementById('labelsLeft').innerHTML = labelsLeftHtml;
+                const type = kabTypes[kab] || 'green';
+                const shortName = kab.replace('KAB. ', '').replace('KOTA ', '');
 
-            // Render labels on right side
-            const labelsRightHtml = rightItems.map(d => {
-                const shortName = d.kab.replace('KAB. ', '').replace('KOTA ', '');
-                return `<div class="ext-label ${d.type}"><span class="ext-name">${shortName}</span><span class="ext-value">${d.unit}</span></div>`;
-            }).join('');
-            document.getElementById('labelsRight').innerHTML = labelsRightHtml;
+                // Add dot
+                L.marker([center.lat, center.lng], {
+                    icon: L.divIcon({
+                        className: 'map-dot-marker ' + type,
+                        iconSize: [6, 6],
+                        iconAnchor: [3, 3]
+                    })
+                }).addTo(printMap);
 
-            // Render dots on map
-            sorted.forEach(d => {
-                const icon = L.divIcon({
-                    className: 'map-dot ' + d.type,
-                    iconSize: [5, 5],
-                    iconAnchor: [2.5, 2.5]
+                // Add floated label
+                const offset = labelOffsets[kab] || [0.15, 0];
+                const labelPos = [center.lat + offset[0], center.lng + offset[1]];
+
+                const labelIcon = L.divIcon({
+                    className: 'float-label ' + type,
+                    html: `<span class="label-name">${shortName}</span><span class="label-value">${unit}</span>`,
+                    iconSize: null,
+                    iconAnchor: [center.lng > labelPos[1] ? 40 : 0, offset[0] > 0 ? 0 : 20]
                 });
-                L.marker([d.center.lat, d.center.lng], { icon }).addTo(printMap);
+
+                L.marker(labelPos, { icon: labelIcon }).addTo(printMap);
+
+                // Add connector line if offset is significant
+                L.polyline([
+                    [center.lat, center.lng],
+                    labelPos
+                ], {
+                    color: '#64748b',
+                    weight: 0.5,
+                    opacity: 0.8
+                }).addTo(printMap);
             });
 
-            // Force map to redraw
             setTimeout(() => printMap.invalidateSize(), 100);
         }
 

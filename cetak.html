@@ -464,12 +464,12 @@
         .marker-label {
             background: #0f172a;
             color: white;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: 700;
+            padding: 1px 4px;
+            border-radius: 3px;
+            font-size: 7px;
+            font-weight: 600;
             white-space: nowrap;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
@@ -650,21 +650,21 @@
         let allData = { desa: [], kota: [], pesisir: [] };
         let printMap;
 
-        // Kabupaten center coordinates
+        // Kabupaten center coordinates - adjusted to avoid overlap
         const kabCenters = {
-            'KAB. PACITAN': { lat: -8.2, lng: 111.1 },
-            'KAB. MADIUN': { lat: -7.6, lng: 111.5 },
-            'KAB. NGANJUK': { lat: -7.6, lng: 111.9 },
-            'KAB. BOJONEGORO': { lat: -7.2, lng: 111.9 },
-            'KAB. JOMBANG': { lat: -7.5, lng: 112.2 },
-            'KAB. GRESIK': { lat: -7.2, lng: 112.6 },
-            'KAB. PASURUAN': { lat: -7.7, lng: 112.9 },
-            'KAB. MALANG': { lat: -8.1, lng: 112.6 },
-            'KOTA MALANG': { lat: -7.98, lng: 112.63 },
-            'KOTA PASURUAN': { lat: -7.64, lng: 112.9 },
-            'KAB. JEMBER': { lat: -8.2, lng: 113.7 },
-            'KAB. SITUBONDO': { lat: -7.7, lng: 114.0 },
-            'KAB. BANYUWANGI': { lat: -8.2, lng: 114.35 }
+            'KAB. PACITAN': { lat: -8.15, lng: 111.05 },
+            'KAB. MADIUN': { lat: -7.55, lng: 111.45 },
+            'KAB. NGANJUK': { lat: -7.55, lng: 111.85 },
+            'KAB. BOJONEGORO': { lat: -7.18, lng: 111.85 },
+            'KAB. JOMBANG': { lat: -7.48, lng: 112.18 },
+            'KAB. GRESIK': { lat: -7.18, lng: 112.55 },
+            'KAB. PASURUAN': { lat: -7.72, lng: 112.85 },
+            'KAB. MALANG': { lat: -8.18, lng: 112.55 },
+            'KOTA MALANG': { lat: -7.88, lng: 112.68 },
+            'KOTA PASURUAN': { lat: -7.58, lng: 112.92 },
+            'KAB. JEMBER': { lat: -8.18, lng: 113.65 },
+            'KAB. SITUBONDO': { lat: -7.65, lng: 114.02 },
+            'KAB. BANYUWANGI': { lat: -8.18, lng: 114.32 }
         };
 
         const kabTypes = {
@@ -706,11 +706,11 @@
                 maxZoom: 19
             }).addTo(printMap);
 
-            // Fit to East Java bounds
+            // Fit to East Java bounds - zoomed in more
             printMap.fitBounds([
-                [-8.8, 110.8],
-                [-6.8, 114.6]
-            ]);
+                [-8.4, 110.9],
+                [-7.0, 114.5]
+            ], { padding: [5, 5] });
         }
 
         function renderAll() {

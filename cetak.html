@@ -460,28 +460,73 @@
             transform: translateY(-2px);
         }
 
-        /* Custom marker labels */
-        .marker-label {
-            background: #0f172a;
-            color: white;
-            padding: 1px 4px;
-            border-radius: 3px;
-            font-size: 7px;
-            font-weight: 600;
-            white-space: nowrap;
-            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
+        /* Custom marker callout labels */
+        .marker-callout {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
-        .marker-label.green {
+        .marker-callout .callout-box {
+            background: white;
+            border: 1px solid #cbd5e1;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 6px;
+            text-align: center;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+            white-space: nowrap;
+        }
+
+        .marker-callout .callout-name {
+            font-weight: 700;
+            color: #1e293b;
+            font-size: 5.5px;
+            display: block;
+        }
+
+        .marker-callout .callout-value {
+            font-weight: 800;
+            font-size: 7px;
+            display: block;
+        }
+
+        .marker-callout.green .callout-value {
+            color: #16a34a;
+        }
+
+        .marker-callout.purple .callout-value {
+            color: #9333ea;
+        }
+
+        .marker-callout.blue .callout-value {
+            color: #0284c7;
+        }
+
+        .marker-callout .callout-line {
+            width: 1px;
+            height: 12px;
+            background: #94a3b8;
+        }
+
+        .marker-callout .callout-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            border: 1px solid white;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .marker-callout.green .callout-dot {
             background: #16a34a;
         }
 
-        .marker-label.purple {
+        .marker-callout.purple .callout-dot {
             background: #9333ea;
         }
 
-        .marker-label.blue {
+        .marker-callout.blue .callout-dot {
             background: #0284c7;
         }
 
@@ -744,12 +789,12 @@
                 const type = kabTypes[kab] || 'green';
                 const shortName = kab.replace('KAB. ', '').replace('KOTA ', '');
 
-                // Create custom div icon
+                // Create custom callout icon with leader line and dot
                 const icon = L.divIcon({
-                    className: 'marker-label ' + type,
-                    html: `${shortName}: ${unit}`,
-                    iconSize: null,
-                    iconAnchor: [40, 10]
+                    className: 'marker-callout ' + type,
+                    html: `<div class="callout-box"><span class="callout-name">${shortName}</span><span class="callout-value">${unit}</span></div><div class="callout-line"></div><div class="callout-dot"></div>`,
+                    iconSize: [60, 40],
+                    iconAnchor: [30, 40]
                 });
 
                 L.marker([center.lat, center.lng], { icon }).addTo(printMap);

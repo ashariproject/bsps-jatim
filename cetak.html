@@ -7,6 +7,10 @@
     <title>Laporan BSPS Jawa Timur 2026 - Cetak</title>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <!-- Leaflet print plugin -->
+    <script src="https://unpkg.com/leaflet-image@0.4.0/leaflet-image.js"></script>
     <style>
         @page {
             size: A4 portrait;
@@ -169,53 +173,23 @@
         .map-container {
             position: relative;
             width: 100%;
-            height: 65mm;
-            background: linear-gradient(135deg, #f0fdf4 0%, #e0f2fe 100%);
+            height: 70mm;
             border-radius: 3mm;
             border: 0.2mm solid #e2e8f0;
             overflow: hidden;
         }
 
-        .map-svg {
+        #printMap {
             width: 100%;
             height: 100%;
         }
 
-        .map-label {
-            position: absolute;
-            transform: translate(-50%, -50%);
-            text-align: center;
-            pointer-events: none;
+        .leaflet-control-attribution {
+            display: none !important;
         }
 
-        .map-label-value {
-            font-size: 2.8mm;
-            font-weight: 700;
-            color: white;
-            background: #0f172a;
-            padding: 0.8mm 1.5mm;
-            border-radius: 1mm;
-            display: block;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-        }
-
-        .map-label-name {
-            font-size: 1.6mm;
-            color: #475569;
-            margin-top: 0.5mm;
-            display: block;
-        }
-
-        .map-label.green .map-label-value {
-            background: #16a34a;
-        }
-
-        .map-label.purple .map-label-value {
-            background: #9333ea;
-        }
-
-        .map-label.blue .map-label-value {
-            background: #0284c7;
+        .leaflet-control-zoom {
+            display: none !important;
         }
 
         /* Categories */
@@ -320,7 +294,7 @@
 
         .cat-breakdown {
             font-size: 2mm;
-            max-height: 22mm;
+            max-height: 20mm;
             overflow: hidden;
         }
 
@@ -486,9 +460,36 @@
             transform: translateY(-2px);
         }
 
+        /* Custom marker labels */
+        .marker-label {
+            background: #0f172a;
+            color: white;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: 700;
+            white-space: nowrap;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .marker-label.green {
+            background: #16a34a;
+        }
+
+        .marker-label.purple {
+            background: #9333ea;
+        }
+
+        .marker-label.blue {
+            background: #0284c7;
+        }
+
         @media print {
             body {
                 background: white;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
 
             .page {
@@ -498,6 +499,11 @@
 
             .print-btn {
                 display: none;
+            }
+
+            .leaflet-tile-container {
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
             }
         }
 
@@ -551,27 +557,9 @@
         </div>
 
         <div class="map-section">
-            <div class="section-title">Peta Sebaran Alokasi BSPS</div>
+            <div class="section-title">Peta Sebaran Alokasi BSPS Jawa Timur</div>
             <div class="map-container">
-                <svg class="map-svg" viewBox="0 0 400 160" preserveAspectRatio="xMidYMid meet">
-                    <!-- Simplified East Java Map Shape -->
-                    <defs>
-                        <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                            <stop offset="0%" style="stop-color:#e2e8f0" />
-                            <stop offset="100%" style="stop-color:#cbd5e1" />
-                        </linearGradient>
-                    </defs>
-                    <!-- Main Java Island Shape (simplified) -->
-                    <path
-                        d="M10,80 Q30,40 80,35 L120,30 Q150,25 180,30 L220,35 Q260,30 300,35 L340,45 Q370,55 390,70 L395,85 Q390,100 370,110 L340,120 Q300,130 260,125 L220,118 Q180,115 140,118 L100,125 Q60,130 30,115 L15,100 Q5,90 10,80 Z"
-                        fill="url(#mapGrad)" stroke="#94a3b8" stroke-width="0.5" />
-                    <!-- Madura Island -->
-                    <path
-                        d="M280,45 Q290,38 320,35 L350,38 Q365,42 370,50 L368,58 Q360,65 340,68 L310,65 Q290,60 280,52 Z"
-                        fill="url(#mapGrad)" stroke="#94a3b8" stroke-width="0.5" />
-                </svg>
-                <!-- Map Labels - dynamically positioned -->
-                <div id="mapLabels"></div>
+                <div id="printMap"></div>
             </div>
         </div>
 
@@ -660,22 +648,31 @@
 
     <script>
         let allData = { desa: [], kota: [], pesisir: [] };
+        let printMap;
 
-        // Approximate positions for kabupaten/kota on the map (as percentage)
-        const kabPositions = {
-            'KAB. PACITAN': { x: 8, y: 65, type: 'green' },
-            'KAB. MADIUN': { x: 18, y: 45, type: 'green' },
-            'KAB. NGANJUK': { x: 28, y: 50, type: 'green' },
-            'KAB. BOJONEGORO': { x: 35, y: 30, type: 'green' },
-            'KAB. JOMBANG': { x: 42, y: 55, type: 'green' },
-            'KAB. GRESIK': { x: 52, y: 40, type: 'green' },
-            'KAB. PASURUAN': { x: 62, y: 65, type: 'green' },
-            'KAB. MALANG': { x: 70, y: 75, type: 'green' },
-            'KOTA MALANG': { x: 72, y: 60, type: 'purple' },
-            'KOTA PASURUAN': { x: 60, y: 50, type: 'purple' },
-            'KAB. JEMBER': { x: 82, y: 70, type: 'green' },
-            'KAB. SITUBONDO': { x: 88, y: 45, type: 'blue' },
-            'KAB. BANYUWANGI': { x: 95, y: 60, type: 'blue' }
+        // Kabupaten center coordinates
+        const kabCenters = {
+            'KAB. PACITAN': { lat: -8.2, lng: 111.1 },
+            'KAB. MADIUN': { lat: -7.6, lng: 111.5 },
+            'KAB. NGANJUK': { lat: -7.6, lng: 111.9 },
+            'KAB. BOJONEGORO': { lat: -7.2, lng: 111.9 },
+            'KAB. JOMBANG': { lat: -7.5, lng: 112.2 },
+            'KAB. GRESIK': { lat: -7.2, lng: 112.6 },
+            'KAB. PASURUAN': { lat: -7.7, lng: 112.9 },
+            'KAB. MALANG': { lat: -8.1, lng: 112.6 },
+            'KOTA MALANG': { lat: -7.98, lng: 112.63 },
+            'KOTA PASURUAN': { lat: -7.64, lng: 112.9 },
+            'KAB. JEMBER': { lat: -8.2, lng: 113.7 },
+            'KAB. SITUBONDO': { lat: -7.7, lng: 114.0 },
+            'KAB. BANYUWANGI': { lat: -8.2, lng: 114.35 }
+        };
+
+        const kabTypes = {
+            'KAB. PACITAN': 'green', 'KAB. MALANG': 'green', 'KAB. PASURUAN': 'green',
+            'KAB. JOMBANG': 'green', 'KAB. NGANJUK': 'green', 'KAB. MADIUN': 'green',
+            'KAB. BOJONEGORO': 'green', 'KAB. JEMBER': 'green', 'KAB. GRESIK': 'green',
+            'KOTA MALANG': 'purple', 'KOTA PASURUAN': 'purple',
+            'KAB. BANYUWANGI': 'blue', 'KAB. SITUBONDO': 'blue'
         };
 
         async function loadAllData() {
@@ -686,8 +683,34 @@
                     fetch('data_pesisir.json').then(r => r.json())
                 ]);
                 allData = { desa: d1, kota: d2, pesisir: d3 };
+                initMap();
                 renderAll();
             } catch (e) { console.error(e); }
+        }
+
+        function initMap() {
+            // Initialize Leaflet map for print
+            printMap = L.map('printMap', {
+                zoomControl: false,
+                attributionControl: false,
+                dragging: false,
+                scrollWheelZoom: false,
+                doubleClickZoom: false,
+                boxZoom: false,
+                keyboard: false,
+                touchZoom: false
+            }).setView([-7.8, 112.5], 7);
+
+            // Use CartoDB Positron for cleaner look
+            L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+                maxZoom: 19
+            }).addTo(printMap);
+
+            // Fit to East Java bounds
+            printMap.fitBounds([
+                [-8.8, 110.8],
+                [-6.8, 114.6]
+            ]);
         }
 
         function renderAll() {
@@ -704,27 +727,36 @@
             renderCategory(kota, 'kota');
             renderCategory(pesisir, 'pesisir');
             renderChart();
-            renderMapLabels();
+            renderMapMarkers();
             document.getElementById('printDate').textContent = new Date().toLocaleDateString('id-ID', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' });
         }
 
-        function renderMapLabels() {
+        function renderMapMarkers() {
             const { desa, kota, pesisir } = allData;
             const all = [...desa, ...kota, ...pesisir];
             const grouped = {};
             all.forEach(i => { grouped[i.kb] = (grouped[i.kb] || 0) + i.j; });
 
-            const labelsHtml = Object.entries(grouped).map(([kab, unit]) => {
-                const pos = kabPositions[kab];
-                if (!pos) return '';
-                const shortName = kab.replace('KAB. ', '').replace('KOTA ', '');
-                return `<div class="map-label ${pos.type}" style="left:${pos.x}%;top:${pos.y}%;">
-                    <span class="map-label-value">${unit}</span>
-                    <span class="map-label-name">${shortName}</span>
-                </div>`;
-            }).join('');
+            Object.entries(grouped).forEach(([kab, unit]) => {
+                const center = kabCenters[kab];
+                if (!center) return;
 
-            document.getElementById('mapLabels').innerHTML = labelsHtml;
+                const type = kabTypes[kab] || 'green';
+                const shortName = kab.replace('KAB. ', '').replace('KOTA ', '');
+
+                // Create custom div icon
+                const icon = L.divIcon({
+                    className: 'marker-label ' + type,
+                    html: `${shortName}: ${unit}`,
+                    iconSize: null,
+                    iconAnchor: [40, 10]
+                });
+
+                L.marker([center.lat, center.lng], { icon }).addTo(printMap);
+            });
+
+            // Force map to redraw
+            setTimeout(() => printMap.invalidateSize(), 100);
         }
 
         function renderCategory(data, prefix) {

@@ -190,8 +190,6 @@
         /* Float Labels */
         .float-label {
             position: absolute;
-            background: #dc2626;
-            border: 0.5px solid #b91c1c;
             padding: 1px 3px;
             border-radius: 2px;
             text-align: center;
@@ -200,6 +198,21 @@
             z-index: 1000;
             transform: translate(-50%, -50%);
             pointer-events: none;
+        }
+
+        .float-label.green {
+            background: #16a34a;
+            border: 0.5px solid #15803d;
+        }
+
+        .float-label.purple {
+            background: #9333ea;
+            border: 0.5px solid #7c3aed;
+        }
+
+        .float-label.blue {
+            background: #0284c7;
+            border: 0.5px solid #0369a1;
         }
 
         .float-label::after {
@@ -741,9 +754,9 @@
             'KAB. PASURUAN': { lat: -7.85, lng: 112.90 },
             'KAB. MALANG': { lat: -8.25, lng: 112.55 },
             'KOTA MALANG': { lat: -7.95, lng: 112.35 },
-            'KOTA PASURUAN': { lat: -7.45, lng: 112.90 },
+            'KOTA PASURUAN': { lat: -7.65, lng: 112.90 },
             'KAB. JEMBER': { lat: -8.22, lng: 113.70 },
-            'KAB. SITUBONDO': { lat: -7.60, lng: 114.10 },
+            'KAB. SITUBONDO': { lat: -7.72, lng: 114.00 },
             'KAB. BANYUWANGI': { lat: -8.25, lng: 114.40 }
         };
 
@@ -829,9 +842,9 @@
                 'KAB. PASURUAN': [0.18, 0],
                 'KAB. MALANG': [0.18, 0],
                 'KOTA MALANG': [-0.18, 0],
-                'KOTA PASURUAN': [-0.22, 0],
+                'KOTA PASURUAN': [0.22, 0],
                 'KAB. JEMBER': [0.18, 0],
-                'KAB. SITUBONDO': [-0.22, 0],
+                'KAB. SITUBONDO': [0.22, 0],
                 'KAB. BANYUWANGI': [0.18, 0]
             };
 

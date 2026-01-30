@@ -262,6 +262,47 @@
             border-color: #0284c7;
         }
 
+        /* Popup style for village list */
+        .leaflet-popup-content-wrapper {
+            border-radius: 4px;
+            padding: 0;
+        }
+
+        .leaflet-popup-content {
+            margin: 0;
+            max-height: 150px;
+            overflow-y: auto;
+        }
+
+        .popup-table {
+            font-size: 8px;
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        .popup-table th {
+            background: #1e293b;
+            color: white;
+            padding: 3px 5px;
+            text-align: left;
+            position: sticky;
+            top: 0;
+        }
+
+        .popup-table td {
+            padding: 2px 5px;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .popup-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .popup-table .unit-cell {
+            text-align: right;
+            font-weight: 600;
+        }
+
 
 
         .ext-label.purple .ext-value {
@@ -855,6 +896,17 @@
                 const type = kabTypes[kab] || 'green';
                 const shortName = kab.replace('KAB. ', '').replace('KOTA ', '');
 
+                // Get villages for this kabupaten
+                const villages = all.filter(v => v.kb === kab).sort((a, b) => b.j - a.j);
+                const popupContent = `
+                    <table class="popup-table">
+                        <thead><tr><th>Desa</th><th>Unit</th></tr></thead>
+                        <tbody>
+                            ${villages.map(v => `<tr><td>${v.d}</td><td class="unit-cell">${v.j}</td></tr>`).join('')}
+                        </tbody>
+                    </table>
+                `;
+
                 // Add dot
                 L.marker([center.lat, center.lng], {
                     icon: L.divIcon({
@@ -864,7 +916,7 @@
                     })
                 }).addTo(printMap);
 
-                // Add floated label
+                // Add floated label with popup
                 const offset = labelOffsets[kab] || [0.15, 0];
                 const labelPos = [center.lat + offset[0], center.lng + offset[1]];
 
@@ -875,7 +927,8 @@
                     iconAnchor: [center.lng > labelPos[1] ? 40 : 0, offset[0] > 0 ? 0 : 20]
                 });
 
-                L.marker(labelPos, { icon: labelIcon }).addTo(printMap);
+                const labelMarker = L.marker(labelPos, { icon: labelIcon }).addTo(printMap);
+                labelMarker.bindPopup(popupContent, { maxWidth: 200, minWidth: 120 });
 
                 // Add connector line if offset is significant
                 L.polyline([

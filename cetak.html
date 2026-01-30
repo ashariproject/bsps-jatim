@@ -172,8 +172,9 @@
 
         .map-container {
             position: relative;
-            width: 100%;
-            aspect-ratio: 4 / 3;
+            width: 90%;
+            height: 100mm;
+            margin: 0 auto;
             border-radius: 3mm;
             border: 0.2mm solid #e2e8f0;
             overflow: hidden;
@@ -189,13 +190,78 @@
         /* Float Labels */
         .float-label {
             position: absolute;
-            background: white;
-            border: 0.5px solid #cbd5e1;
+            background: #dc2626;
+            border: 0.5px solid #b91c1c;
             padding: 1px 3px;
             border-radius: 2px;
             text-align: center;
             box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
             white-space: nowrap;
+            z-index: 1000;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        .float-label::after {
+            content: '';
+            position: absolute;
+            width: 1px;
+            background: #64748b;
+            z-index: -1;
+        }
+
+        .float-label .label-name {
+            font-weight: 700;
+            color: white;
+            font-size: 4px;
+            display: block;
+            line-height: 1.1;
+        }
+
+        .float-label .label-value {
+            font-weight: 800;
+            font-size: 6px;
+            display: block;
+            line-height: 1;
+            color: white;
+        }
+
+        /* Dot inside map */
+        .map-dot-marker {
+            width: 6px;
+            height: 6px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            border: 1.5px solid;
+            z-index: 500;
+        }
+
+        .map-dot-marker.green {
+            border-color: #16a34a;
+        }
+
+        .map-dot-marker.purple {
+            border-color: #9333ea;
+        }
+
+        .map-dot-marker.blue {
+            border-color: #0284c7;
+        }
+
+
+
+        .ext-label.purple .ext-value {
+            color: #9333ea;
+        }
+
+        .ext-label.blue .ext-value {
+            color: #0284c7;
+        }
+
+        #printMap {
+            width: 100%;
+            height: 100%;
         }
 
         .leaflet-control-attribution {
@@ -308,8 +374,6 @@
 
         .cat-breakdown {
             font-size: 2mm;
-            max-height: 20mm;
-            overflow: hidden;
         }
 
         .cat-row {
@@ -352,7 +416,6 @@
             display: flex;
             flex-direction: column;
             gap: 1.2mm;
-            overflow: hidden;
         }
 
         .bar-row {
@@ -570,7 +633,6 @@
             <div class="section-title">Peta Sebaran Alokasi BSPS Jawa Timur</div>
             <div class="map-container">
                 <div id="printMap"></div>
-                <div id="mapOverlay"></div>
             </div>
         </div>
 
@@ -652,7 +714,14 @@
         </div>
 
         <div class="footer">
-            <div class="footer-left"><strong>BP3KP Jawa IV</strong><br>Jl. Gayung Kebonsari 50, Surabaya</div>
+            <div class="footer-left" style="display: flex; align-items: center; gap: 3mm;">
+                <img src="logo.svg" style="width: 10mm; height: 10mm;" alt="Logo Kementerian PKP">
+                <div>
+                    <div style="font-size: 1.8mm; color: #64748b;">Kementerian</div>
+                    <strong style="font-size: 2.2mm;">Perumahan dan Kawasan Permukiman</strong><br>
+                    <span style="font-size: 1.8mm;">BP3KP Jawa IV | Jl. Gayung Kebonsari 50, Surabaya</span>
+                </div>
+            </div>
             <div class="footer-right">Dashboard BSPS Jawa Timur 2026 | Tahap I</div>
         </div>
     </div>
@@ -661,21 +730,21 @@
         let allData = { desa: [], kota: [], pesisir: [] };
         let printMap;
 
-        // Kabupaten center coordinates - adjusted to avoid overlap
+        // Kabupaten center coordinates - optimized for non-overlapping labels
         const kabCenters = {
-            'KAB. PACITAN': { lat: -8.15, lng: 111.05 },
-            'KAB. MADIUN': { lat: -7.55, lng: 111.45 },
-            'KAB. NGANJUK': { lat: -7.55, lng: 111.85 },
-            'KAB. BOJONEGORO': { lat: -7.18, lng: 111.85 },
-            'KAB. JOMBANG': { lat: -7.48, lng: 112.18 },
-            'KAB. GRESIK': { lat: -7.18, lng: 112.55 },
-            'KAB. PASURUAN': { lat: -7.72, lng: 112.85 },
-            'KAB. MALANG': { lat: -8.18, lng: 112.55 },
-            'KOTA MALANG': { lat: -7.88, lng: 112.68 },
-            'KOTA PASURUAN': { lat: -7.58, lng: 112.92 },
-            'KAB. JEMBER': { lat: -8.18, lng: 113.65 },
-            'KAB. SITUBONDO': { lat: -7.65, lng: 114.02 },
-            'KAB. BANYUWANGI': { lat: -8.18, lng: 114.32 }
+            'KAB. PACITAN': { lat: -8.20, lng: 111.05 },
+            'KAB. MADIUN': { lat: -7.50, lng: 111.35 },
+            'KAB. NGANJUK': { lat: -7.55, lng: 111.95 },
+            'KAB. BOJONEGORO': { lat: -7.12, lng: 111.70 },
+            'KAB. JOMBANG': { lat: -7.52, lng: 112.25 },
+            'KAB. GRESIK': { lat: -7.12, lng: 112.65 },
+            'KAB. PASURUAN': { lat: -7.85, lng: 112.90 },
+            'KAB. MALANG': { lat: -8.25, lng: 112.55 },
+            'KOTA MALANG': { lat: -7.95, lng: 112.35 },
+            'KOTA PASURUAN': { lat: -7.45, lng: 112.90 },
+            'KAB. JEMBER': { lat: -8.22, lng: 113.70 },
+            'KAB. SITUBONDO': { lat: -7.60, lng: 114.10 },
+            'KAB. BANYUWANGI': { lat: -8.25, lng: 114.40 }
         };
 
         const kabTypes = {
@@ -749,20 +818,21 @@
             all.forEach(i => { grouped[i.kb] = (grouped[i.kb] || 0) + i.j; });
 
             // Manual offset for labels to avoid overlap [lat_offset, lng_offset]
+            // Optimized for better spacing and no overlapping
             const labelOffsets = {
-                'KAB. PACITAN': [0.15, 0],
-                'KAB. MADIUN': [0, -0.15],
-                'KAB. NGANJUK': [0.15, 0],
-                'KAB. BOJONEGORO': [-0.2, 0],
-                'KAB. JOMBANG': [0.15, 0],
-                'KAB. GRESIK': [-0.15, 0],
-                'KAB. PASURUAN': [0.2, 0.1],
-                'KAB. MALANG': [0.2, -0.1],
-                'KOTA MALANG': [-0.15, 0],
-                'KOTA PASURUAN': [-0.3, 0.1],
-                'KAB. JEMBER': [0.15, 0],
-                'KAB. SITUBONDO': [-0.15, 0],
-                'KAB. BANYUWANGI': [0, 0.15]
+                'KAB. PACITAN': [0.18, 0],
+                'KAB. MADIUN': [0.18, 0],
+                'KAB. NGANJUK': [0.18, 0],
+                'KAB. BOJONEGORO': [-0.22, 0],
+                'KAB. JOMBANG': [0.18, 0],
+                'KAB. GRESIK': [-0.22, 0],
+                'KAB. PASURUAN': [0.18, 0],
+                'KAB. MALANG': [0.18, 0],
+                'KOTA MALANG': [-0.18, 0],
+                'KOTA PASURUAN': [-0.22, 0],
+                'KAB. JEMBER': [0.18, 0],
+                'KAB. SITUBONDO': [-0.22, 0],
+                'KAB. BANYUWANGI': [0.18, 0]
             };
 
             Object.entries(grouped).forEach(([kab, unit]) => {

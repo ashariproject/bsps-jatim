@@ -378,7 +378,7 @@
             margin-top: 8px;
             padding: 8px 14px;
             background: #a855f7;
-            color: white;
+            color: white !important;
             text-decoration: none;
             border-radius: 6px;
             font-size: 0.85rem;
@@ -388,6 +388,7 @@
 
         .popup-maps-link:hover {
             background: #9333ea;
+            color: white !important;
         }
     </style>
 </head>
@@ -461,7 +462,7 @@
                 f.forEach(i => { const row = document.createElement('tr'); row.innerHTML = `<td><div class="location-main">${i.d}</div><small class="location-sub">${i.kb}</small></td><td style="color:#475569;">${i.kc}</td><td style="text-align:center;"><span class="unit-badge">${i.j}</span></td>`; row.addEventListener('click', () => { map.flyTo([i.lat, i.lng], 15, { duration: 1 }); if (markers[i.k]) markers[i.k].openPopup(); }); tableBody.appendChild(row); });
             }
             const kabColors = { 'KOTA MALANG': { fill: '#a855f7', border: '#9333ea' }, 'KOTA PASURUAN': { fill: '#ec4899', border: '#db2777' } }, defaultColor = { fill: '#a855f7', border: '#9333ea' };
-            dataKota.forEach(i => { const r = Math.min(25, Math.max(8, Math.sqrt(i.j) * 2)), c = kabColors[i.kb] || defaultColor; const m = L.circleMarker([i.lat, i.lng], { radius: r, color: c.border, weight: 2, fillColor: c.fill, fillOpacity: 0.75 }).bindPopup(`<div style="min-width:150px;text-align:center;"><div class="popup-title">${i.d}</div><span class="popup-subtitle">Kec. ${i.kc}, ${i.kb}</span><div class="popup-stat">${i.j} Unit</div><a href="https://www.google.com/maps/place/${i.lat},${i.lng}/@${i.lat},${i.lng},15z" target="_blank" class="popup-maps-link">📍 OpenMap</a></div>`); m.addTo(map); markers[i.k] = m; });
+            dataKota.forEach(i => { const r = Math.min(25, Math.max(8, Math.sqrt(i.j) * 2)), c = kabColors[i.kb] || defaultColor; const m = L.circleMarker([i.lat, i.lng], { radius: r, color: c.border, weight: 2, fillColor: c.fill, fillOpacity: 0.75 }).bindPopup(`<div style="min-width:150px;text-align:center;"><div class="popup-title">${i.d}</div><span class="popup-subtitle">Kec. ${i.kc}, ${i.kb}</span><div class="popup-stat">${i.j} Unit</div><a href="https://www.google.com/maps?q=${i.lat},${i.lng}" target="_blank" class="popup-maps-link" style="color: white !important;">📍 OpenMap</a></div>`); m.addTo(map); markers[i.k] = m; });
             searchInput.addEventListener('input', render);
             filterKab.addEventListener('change', () => { render(); const k = filterKab.value; if (k) { const f = dataKota.find(i => i.kb === k); if (f) map.flyTo([f.lat, f.lng], 12, { duration: 1.5 }); } else { map.flyTo([-7.8, 112.7], 10, { duration: 1.5 }); } });
             render();

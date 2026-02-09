@@ -480,6 +480,23 @@
             margin-top: 6px;
             font-size: 0.9rem;
         }
+
+        .popup-maps-link {
+            display: inline-block;
+            margin-top: 8px;
+            padding: 8px 14px;
+            background: #16a34a;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+
+        .popup-maps-link:hover {
+            background: #15803d;
+        }
     </style>
 </head>
 
@@ -683,6 +700,7 @@
                         <div class="popup-title">${i.d}</div>
                         <span class="popup-subtitle">Kec. ${i.kc}, ${i.kb}</span>
                         <div class="popup-stat">${i.j} Unit</div>
+                        <a href="https://www.google.com/maps?q=${i.lat},${i.lng}" target="_blank" class="popup-maps-link">📍 Buka di Google Maps</a>
                     </div>
                 `);
 

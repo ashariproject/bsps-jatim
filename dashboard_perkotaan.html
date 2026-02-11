@@ -458,6 +458,8 @@
             function render() {
                 const t = searchInput.value.toLowerCase(), k = filterKab.value;
                 const f = dataKota.filter(i => (i.d + ' ' + i.kc + ' ' + i.kb).toLowerCase().includes(t) && (k === "" || i.kb === k));
+                document.getElementById('totalAlokasi').textContent = f.reduce((s, i) => s + i.j, 0).toLocaleString('id-ID');
+                document.getElementById('totalDesa').textContent = f.length;
                 tableBody.innerHTML = f.length === 0 ? '<tr><td colspan="3" style="text-align:center;padding:2rem;color:#94a3b8;">Tidak ada data</td></tr>' : '';
                 f.forEach(i => { const row = document.createElement('tr'); row.innerHTML = `<td><div class="location-main">${i.d}</div><small class="location-sub">${i.kb}</small></td><td style="color:#475569;">${i.kc}</td><td style="text-align:center;"><span class="unit-badge">${i.j}</span></td>`; row.addEventListener('click', () => { map.flyTo([i.lat, i.lng], 15, { duration: 1 }); if (markers[i.k]) markers[i.k].openPopup(); }); tableBody.appendChild(row); });
             }

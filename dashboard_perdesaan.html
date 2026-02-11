@@ -642,6 +642,10 @@
                     return matchText && matchKab;
                 });
 
+                // Update stat cards based on filtered data
+                document.getElementById('totalAlokasi').textContent = filtered.reduce((s, i) => s + i.j, 0).toLocaleString('id-ID');
+                document.getElementById('totalDesa').textContent = filtered.length;
+
                 tableBody.innerHTML = "";
 
                 if (filtered.length === 0) {

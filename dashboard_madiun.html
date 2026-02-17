@@ -189,16 +189,31 @@
             padding: 0 1.25rem 1.25rem;
             background: #fff;
             border-bottom: 1px solid #f1f5f9;
-            max-height: 200px;
+            max-height: 120px;
+            /* Reduced to show more cards */
         }
 
         .village-item {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 6px 0;
+            padding: 6px 8px;
+            /* Added padding */
             border-bottom: 1px dashed #f1f5f9;
             font-size: 0.85rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+        .village-item:hover {
+            background-color: #f1f5f9;
+        }
+
+        .village-item.active {
+            background-color: #fffbeb;
+            border-left: 3px solid #d97706;
+            font-weight: 600;
         }
 
         .village-item:last-child {
@@ -211,12 +226,18 @@
         }
 
         .v-count {
-            background: #fef3c7;
-            color: #d97706;
+            background: #f1f5f9;
+            /* Neutral by default */
+            color: #64748b;
             padding: 2px 8px;
             border-radius: 10px;
             font-weight: 600;
             font-size: 0.75rem;
+        }
+
+        .village-item.active .v-count {
+            background: #fef3c7;
+            color: #d97706;
         }
 
         /* Controls */
@@ -445,6 +466,62 @@
             z-index: 5;
         }
 
+        /* Recap Modal */
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: white;
+            width: 90%;
+            max-width: 800px;
+            max-height: 90vh;
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+        }
+
+        .modal-body {
+            flex: 1;
+            overflow-y: auto;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #64748b;
+        }
+
+        .recap-table th,
+        .recap-table td {
+            text-align: left;
+            padding: 8px;
+            border-bottom: 1px solid #e2e8f0;
+            font-size: 0.85rem;
+        }
+
         /* Mobile Bottom Nav */
         .mobile-nav {
             display: none;
@@ -554,6 +631,9 @@
             DATA PENERIMA - KAB. MADIUN
         </h1>
         <div style="display:flex; gap:10px; align-items:center">
+            <button onclick="openRecap()"
+                style="background:rgba(255,255,255,0.2); border:1px solid white; color:white; padding:5px 10px; border-radius:15px; cursor:pointer; font-size:0.8rem;">📋
+                Rekap</button>
             <button onclick="downloadData()"
                 style="background:rgba(255,255,255,0.2); border:1px solid white; color:white; padding:5px 10px; border-radius:15px; cursor:pointer; font-size:0.8rem;">💾
                 Simpan Data</button>
@@ -601,7 +681,7 @@
 
             <div
                 style="padding: 0.75rem 1.25rem 0.25rem; font-size: 0.8rem; font-weight: 600; color: #64748b; text-transform: uppercase;">
-                Top Desa Terbanyak
+                Daftar Desa (A-Z)
             </div>
             <div id="villageStats" class="village-stats">
                 <!-- Village stats injected here -->
@@ -640,9 +720,43 @@
         </div>
     </nav>
 
+    <!-- Recap Modal -->
+    <div id="recapModal" class="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 style="margin:0; font-size:1.2rem;">📋 Rekap Verifikasi Lapangan</h2>
+                <button class="close-btn" onclick="closeRecap()">×</button>
+            </div>
+            <div style="margin-bottom:1rem; display:flex; justify-content:space-between; align-items:center;">
+                <span style="font-size:0.9rem; color:#64748b">Data yang sudah di-update foto/lokasi.</span>
+                <button onclick="downloadRecap()"
+                    style="background:#166534; color:white; border:none; padding:8px 16px; border-radius:6px; cursor:pointer; font-weight:600;">Download
+                    Excel/CSV</button>
+            </div>
+            <div class="modal-body">
+                <table class="recap-table" style="width:100%; border-collapse:collapse;">
+                    <thead>
+                        <tr>
+                            <th>Nama</th>
+                            <th>NIK</th>
+                            <th>Foto Rumah</th>
+                            <th>Koordinat Baru</th>
+                        </tr>
+                    </thead>
+                    <tbody id="recapBody">
+                        <!-- Injected here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+
+
     <script>
         let allData = [];
         let markers = [];
+        let selectedVillage = null;
         const map = L.map('map', { zoomControl: false }).setView([-7.629, 111.523], 10); // Center on Madiun
 
         L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -693,20 +807,24 @@
 
         function updateVillageStats(data) {
             const villageCounts = {};
-            data.forEach(d => {
+            // Count based on ALL data to show totals, or filtered data? 
+            // Usually nice to see total counts available.
+            // Let's use allData for the list, so it serves as a filter menu.
+            allData.forEach(d => {
                 const village = d.d;
                 villageCounts[village] = (villageCounts[village] || 0) + 1;
             });
 
             const sortedVillages = Object.entries(villageCounts)
-                .sort((a, b) => b[1] - a[1]);
+                .sort((a, b) => a[0].localeCompare(b[0])); // Sort A-Z
 
             const statsContainer = document.getElementById('villageStats');
             statsContainer.innerHTML = "";
 
             sortedVillages.forEach(([name, count]) => {
                 const div = document.createElement('div');
-                div.className = 'village-item';
+                div.className = `village-item ${selectedVillage === name ? 'active' : ''}`;
+                div.onclick = () => filterByVillage(name);
                 div.innerHTML = `
             <span class="v-name">${name}</span>
             <span class="v-count">${count}</span>
@@ -714,6 +832,17 @@
                 statsContainer.appendChild(div);
             });
         }
+
+        function filterByVillage(name) {
+            if (selectedVillage === name) {
+                selectedVillage = null; // Toggle off
+            } else {
+                selectedVillage = name;
+            }
+            updateVillageStats(allData); // Re-render to update active state
+            render(); // Filter main data
+        }
+
 
         function switchTab(view) {
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
@@ -746,7 +875,8 @@
             const filtered = allData.filter(d => {
                 const matchTerm = (d.n + ' ' + d.k + ' ' + d.d).toLowerCase().includes(term);
                 const matchKec = kecFilter === "" || d.kc === kecFilter;
-                return matchTerm && matchKec;
+                const matchDesa = selectedVillage ? d.d === selectedVillage : true;
+                return matchTerm && matchKec && matchDesa;
             });
 
             container.innerHTML = "";
@@ -771,9 +901,10 @@
                     <div class="popup-row"><span class="popup-label">NIK</span> <span class="popup-val">${d.k}</span></div>
                     <div class="popup-row"><span class="popup-label">Alamat Lengkap</span> <span class="popup-val">${d.a}, ${d.d}, ${d.kc}</span></div>
                     <hr style="border:0; border-top:1px dashed #cbd5e1; margin:10px 0;">
-                    <div style="font-size:0.75rem; color:#64748b; margin-bottom:5px;">Update Lokasi dari Foto:</div>
+                    <div style="font-size:0.75rem; color:#64748b; margin-bottom:5px;">Update Foto Rumah (Tampak Depan):</div>
                     <input type="file" accept="image/*" style="font-size:0.8rem; width:100%" onchange="handlePhotoUpload(this, ${idx})">
-                    <div id="msg-${idx}" style="font-size:0.7rem; color:#d97706; margin-top:5px;"></div>
+                    <div id="preview-${idx}" style="margin-top:5px;">${d.foto ? `<img src="${d.foto}" style="width:100%; border-radius:4px; max-height:150px; object-fit:cover;">` : ''}</div>
+                    <div id="msg-${idx}" style="font-size:0.7rem; color:#d97706; margin-top:5px;">${d.verified ? '<span style="color:green">✅ Terverifikasi</span>' : ''}</div>
                 </div>
             `);
                     m.addTo(map);
@@ -882,15 +1013,66 @@
             switchMobileTab('map');
         }
 
-        // --- GPS Parsing Logic ---
+        // --- GPS & Photo Logic ---
         function handlePhotoUpload(input, idx) {
             const file = input.files[0];
             const msgDiv = document.getElementById(`msg-${idx}`);
+            const previewDiv = document.getElementById(`preview-${idx}`);
             if (!file) return;
 
-            msgDiv.textContent = "Membaca data GPS...";
+            msgDiv.textContent = "Memproses foto...";
             msgDiv.style.color = "#d97706";
 
+            // 1. Resize & Store Photo
+            const reader = new FileReader();
+            reader.onload = function (e) {
+                const img = new Image();
+                img.onload = function () {
+                    const canvas = document.createElement('canvas');
+                    const ctx = canvas.getContext('2d');
+
+                    // Max size 300px
+                    const maxSize = 300;
+                    let width = img.width;
+                    let height = img.height;
+
+                    if (width > height) {
+                        if (width > maxSize) {
+                            height *= maxSize / width;
+                            width = maxSize;
+                        }
+                    } else {
+                        if (height > maxSize) {
+                            width *= maxSize / height;
+                            height = maxSize;
+                        }
+                    }
+
+                    canvas.width = width;
+                    canvas.height = height;
+                    ctx.drawImage(img, 0, 0, width, height);
+
+                    const dataUrl = canvas.toDataURL('image/jpeg', 0.7); // Compress
+
+                    // Update Data
+                    const d = allData[idx];
+                    d.foto = dataUrl;
+                    d.verified = true;
+
+                    // Show Preview
+                    if (previewDiv) {
+                        previewDiv.innerHTML = `<img src="${dataUrl}" style="width:100%; border-radius:4px; max-height:150px; object-fit:cover;">`;
+                    }
+
+                    // 2. Parse GPS (Continue to existing logic)
+                    parseGPS(file, idx, msgDiv);
+                };
+                img.src = e.target.result;
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function parseGPS(file, idx, msgDiv) {
             EXIF.getData(file, function () {
                 const lat = EXIF.getTag(this, "GPSLatitude");
                 const lng = EXIF.getTag(this, "GPSLongitude");
@@ -913,31 +1095,30 @@
                     if (m) {
                         m.setLatLng([decimalLat, decimalLng]);
                         map.setView([decimalLat, decimalLng], 18);
+                        m.setStyle({
+                            color: '#166534',
+                            fillColor: '#22c55e'
+                        }); // Turn Green
 
-                        // Update Popup Content to show success
+                        // Update Popup Content
                         m.setPopupContent(`
                             <div style="min-width: 250px">
                                 <h3 style="margin:0 0 5px; color:#166534">✅ Lokasi Terupdate!</h3>
                                 <div style="font-size:0.8rem; margin-bottom:5px;">${d.n}</div>
                                 <div class="popup-row"><span class="popup-label">Baru</span> <span class="popup-val">${decimalLat.toFixed(6)}, ${decimalLng.toFixed(6)}</span></div>
                                 <hr style="border:0; border-top:1px dashed #cbd5e1; margin:10px 0;">
-                                <div style="font-size:0.75rem; color:#64748b;">Lokasi diambil dari foto. Jangan lupa simpan data.</div>
+                                ${d.foto ? `<img src="${d.foto}" style="width:100%; border-radius:4px; margin-bottom:5px; max-height:150px; object-fit:cover;">` : ''}
+                                <div style="font-size:0.75rem; color:#64748b;">Lokasi & Foto tersimpan.</div>
                             </div>
                         `);
                     }
 
-                    msgDiv.textContent = "Berhasil update lokasi!";
-                    msgDiv.style.color = "green";
-
-                    // Re-render to update coordinates in memory/view if needed, 
-                    // but we updated marker directly for better UX. 
-                    // We should flag this item as modified if we want to visually indicate it in the list.
+                    msgDiv.innerHTML = '<span style="color:green">✅ Lokasi & Foto Terupdate!</span>';
                 } else {
                     msgDiv.innerHTML = `
-                        Foto tidak memiliki GPS. <br>
-                        <a href="#" onclick="manualInput(${idx}); return false;" style="color:blue; text-decoration:underline;">Input Manual?</a>
+                        <span style="color:orange">⚠️ Foto disimpan tanpa GPS.</span><br>
+                        <a href="#" onclick="manualInput(${idx}); return false;" style="color:blue; text-decoration:underline;">Input Lokasi Manual?</a>
                     `;
-                    msgDiv.style.color = "red";
                 }
             });
         }
@@ -990,7 +1171,9 @@
                 kc: d.kc,
                 kb: d.kb,
                 lat: d.lat,
-                lng: d.lng
+                lng: d.lng,
+                verified: d.verified || false,
+                foto: d.foto || null
             }));
 
             const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportData, null, 2));
@@ -1000,6 +1183,56 @@
             document.body.appendChild(downloadAnchorNode);
             downloadAnchorNode.click();
             downloadAnchorNode.remove();
+        }
+
+        // --- Recap Modal Functions ---
+        function openRecap() {
+            const modal = document.getElementById('recapModal');
+            const tbody = document.getElementById('recapBody');
+            tbody.innerHTML = "";
+
+            const verified = allData.filter(d => d.verified);
+
+            if (verified.length === 0) {
+                tbody.innerHTML = "<tr><td colspan='4' style='text-align:center; padding:2rem;'>Belum ada data diverifikasi. Silakan upload foto penerima.</td></tr>";
+            } else {
+                verified.forEach(d => {
+                    const row = document.createElement('tr');
+                    row.innerHTML = `
+                        <td><strong>${d.n}</strong></td>
+                        <td>${d.k}</td>
+                        <td>${d.foto ? `<img src="${d.foto}" style="width:50px; height:50px; object-fit:cover; border-radius:4px;">` : '-'}</td>
+                        <td>${d.lat ? `${d.lat.toFixed(5)}, ${d.lng.toFixed(5)}` : '-'}</td>
+                    `;
+                    tbody.appendChild(row);
+                });
+            }
+
+            modal.style.display = 'flex';
+        }
+
+        function closeRecap() {
+            document.getElementById('recapModal').style.display = 'none';
+        }
+
+        function downloadRecap() {
+            const verified = allData.filter(d => d.verified);
+            if (verified.length === 0) { alert("Tidak ada data untuk didownload."); return; }
+
+            let csvContent = "data:text/csv;charset=utf-8,";
+            csvContent += "Nama,NIK,Desa,Kecamatan,Latitude,Longitude,Status\n";
+
+            verified.forEach(d => {
+                const row = `${d.n},'${d.k},${d.d},${d.kc},${d.lat},${d.lng},Verified`;
+                csvContent += row + "\n";
+            });
+
+            const encodedUri = encodeURI(csvContent);
+            const link = document.createElement("a");
+            link.setAttribute("href", encodedUri);
+            link.setAttribute("download", "rekap_verifikasi_bsps.csv");
+            document.body.appendChild(link);
+            link.click();
         }
 
         loadData();

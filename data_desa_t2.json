@@ -1,1 +1,3224 @@
-[]
+[
+  {
+    "k": "3505052008",
+    "d": "KEDUNGBANTENG",
+    "kc": "BAKUNG",
+    "kb": "KAB. BLITAR",
+    "j": 4,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505052006",
+    "d": "NGREJO",
+    "kc": "BAKUNG",
+    "kb": "KAB. BLITAR",
+    "j": 1,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505052009",
+    "d": "SIDOMULYO",
+    "kc": "BAKUNG",
+    "kb": "KAB. BLITAR",
+    "j": 12,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505052004",
+    "d": "SUMBERDADI",
+    "kc": "BAKUNG",
+    "kb": "KAB. BLITAR",
+    "j": 2,
+    "lat": -8.091972,
+    "lng": 111.984859
+  },
+  {
+    "k": "3505052002",
+    "d": "TUMPAKOYOT",
+    "kc": "BAKUNG",
+    "kb": "KAB. BLITAR",
+    "j": 5,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505162011",
+    "d": "BIROWO",
+    "kc": "BINANGUN",
+    "kb": "KAB. BLITAR",
+    "j": 1,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505162001",
+    "d": "KEDUNGWUNGU",
+    "kc": "BINANGUN",
+    "kb": "KAB. BLITAR",
+    "j": 15,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505162010",
+    "d": "NGADRI",
+    "kc": "BINANGUN",
+    "kb": "KAB. BLITAR",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505162006",
+    "d": "NGEMBUL",
+    "kc": "BINANGUN",
+    "kb": "KAB. BLITAR",
+    "j": 2,
+    "lat": -8.174873,
+    "lng": 112.343857
+  },
+  {
+    "k": "3505162002",
+    "d": "SALAMREJO",
+    "kc": "BINANGUN",
+    "kb": "KAB. BLITAR",
+    "j": 10,
+    "lat": -8.248347,
+    "lng": 112.338724
+  },
+  {
+    "k": "3505162007",
+    "d": "SAMBIGEDE",
+    "kc": "BINANGUN",
+    "kb": "KAB. BLITAR",
+    "j": 11,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505162012",
+    "d": "SUKORAME",
+    "kc": "BINANGUN",
+    "kb": "KAB. BLITAR",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505162003",
+    "d": "SUMBERKEMBAR",
+    "kc": "BINANGUN",
+    "kb": "KAB. BLITAR",
+    "j": 15,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505162008",
+    "d": "TAWANGREJO",
+    "kc": "BINANGUN",
+    "kb": "KAB. BLITAR",
+    "j": 4,
+    "lat": -8.174873,
+    "lng": 112.343857
+  },
+  {
+    "k": "3505182009",
+    "d": "RESAPOMBO",
+    "kc": "DOKO",
+    "kb": "KAB. BLITAR",
+    "j": 5,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505182008",
+    "d": "SIDOREJO",
+    "kc": "DOKO",
+    "kb": "KAB. BLITAR",
+    "j": 15,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505182001",
+    "d": "SLOROK",
+    "kc": "DOKO",
+    "kb": "KAB. BLITAR",
+    "j": 2,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505152002",
+    "d": "GADUNGAN",
+    "kc": "GANDUSARI",
+    "kb": "KAB. BLITAR",
+    "j": 24,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505152005",
+    "d": "GONDANG",
+    "kc": "GANDUSARI",
+    "kb": "KAB. BLITAR",
+    "j": 4,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505152009",
+    "d": "NGARINGAN",
+    "kc": "GANDUSARI",
+    "kb": "KAB. BLITAR",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505152004",
+    "d": "SUKOSEWU",
+    "kc": "GANDUSARI",
+    "kb": "KAB. BLITAR",
+    "j": 15,
+    "lat": -8.044691,
+    "lng": 112.293217
+  },
+  {
+    "k": "3505111004",
+    "d": "GARUM",
+    "kc": "GARUM",
+    "kb": "KAB. BLITAR",
+    "j": 6,
+    "lat": -8.073588,
+    "lng": 112.21695
+  },
+  {
+    "k": "3505112001",
+    "d": "POJOK",
+    "kc": "GARUM",
+    "kb": "KAB. BLITAR",
+    "j": 4,
+    "lat": -8.078868,
+    "lng": 112.198226
+  },
+  {
+    "k": "3505112008",
+    "d": "SIDODADI",
+    "kc": "GARUM",
+    "kb": "KAB. BLITAR",
+    "j": 21,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505112007",
+    "d": "SLOROK",
+    "kc": "GARUM",
+    "kb": "KAB. BLITAR",
+    "j": 5,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505111002",
+    "d": "SUMBERDIREN",
+    "kc": "GARUM",
+    "kb": "KAB. BLITAR",
+    "j": 4,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505042004",
+    "d": "KEBONSARI",
+    "kc": "KADEMANGAN",
+    "kb": "KAB. BLITAR",
+    "j": 1,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505042002",
+    "d": "MARON",
+    "kc": "KADEMANGAN",
+    "kb": "KAB. BLITAR",
+    "j": 3,
+    "lat": -8.093192,
+    "lng": 112.082023
+  },
+  {
+    "k": "3505042007",
+    "d": "SURUHWADANG",
+    "kc": "KADEMANGAN",
+    "kb": "KAB. BLITAR",
+    "j": 2,
+    "lat": -8.196975,
+    "lng": 112.103535
+  },
+  {
+    "k": "3505192003",
+    "d": "JUGO",
+    "kc": "KESAMBEN",
+    "kb": "KAB. BLITAR",
+    "j": 5,
+    "lat": -8.161922,
+    "lng": 112.367297
+  },
+  {
+    "k": "3505092004",
+    "d": "DAYU",
+    "kc": "NGLEGOK",
+    "kb": "KAB. BLITAR",
+    "j": 2,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505092003",
+    "d": "NGORAN",
+    "kc": "NGLEGOK",
+    "kb": "KAB. BLITAR",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505132001",
+    "d": "SERANG",
+    "kc": "PANGGUNGREJO",
+    "kb": "KAB. BLITAR",
+    "j": 5,
+    "lat": -8.196141,
+    "lng": 112.266177
+  },
+  {
+    "k": "3505132009",
+    "d": "SUMBERAGUNG",
+    "kc": "PANGGUNGREJO",
+    "kb": "KAB. BLITAR",
+    "j": 4,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505132005",
+    "d": "SUMBERSIH",
+    "kc": "PANGGUNGREJO",
+    "kb": "KAB. BLITAR",
+    "j": 18,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505062015",
+    "d": "KARANGBENDO",
+    "kc": "PONGGOK",
+    "kb": "KAB. BLITAR",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505062012",
+    "d": "SIDOREJO",
+    "kc": "PONGGOK",
+    "kb": "KAB. BLITAR",
+    "j": 13,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505222003",
+    "d": "JAMBEWANGI",
+    "kc": "SELOPURO",
+    "kb": "KAB. BLITAR",
+    "j": 58,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505222001",
+    "d": "MANDESAN",
+    "kc": "SELOPURO",
+    "kb": "KAB. BLITAR",
+    "j": 4,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505222007",
+    "d": "POPOH",
+    "kc": "SELOPURO",
+    "kb": "KAB. BLITAR",
+    "j": 3,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505222005",
+    "d": "TEGALREJO",
+    "kc": "SELOPURO",
+    "kb": "KAB. BLITAR",
+    "j": 10,
+    "lat": -8.091972,
+    "lng": 111.984859
+  },
+  {
+    "k": "3505121002",
+    "d": "KEDUNGBUNDER",
+    "kc": "SUTOJAYAN",
+    "kb": "KAB. BLITAR",
+    "j": 1,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505142002",
+    "d": "KENDALREJO",
+    "kc": "TALUN",
+    "kb": "KAB. BLITAR",
+    "j": 6,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505202001",
+    "d": "PURWOREJO",
+    "kc": "WATES",
+    "kb": "KAB. BLITAR",
+    "j": 45,
+    "lat": -8.267386,
+    "lng": 112.323193
+  },
+  {
+    "k": "3505202004",
+    "d": "RINGINREJO",
+    "kc": "WATES",
+    "kb": "KAB. BLITAR",
+    "j": 14,
+    "lat": -8.27707,
+    "lng": 112.348832
+  },
+  {
+    "k": "3505202006",
+    "d": "SUKOREJO",
+    "kc": "WATES",
+    "kb": "KAB. BLITAR",
+    "j": 1,
+    "lat": -8.27514,
+    "lng": 112.361317
+  },
+  {
+    "k": "3505202003",
+    "d": "SUMBERARUM",
+    "kc": "WATES",
+    "kb": "KAB. BLITAR",
+    "j": 6,
+    "lat": -8.248347,
+    "lng": 112.338724
+  },
+  {
+    "k": "3505202008",
+    "d": "TUGUREJO",
+    "kc": "WATES",
+    "kb": "KAB. BLITAR",
+    "j": 7,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505202002",
+    "d": "TULUNGREJO",
+    "kc": "WATES",
+    "kb": "KAB. BLITAR",
+    "j": 10,
+    "lat": -8.269431,
+    "lng": 112.32981
+  },
+  {
+    "k": "3505202007",
+    "d": "WATES",
+    "kc": "WATES",
+    "kb": "KAB. BLITAR",
+    "j": 10,
+    "lat": -8.255819,
+    "lng": 112.371684
+  },
+  {
+    "k": "3505012009",
+    "d": "GANDEKAN",
+    "kc": "WONODADI",
+    "kb": "KAB. BLITAR",
+    "j": 3,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505012001",
+    "d": "JATEN",
+    "kc": "WONODADI",
+    "kb": "KAB. BLITAR",
+    "j": 3,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505012004",
+    "d": "KALIBOTO",
+    "kc": "WONODADI",
+    "kb": "KAB. BLITAR",
+    "j": 1,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505012007",
+    "d": "KEBONAGUNG",
+    "kc": "WONODADI",
+    "kb": "KAB. BLITAR",
+    "j": 3,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505012010",
+    "d": "KUNIR",
+    "kc": "WONODADI",
+    "kb": "KAB. BLITAR",
+    "j": 2,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505012008",
+    "d": "PIKATAN",
+    "kc": "WONODADI",
+    "kb": "KAB. BLITAR",
+    "j": 4,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505012003",
+    "d": "REJOSARI",
+    "kc": "WONODADI",
+    "kb": "KAB. BLITAR",
+    "j": 3,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505012002",
+    "d": "SALAM",
+    "kc": "WONODADI",
+    "kb": "KAB. BLITAR",
+    "j": 2,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505012006",
+    "d": "TAWANGREJO",
+    "kc": "WONODADI",
+    "kb": "KAB. BLITAR",
+    "j": 5,
+    "lat": -8.174873,
+    "lng": 112.343857
+  },
+  {
+    "k": "3505012005",
+    "d": "WONODADI",
+    "kc": "WONODADI",
+    "kb": "KAB. BLITAR",
+    "j": 5,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3505082002",
+    "d": "KALIGRENJENG",
+    "kc": "WONOTIRTO",
+    "kb": "KAB. BLITAR",
+    "j": 5,
+    "lat": -8.241814,
+    "lng": 112.129152
+  },
+  {
+    "k": "3505082001",
+    "d": "PASIRAMAN",
+    "kc": "WONOTIRTO",
+    "kb": "KAB. BLITAR",
+    "j": 5,
+    "lat": -8.241814,
+    "lng": 112.129152
+  },
+  {
+    "k": "3505082006",
+    "d": "WONOTIRTO",
+    "kc": "WONOTIRTO",
+    "kb": "KAB. BLITAR",
+    "j": 24,
+    "lat": -8.227444,
+    "lng": 112.126114
+  },
+  {
+    "k": "3511202006",
+    "d": "JERUKSOKSOK",
+    "kc": "BINAKAL",
+    "kb": "KAB. BONDOWOSO",
+    "j": 14,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511202007",
+    "d": "SUMBER TENGAH",
+    "kc": "BINAKAL",
+    "kb": "KAB. BONDOWOSO",
+    "j": 21,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511062013",
+    "d": "KEJAWAN",
+    "kc": "GRUJUGAN",
+    "kb": "KAB. BONDOWOSO",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511062004",
+    "d": "SUMBER PANDAN",
+    "kc": "GRUJUGAN",
+    "kb": "KAB. BONDOWOSO",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511232005",
+    "d": "TEGALPASIR",
+    "kc": "JAMBESARI DARUS SHOLAH",
+    "kb": "KAB. BONDOWOSO",
+    "j": 6,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511012007",
+    "d": "SUMBER PAKEM",
+    "kc": "MAESAN",
+    "kb": "KAB. BONDOWOSO",
+    "j": 3,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511172002",
+    "d": "ARDISAENG",
+    "kc": "PAKEM",
+    "kb": "KAB. BONDOWOSO",
+    "j": 23,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511172004",
+    "d": "GADINGSARI",
+    "kc": "PAKEM",
+    "kb": "KAB. BONDOWOSO",
+    "j": 10,
+    "lat": -7.868184,
+    "lng": 113.733013
+  },
+  {
+    "k": "3511182003",
+    "d": "SUKOSARI KIDUL",
+    "kc": "SUMBERWRINGIN",
+    "kb": "KAB. BONDOWOSO",
+    "j": 13,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511212006",
+    "d": "PAGUAN",
+    "kc": "TAMAN KROCOK",
+    "kb": "KAB. BONDOWOSO",
+    "j": 18,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511212005",
+    "d": "SUMBERKOKAP",
+    "kc": "TAMAN KROCOK",
+    "kb": "KAB. BONDOWOSO",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511212001",
+    "d": "TAMAN",
+    "kc": "TAMAN KROCOK",
+    "kb": "KAB. BONDOWOSO",
+    "j": 9,
+    "lat": -7.984354,
+    "lng": 113.793664
+  },
+  {
+    "k": "3511132006",
+    "d": "TEGALAMPEL",
+    "kc": "TEGALAMPEL",
+    "kb": "KAB. BONDOWOSO",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511082002",
+    "d": "LOJAJAR",
+    "kc": "TENGGARANG",
+    "kb": "KAB. BONDOWOSO",
+    "j": 8,
+    "lat": -7.985769,
+    "lng": 113.919386
+  },
+  {
+    "k": "3511082005",
+    "d": "SUMBER SALAM",
+    "kc": "TENGGARANG",
+    "kb": "KAB. BONDOWOSO",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3511082010",
+    "d": "TANGSIL KULON",
+    "kc": "TENGGARANG",
+    "kb": "KAB. BONDOWOSO",
+    "j": 9,
+    "lat": -7.913916,
+    "lng": 113.872307
+  },
+  {
+    "k": "3511122012",
+    "d": "WRINGIN",
+    "kc": "WRINGIN",
+    "kb": "KAB. BONDOWOSO",
+    "j": 9,
+    "lat": -7.812044,
+    "lng": 113.753753
+  },
+  {
+    "k": "3525042017",
+    "d": "GURANGPLOSO",
+    "kc": "BENJENG",
+    "kb": "KAB. GRESIK",
+    "j": 9,
+    "lat": -7.278662994841865,
+    "lng": 112.50532449048727
+  },
+  {
+    "k": "3525042021",
+    "d": "JATIREMBE",
+    "kc": "BENJENG",
+    "kb": "KAB. GRESIK",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3525172015",
+    "d": "KEBONTELUKDALAM",
+    "kc": "SANGKAPURA",
+    "kb": "KAB. GRESIK",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3525172002",
+    "d": "KUMALASA",
+    "kc": "SANGKAPURA",
+    "kb": "KAB. GRESIK",
+    "j": 13,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3509102004",
+    "d": "BALUNGKULON",
+    "kc": "BALUNG",
+    "kb": "KAB. JEMBER",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3509092004",
+    "d": "TUGUSARI",
+    "kc": "BANGSALSARI",
+    "kb": "KAB. JEMBER",
+    "j": 9,
+    "lat": -8.181793,
+    "lng": 113.541275
+  },
+  {
+    "k": "3509162006",
+    "d": "JATISARI",
+    "kc": "JENGGAWAH",
+    "kb": "KAB. JEMBER",
+    "j": 21,
+    "lat": -8.313314,
+    "lng": 113.635824
+  },
+  {
+    "k": "3509262001",
+    "d": "MRAWAN",
+    "kc": "MAYANG",
+    "kb": "KAB. JEMBER",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3509232005",
+    "d": "SUCO",
+    "kc": "MUMBULSARI",
+    "kb": "KAB. JEMBER",
+    "j": 16,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3509142003",
+    "d": "PANTI",
+    "kc": "PANTI",
+    "kb": "KAB. JEMBER",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3509201008",
+    "d": "BARATAN",
+    "kc": "PATRANG",
+    "kb": "KAB. JEMBER",
+    "j": 9,
+    "lat": -8.132134,
+    "lng": 113.726406
+  },
+  {
+    "k": "3509132001",
+    "d": "NOGOSARI",
+    "kc": "RAMBIPUJI",
+    "kb": "KAB. JEMBER",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3509132006",
+    "d": "RAMBIPUJI",
+    "kc": "RAMBIPUJI",
+    "kb": "KAB. JEMBER",
+    "j": 24,
+    "lat": -8.203271,
+    "lng": 113.614395
+  },
+  {
+    "k": "3509032007",
+    "d": "GELANG",
+    "kc": "SUMBERBARU",
+    "kb": "KAB. JEMBER",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3509312003",
+    "d": "PRINGGONDANI",
+    "kc": "SUMBERJAMBE",
+    "kb": "KAB. JEMBER",
+    "j": 25,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517042010",
+    "d": "BANJARAGUNG",
+    "kc": "BARENG",
+    "kb": "KAB. JOMBANG",
+    "j": 16,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517042007",
+    "d": "BARENG",
+    "kc": "BARENG",
+    "kb": "KAB. JOMBANG",
+    "j": 13,
+    "lat": -7.683525129100152,
+    "lng": 112.30058982541007
+  },
+  {
+    "k": "3517082007",
+    "d": "CUKIR",
+    "kc": "DIWEK",
+    "kb": "KAB. JOMBANG",
+    "j": 8,
+    "lat": -7.625404,
+    "lng": 112.243666
+  },
+  {
+    "k": "3517082001",
+    "d": "KAYANGAN",
+    "kc": "DIWEK",
+    "kb": "KAB. JOMBANG",
+    "j": 11,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517082013",
+    "d": "KEDAWONG",
+    "kc": "DIWEK",
+    "kb": "KAB. JOMBANG",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517192005",
+    "d": "SAWIJI",
+    "kc": "JOGOROTO",
+    "kb": "KAB. JOMBANG",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517092009",
+    "d": "SENGON",
+    "kc": "JOMBANG",
+    "kb": "KAB. JOMBANG",
+    "j": 5,
+    "lat": -7.548812,
+    "lng": 112.223659
+  },
+  {
+    "k": "3517122013",
+    "d": "GUMULAN",
+    "kc": "KESAMBEN",
+    "kb": "KAB. JOMBANG",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517122009",
+    "d": "KESAMBEN",
+    "kc": "KESAMBEN",
+    "kb": "KAB. JOMBANG",
+    "j": 14,
+    "lat": -7.462327,
+    "lng": 112.317794
+  },
+  {
+    "k": "3517172011",
+    "d": "KATEMAS",
+    "kc": "KUDU",
+    "kb": "KAB. JOMBANG",
+    "j": 10,
+    "lat": -7.405864,
+    "lng": 112.283168
+  },
+  {
+    "k": "3517072008",
+    "d": "GONDEK",
+    "kc": "MOJOWARNO",
+    "kb": "KAB. JOMBANG",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517072012",
+    "d": "MENGANTO",
+    "kc": "MOJOWARNO",
+    "kb": "KAB. JOMBANG",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517072016",
+    "d": "SIDOKERTO",
+    "kc": "MOJOWARNO",
+    "kb": "KAB. JOMBANG",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517032006",
+    "d": "BADANG",
+    "kc": "NGORO",
+    "kb": "KAB. JOMBANG",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517032002",
+    "d": "GENUKWATU",
+    "kc": "NGORO",
+    "kb": "KAB. JOMBANG",
+    "j": 22,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517032001",
+    "d": "JOMBOK",
+    "kc": "NGORO",
+    "kb": "KAB. JOMBANG",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517032011",
+    "d": "KESAMBEN",
+    "kc": "NGORO",
+    "kb": "KAB. JOMBANG",
+    "j": 12,
+    "lat": -7.661275,
+    "lng": 112.264712
+  },
+  {
+    "k": "3517012001",
+    "d": "JANTIGANGGONG",
+    "kc": "PERAK",
+    "kb": "KAB. JOMBANG",
+    "j": 6,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517012004",
+    "d": "PAGERWOJO",
+    "kc": "PERAK",
+    "kb": "KAB. JOMBANG",
+    "j": 17,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517012010",
+    "d": "PLOSOGENUK",
+    "kc": "PERAK",
+    "kb": "KAB. JOMBANG",
+    "j": 8,
+    "lat": -7.556234,
+    "lng": 112.157263
+  },
+  {
+    "k": "3517102013",
+    "d": "TENGARAN",
+    "kc": "PETERONGAN",
+    "kb": "KAB. JOMBANG",
+    "j": 2,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517152011",
+    "d": "DARUREJO",
+    "kc": "PLANDAAN",
+    "kb": "KAB. JOMBANG",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517152009",
+    "d": "PURISEMANDING",
+    "kc": "PLANDAAN",
+    "kb": "KAB. JOMBANG",
+    "j": 12,
+    "lat": -7.449199,
+    "lng": 112.197726
+  },
+  {
+    "k": "3517152010",
+    "d": "TONDOWULAN",
+    "kc": "PLANDAAN",
+    "kb": "KAB. JOMBANG",
+    "j": 21,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517112020",
+    "d": "GEDANGAN",
+    "kc": "SUMOBITO",
+    "kb": "KAB. JOMBANG",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517112010",
+    "d": "MLARAS",
+    "kc": "SUMOBITO",
+    "kb": "KAB. JOMBANG",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517132012",
+    "d": "JATIWATES",
+    "kc": "TEMBELANG",
+    "kb": "KAB. JOMBANG",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517132014",
+    "d": "PULOGEDANG",
+    "kc": "TEMBELANG",
+    "kb": "KAB. JOMBANG",
+    "j": 13,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517052009",
+    "d": "PANGLUNGAN",
+    "kc": "WONOSALAM",
+    "kb": "KAB. JOMBANG",
+    "j": 17,
+    "lat": -7.660721,
+    "lng": 112.435158
+  },
+  {
+    "k": "3517052008",
+    "d": "SUMBERJO",
+    "kc": "WONOSALAM",
+    "kb": "KAB. JOMBANG",
+    "j": 13,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517052002",
+    "d": "WONOMERTO",
+    "kc": "WONOSALAM",
+    "kb": "KAB. JOMBANG",
+    "j": 16,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3517052005",
+    "d": "WONOSALAM",
+    "kc": "WONOSALAM",
+    "kb": "KAB. JOMBANG",
+    "j": 18,
+    "lat": -7.708631,
+    "lng": 112.369641
+  },
+  {
+    "k": "3506222002",
+    "d": "JATIREJO",
+    "kc": "BANYAKAN",
+    "kb": "KAB. KEDIRI",
+    "j": 10,
+    "lat": -7.764562,
+    "lng": 111.962641
+  },
+  {
+    "k": "3506222004",
+    "d": "TIRON",
+    "kc": "BANYAKAN",
+    "kb": "KAB. KEDIRI",
+    "j": 13,
+    "lat": -7.781376,
+    "lng": 111.955205
+  },
+  {
+    "k": "3506132008",
+    "d": "GAMBYOK",
+    "kc": "GROGOL",
+    "kb": "KAB. KEDIRI",
+    "j": 10,
+    "lat": -7.734793,
+    "lng": 111.993746
+  },
+  {
+    "k": "3506132001",
+    "d": "KALIPANG",
+    "kc": "GROGOL",
+    "kb": "KAB. KEDIRI",
+    "j": 10,
+    "lat": -7.761105,
+    "lng": 111.938561
+  },
+  {
+    "k": "3506102013",
+    "d": "SUMBERCANGKRING",
+    "kc": "GURAH",
+    "kb": "KAB. KEDIRI",
+    "j": 15,
+    "lat": -7.8194,
+    "lng": 112.09976
+  },
+  {
+    "k": "3506242012",
+    "d": "KAYEN KIDUL",
+    "kc": "KAYEN KIDUL",
+    "kb": "KAB. KEDIRI",
+    "j": 9,
+    "lat": -7.738833,
+    "lng": 112.094521
+  },
+  {
+    "k": "3506022001",
+    "d": "JUGO",
+    "kc": "MOJO",
+    "kb": "KAB. KEDIRI",
+    "j": 18,
+    "lat": -7.868808,
+    "lng": 111.884372
+  },
+  {
+    "k": "3506072002",
+    "d": "PANDANTOYO",
+    "kc": "NGANCAR",
+    "kb": "KAB. KEDIRI",
+    "j": 10,
+    "lat": -7.930168,
+    "lng": 112.153919
+  },
+  {
+    "k": "3506092007",
+    "d": "BRENGGOLO",
+    "kc": "PLOSOKLATEN",
+    "kb": "KAB. KEDIRI",
+    "j": 19,
+    "lat": -7.851174,
+    "lng": 112.128208
+  },
+  {
+    "k": "3506232007",
+    "d": "SUSUHBANGO",
+    "kc": "RINGINREJO",
+    "kb": "KAB. KEDIRI",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3506012004",
+    "d": "SELOPANGGUNG",
+    "kc": "SEMEN",
+    "kb": "KAB. KEDIRI",
+    "j": 10,
+    "lat": -7.853796,
+    "lng": 111.928738
+  },
+  {
+    "k": "3506202010",
+    "d": "CENGKOK",
+    "kc": "TAROKAN",
+    "kb": "KAB. KEDIRI",
+    "j": 8,
+    "lat": -7.69615,
+    "lng": 111.956216
+  },
+  {
+    "k": "3506202006",
+    "d": "SUMBERDUREN",
+    "kc": "TAROKAN",
+    "kb": "KAB. KEDIRI",
+    "j": 9,
+    "lat": -7.711725,
+    "lng": 111.951183
+  },
+  {
+    "k": "3506202004",
+    "d": "TAROKAN",
+    "kc": "TAROKAN",
+    "kb": "KAB. KEDIRI",
+    "j": 10,
+    "lat": -7.717209,
+    "lng": 111.936983
+  },
+  {
+    "k": "3524052020",
+    "d": "KEYONGAN",
+    "kc": "BABAT",
+    "kb": "KAB. LAMONGAN",
+    "j": 18,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3524072008",
+    "d": "SEDAYULAWAS",
+    "kc": "BRONDONG",
+    "kb": "KAB. LAMONGAN",
+    "j": 26,
+    "lat": -6.900631,
+    "lng": 112.175305
+  },
+  {
+    "k": "3524202013",
+    "d": "GAMBUHAN",
+    "kc": "KALITENGAH",
+    "kb": "KAB. LAMONGAN",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3524202001",
+    "d": "PUCANGRO",
+    "kc": "KALITENGAH",
+    "kb": "KAB. LAMONGAN",
+    "j": 7,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3524182011",
+    "d": "BANJARMADU",
+    "kc": "KARANGGENENG",
+    "kb": "KAB. LAMONGAN",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3524032010",
+    "d": "SIDODOWO",
+    "kc": "MODO",
+    "kb": "KAB. LAMONGAN",
+    "j": 34,
+    "lat": -7.204406,
+    "lng": 112.202722
+  },
+  {
+    "k": "3524142016",
+    "d": "SIDOKUMPUL",
+    "kc": "PACIRAN",
+    "kb": "KAB. LAMONGAN",
+    "j": 9,
+    "lat": -7.311623,
+    "lng": 112.221963
+  },
+  {
+    "k": "3524142017",
+    "d": "WARULOR",
+    "kc": "PACIRAN",
+    "kb": "KAB. LAMONGAN",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3524122013",
+    "d": "DEKETAGUNG",
+    "kc": "SUGIO",
+    "kb": "KAB. LAMONGAN",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3508182011",
+    "d": "RANUWURUNG",
+    "kc": "RANDUAGUNG",
+    "kb": "KAB. LUMAJANG",
+    "j": 24,
+    "lat": -8.055465,
+    "lng": 113.297436
+  },
+  {
+    "k": "3508152003",
+    "d": "KARANGSARI",
+    "kc": "SUKODONO",
+    "kb": "KAB. LUMAJANG",
+    "j": 9,
+    "lat": -8.10636,
+    "lng": 113.219863
+  },
+  {
+    "k": "3519132017",
+    "d": "KREBET",
+    "kc": "PILANGKENCENG",
+    "kb": "KAB. MADIUN",
+    "j": 20,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520122013",
+    "d": "BANGUNASRI",
+    "kc": "BARAT",
+    "kb": "KAB. MAGETAN",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520122011",
+    "d": "JONGGRANG",
+    "kc": "BARAT",
+    "kb": "KAB. MAGETAN",
+    "j": 7,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520122014",
+    "d": "KLAGEN",
+    "kc": "BARAT",
+    "kb": "KAB. MAGETAN",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520122008",
+    "d": "NGUMPUL",
+    "kc": "BARAT",
+    "kb": "KAB. MAGETAN",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520122009",
+    "d": "PANGGUNG",
+    "kc": "BARAT",
+    "kb": "KAB. MAGETAN",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520122012",
+    "d": "REJOMULYO",
+    "kc": "BARAT",
+    "kb": "KAB. MAGETAN",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520101012",
+    "d": "BENDO",
+    "kc": "BENDO",
+    "kb": "KAB. MAGETAN",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520102015",
+    "d": "SETREN",
+    "kc": "BENDO",
+    "kb": "KAB. MAGETAN",
+    "j": 12,
+    "lat": -7.625559,
+    "lng": 111.377449
+  },
+  {
+    "k": "3520102008",
+    "d": "SOCO",
+    "kc": "BENDO",
+    "kb": "KAB. MAGETAN",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520102004",
+    "d": "TANJUNG",
+    "kc": "BENDO",
+    "kb": "KAB. MAGETAN",
+    "j": 27,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520132005",
+    "d": "PATIHAN",
+    "kc": "KARANGREJO",
+    "kb": "KAB. MAGETAN",
+    "j": 23,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520142009",
+    "d": "GEPLAK",
+    "kc": "KARAS",
+    "kb": "KAB. MAGETAN",
+    "j": 6,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520142003",
+    "d": "SUMURSONGO",
+    "kc": "KARAS",
+    "kb": "KAB. MAGETAN",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520142004",
+    "d": "TAJI",
+    "kc": "KARAS",
+    "kb": "KAB. MAGETAN",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520142007",
+    "d": "TEMBORO",
+    "kc": "KARAS",
+    "kb": "KAB. MAGETAN",
+    "j": 13,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520152008",
+    "d": "GUNUNGAN",
+    "kc": "KARTOHARJO",
+    "kb": "KAB. MAGETAN",
+    "j": 16,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520152006",
+    "d": "NGELANG",
+    "kc": "KARTOHARJO",
+    "kb": "KAB. MAGETAN",
+    "j": 5,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520112011",
+    "d": "SUMBEREJO",
+    "kc": "MAOSPATI",
+    "kb": "KAB. MAGETAN",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520081009",
+    "d": "PANEKAN",
+    "kc": "PANEKAN",
+    "kb": "KAB. MAGETAN",
+    "j": 2,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520082010",
+    "d": "TANJUNGSARI",
+    "kc": "PANEKAN",
+    "kb": "KAB. MAGETAN",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520072001",
+    "d": "NGANCAR",
+    "kc": "PLAOSAN",
+    "kb": "KAB. MAGETAN",
+    "j": 20,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520012003",
+    "d": "JANGGAN",
+    "kc": "PONCOL",
+    "kb": "KAB. MAGETAN",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520092005",
+    "d": "BIBIS",
+    "kc": "SUKOMORO",
+    "kb": "KAB. MAGETAN",
+    "j": 15,
+    "lat": -7.630815,
+    "lng": 111.370165
+  },
+  {
+    "k": "3520092011",
+    "d": "KEMBANGAN",
+    "kc": "SUKOMORO",
+    "kb": "KAB. MAGETAN",
+    "j": 17,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3520092008",
+    "d": "POJOKSARI",
+    "kc": "SUKOMORO",
+    "kb": "KAB. MAGETAN",
+    "j": 18,
+    "lat": -7.625559,
+    "lng": 111.377449
+  },
+  {
+    "k": "3507292004",
+    "d": "GEDANGAN",
+    "kc": "GEDANGAN",
+    "kb": "KAB. MALANG",
+    "j": 18,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3507292008",
+    "d": "GIRIMULYO",
+    "kc": "GEDANGAN",
+    "kb": "KAB. MALANG",
+    "j": 16,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3507292001",
+    "d": "SIDODADI",
+    "kc": "GEDANGAN",
+    "kb": "KAB. MALANG",
+    "j": 9,
+    "lat": -8.37183,
+    "lng": 112.656372
+  },
+  {
+    "k": "3507102008",
+    "d": "GANJARAN",
+    "kc": "GONDANGLEGI",
+    "kb": "KAB. MALANG",
+    "j": 15,
+    "lat": -8.134375,
+    "lng": 112.602445
+  },
+  {
+    "k": "3507232004",
+    "d": "NGIJO",
+    "kc": "KARANGPLOSO",
+    "kb": "KAB. MALANG",
+    "j": 3,
+    "lat": -7.887147,
+    "lng": 112.604407
+  },
+  {
+    "k": "3507132002",
+    "d": "SENGGURUH",
+    "kc": "KEPANJEN",
+    "kb": "KAB. MALANG",
+    "j": 9,
+    "lat": -8.161949,
+    "lng": 112.552451
+  },
+  {
+    "k": "3507252004",
+    "d": "BEDALI",
+    "kc": "LAWANG",
+    "kb": "KAB. MALANG",
+    "j": 5,
+    "lat": -8.142991,
+    "lng": 112.592761
+  },
+  {
+    "k": "3507252001",
+    "d": "SIDOLUHUR",
+    "kc": "LAWANG",
+    "kb": "KAB. MALANG",
+    "j": 12,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3507272006",
+    "d": "BANTUREJO",
+    "kc": "NGANTANG",
+    "kb": "KAB. MALANG",
+    "j": 26,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3507272007",
+    "d": "PANDANSARI",
+    "kc": "NGANTANG",
+    "kb": "KAB. MALANG",
+    "j": 13,
+    "lat": -7.878994,
+    "lng": 112.360088
+  },
+  {
+    "k": "3507272002",
+    "d": "SIDODADI",
+    "kc": "NGANTANG",
+    "kb": "KAB. MALANG",
+    "j": 8,
+    "lat": -8.37183,
+    "lng": 112.656372
+  },
+  {
+    "k": "3507272009",
+    "d": "SUMBERAGUNG",
+    "kc": "NGANTANG",
+    "kb": "KAB. MALANG",
+    "j": 10,
+    "lat": -8.346436,
+    "lng": 112.673895
+  },
+  {
+    "k": "3507192007",
+    "d": "PAKISAJI",
+    "kc": "PAKISAJI",
+    "kb": "KAB. MALANG",
+    "j": 8,
+    "lat": -8.031768,
+    "lng": 112.551311
+  },
+  {
+    "k": "3507042006",
+    "d": "KEDUNGBANTENG",
+    "kc": "SUMBERMANJING WETAN",
+    "kb": "KAB. MALANG",
+    "j": 5,
+    "lat": -8.365604048699876,
+    "lng": 112.71325287272538
+  },
+  {
+    "k": "3507302003",
+    "d": "KEPATIHAN",
+    "kc": "TIRTOYUDO",
+    "kb": "KAB. MALANG",
+    "j": 15,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3507302002",
+    "d": "SUMBERTANGKIL",
+    "kc": "TIRTOYUDO",
+    "kb": "KAB. MALANG",
+    "j": 15,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3507162001",
+    "d": "NGINGIT",
+    "kc": "TUMPANG",
+    "kb": "KAB. MALANG",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3516102010",
+    "d": "GAYAM",
+    "kc": "BANGSAL",
+    "kb": "KAB. MOJOKERTO",
+    "j": 8,
+    "lat": -7.493631,
+    "lng": 112.498131
+  },
+  {
+    "k": "3516102002",
+    "d": "SUMBERWONO",
+    "kc": "BANGSAL",
+    "kb": "KAB. MOJOKERTO",
+    "j": 10,
+    "lat": -7.513277,
+    "lng": 112.475523
+  },
+  {
+    "k": "3516182011",
+    "d": "JUMENENG",
+    "kc": "MOJOANYAR",
+    "kb": "KAB. MOJOKERTO",
+    "j": 1,
+    "lat": -7.480611,
+    "lng": 112.503898
+  },
+  {
+    "k": "3516182008",
+    "d": "NGARJO",
+    "kc": "MOJOANYAR",
+    "kb": "KAB. MOJOKERTO",
+    "j": 12,
+    "lat": -7.486788,
+    "lng": 112.485424
+  },
+  {
+    "k": "3516112011",
+    "d": "MEDALI",
+    "kc": "PURI",
+    "kb": "KAB. MOJOKERTO",
+    "j": 6,
+    "lat": -7.522852,
+    "lng": 112.440135
+  },
+  {
+    "k": "3516132003",
+    "d": "BRANGKAL",
+    "kc": "SOOKO",
+    "kb": "KAB. MOJOKERTO",
+    "j": 13,
+    "lat": -7.49374,
+    "lng": 112.42226
+  },
+  {
+    "k": "3516122008",
+    "d": "BEJIJONG",
+    "kc": "TROWULAN",
+    "kb": "KAB. MOJOKERTO",
+    "j": 1,
+    "lat": -7.551718,
+    "lng": 112.372862
+  },
+  {
+    "k": "3516122009",
+    "d": "KEJAGAN",
+    "kc": "TROWULAN",
+    "kb": "KAB. MOJOKERTO",
+    "j": 9,
+    "lat": -7.534714,
+    "lng": 112.374426
+  },
+  {
+    "k": "3518142006",
+    "d": "NGUMPUL",
+    "kc": "BAGOR",
+    "kb": "KAB. NGANJUK",
+    "j": 14,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3518082013",
+    "d": "PANDANTOYO",
+    "kc": "KERTOSONO",
+    "kb": "KAB. NGANJUK",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3518072003",
+    "d": "JUWET",
+    "kc": "NGRONGGOT",
+    "kb": "KAB. NGANJUK",
+    "j": 4,
+    "lat": -7.712794,
+    "lng": 112.061901
+  },
+  {
+    "k": "3518072004",
+    "d": "KELUTAN",
+    "kc": "NGRONGGOT",
+    "kb": "KAB. NGANJUK",
+    "j": 6,
+    "lat": -7.693633,
+    "lng": 112.067923
+  },
+  {
+    "k": "3518162014",
+    "d": "NGANGKATAN",
+    "kc": "REJOSO",
+    "kb": "KAB. NGANJUK",
+    "j": 15,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3518152004",
+    "d": "MANCON",
+    "kc": "WILANGAN",
+    "kb": "KAB. NGANJUK",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3518152001",
+    "d": "SUDIMOROHARJO",
+    "kc": "WILANGAN",
+    "kb": "KAB. NGANJUK",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521152002",
+    "d": "MOJO",
+    "kc": "BRINGIN",
+    "kb": "KAB. NGAWI",
+    "j": 20,
+    "lat": -7.437505,
+    "lng": 111.577893
+  },
+  {
+    "k": "3521152001",
+    "d": "SUMBERBENING",
+    "kc": "BRINGIN",
+    "kb": "KAB. NGAWI",
+    "j": 18,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521172006",
+    "d": "PANDEAN",
+    "kc": "KARANGANYAR",
+    "kb": "KAB. NGAWI",
+    "j": 20,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521172007",
+    "d": "SEKARJATI",
+    "kc": "KARANGANYAR",
+    "kb": "KAB. NGAWI",
+    "j": 20,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521072007",
+    "d": "DUNGMIRI",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 20,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521072010",
+    "d": "JATIPURO",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 20,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521072014",
+    "d": "LEGUNDI",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 19,
+    "lat": -7.458861,
+    "lng": 111.608707
+  },
+  {
+    "k": "3521072017",
+    "d": "PLOSOLOR",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 20,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521072011",
+    "d": "PUHTI",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521072015",
+    "d": "REJOMULYO",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 18,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521072016",
+    "d": "REJUNO",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 20,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521072004",
+    "d": "RINGINANOM",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 20,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521072012",
+    "d": "SAWO",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521072005",
+    "d": "SEMBUNG",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 17,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521072009",
+    "d": "SIDOKERTO",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 19,
+    "lat": -7.437505,
+    "lng": 111.577893
+  },
+  {
+    "k": "3521072006",
+    "d": "SIDOREJO",
+    "kc": "KARANGJATI",
+    "kb": "KAB. NGAWI",
+    "j": 20,
+    "lat": -7.385968,
+    "lng": 111.462668
+  },
+  {
+    "k": "3521192007",
+    "d": "TAWUN",
+    "kc": "KASREMAN",
+    "kb": "KAB. NGAWI",
+    "j": 10,
+    "lat": -7.397138,
+    "lng": 111.490963
+  },
+  {
+    "k": "3521112006",
+    "d": "JATIGEMBOL",
+    "kc": "KEDUNGGALAR",
+    "kb": "KAB. NGAWI",
+    "j": 45,
+    "lat": -7.431764,
+    "lng": 111.28219
+  },
+  {
+    "k": "3521112012",
+    "d": "KAWU",
+    "kc": "KEDUNGGALAR",
+    "kb": "KAB. NGAWI",
+    "j": 18,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521062012",
+    "d": "MOJOMANIS",
+    "kc": "KWADUNGAN",
+    "kb": "KAB. NGAWI",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521062005",
+    "d": "PURWOSARI",
+    "kc": "KWADUNGAN",
+    "kb": "KAB. NGAWI",
+    "j": 16,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521062008",
+    "d": "SIMO",
+    "kc": "KWADUNGAN",
+    "kb": "KAB. NGAWI",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521062009",
+    "d": "WARUKKALONG",
+    "kc": "KWADUNGAN",
+    "kb": "KAB. NGAWI",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521132004",
+    "d": "PAKAH",
+    "kc": "MANTINGAN",
+    "kb": "KAB. NGAWI",
+    "j": 2,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521132005",
+    "d": "TAMBAKBOYO",
+    "kc": "MANTINGAN",
+    "kb": "KAB. NGAWI",
+    "j": 19,
+    "lat": -7.41009,
+    "lng": 111.123457
+  },
+  {
+    "k": "3521022013",
+    "d": "CEPOKO",
+    "kc": "NGRAMBE",
+    "kb": "KAB. NGAWI",
+    "j": 22,
+    "lat": -7.478143,
+    "lng": 111.209693
+  },
+  {
+    "k": "3521022001",
+    "d": "HARGOMULYO",
+    "kc": "NGRAMBE",
+    "kb": "KAB. NGAWI",
+    "j": 22,
+    "lat": -7.543166,
+    "lng": 111.202132
+  },
+  {
+    "k": "3521082011",
+    "d": "PACING",
+    "kc": "PADAS",
+    "kb": "KAB. NGAWI",
+    "j": 20,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521082006",
+    "d": "SUKOWIYONO",
+    "kc": "PADAS",
+    "kb": "KAB. NGAWI",
+    "j": 29,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521142004",
+    "d": "GANDRI",
+    "kc": "PANGKUR",
+    "kb": "KAB. NGAWI",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3521122001",
+    "d": "BANYUBIRU",
+    "kc": "WIDODAREN",
+    "kb": "KAB. NGAWI",
+    "j": 20,
+    "lat": -7.43821,
+    "lng": 111.192786
+  },
+  {
+    "k": "3521122006",
+    "d": "SIDOLAJU",
+    "kc": "WIDODAREN",
+    "kb": "KAB. NGAWI",
+    "j": 93,
+    "lat": -7.383513,
+    "lng": 111.266631
+  },
+  {
+    "k": "3521122011",
+    "d": "SIDOMAKMUR",
+    "kc": "WIDODAREN",
+    "kb": "KAB. NGAWI",
+    "j": 89,
+    "lat": -7.410707,
+    "lng": 111.258869
+  },
+  {
+    "k": "3521122012",
+    "d": "WALIKUKUN",
+    "kc": "WIDODAREN",
+    "kb": "KAB. NGAWI",
+    "j": 18,
+    "lat": -7.39921,
+    "lng": 111.225989
+  },
+  {
+    "k": "3501062007",
+    "d": "GEMBONG",
+    "kc": "ARJOSARI",
+    "kb": "KAB. PACITAN",
+    "j": 6,
+    "lat": -8.12350823230234,
+    "lng": 111.16003522973097
+  },
+  {
+    "k": "3501082008",
+    "d": "JERUK",
+    "kc": "BANDAR",
+    "kb": "KAB. PACITAN",
+    "j": 7,
+    "lat": -7.952912435109347,
+    "lng": 111.23182564944995
+  },
+  {
+    "k": "3501082002",
+    "d": "NGUNUT",
+    "kc": "BANDAR",
+    "kb": "KAB. PACITAN",
+    "j": 5,
+    "lat": -8.104221983742386,
+    "lng": 111.14323570700252
+  },
+  {
+    "k": "3501082005",
+    "d": "TUMPUK",
+    "kc": "BANDAR",
+    "kb": "KAB. PACITAN",
+    "j": 13,
+    "lat": -7.9697810321,
+    "lng": 111.2895430186
+  },
+  {
+    "k": "3501082006",
+    "d": "WATUPATOK",
+    "kc": "BANDAR",
+    "kb": "KAB. PACITAN",
+    "j": 10,
+    "lat": -7.965875665977808,
+    "lng": 111.30748475624803
+  },
+  {
+    "k": "3501052003",
+    "d": "KALIPELUS",
+    "kc": "KEBONAGUNG",
+    "kb": "KAB. PACITAN",
+    "j": 6,
+    "lat": -8.24815347412785,
+    "lng": 111.15416575994973
+  },
+  {
+    "k": "3501072001",
+    "d": "GONDANG",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 4,
+    "lat": -8.038725731216193,
+    "lng": 111.1869495843502
+  },
+  {
+    "k": "3501072006",
+    "d": "JETIS LOR",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 6,
+    "lat": -7.988018395547813,
+    "lng": 111.18421053593514
+  },
+  {
+    "k": "3501072009",
+    "d": "NGROMO",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3501072008",
+    "d": "PAKIS BARU",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 4,
+    "lat": -7.9570908720162725,
+    "lng": 111.18854172898156
+  },
+  {
+    "k": "3501072007",
+    "d": "PENGGUNG",
+    "kc": "NAWANGAN",
+    "kb": "KAB. PACITAN",
+    "j": 11,
+    "lat": -7.952102291418505,
+    "lng": 111.1669519064293
+  },
+  {
+    "k": "3501112013",
+    "d": "CANGKRING",
+    "kc": "NGADIROJO",
+    "kb": "KAB. PACITAN",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3501112005",
+    "d": "PAGEREJO",
+    "kc": "NGADIROJO",
+    "kb": "KAB. PACITAN",
+    "j": 14,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3501112011",
+    "d": "TANJUNGLOR",
+    "kc": "NGADIROJO",
+    "kb": "KAB. PACITAN",
+    "j": 14,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3501112003",
+    "d": "TANJUNGPURO",
+    "kc": "NGADIROJO",
+    "kb": "KAB. PACITAN",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3501112018",
+    "d": "WONOASRI",
+    "kc": "NGADIROJO",
+    "kb": "KAB. PACITAN",
+    "j": 11,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3501112015",
+    "d": "WONODADI KULON",
+    "kc": "NGADIROJO",
+    "kb": "KAB. PACITAN",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3501112016",
+    "d": "WONOKARTO",
+    "kc": "NGADIROJO",
+    "kb": "KAB. PACITAN",
+    "j": 13,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3501042010",
+    "d": "SEDENG",
+    "kc": "PACITAN",
+    "kb": "KAB. PACITAN",
+    "j": 12,
+    "lat": -8.18103993798121,
+    "lng": 111.06964546545976
+  },
+  {
+    "k": "3501022011",
+    "d": "GLINGGANGAN",
+    "kc": "PRINGKUKU",
+    "kb": "KAB. PACITAN",
+    "j": 12,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3501022008",
+    "d": "PRINGKUKU",
+    "kc": "PRINGKUKU",
+    "kb": "KAB. PACITAN",
+    "j": 30,
+    "lat": -8.18950836163768,
+    "lng": 111.04376064726254
+  },
+  {
+    "k": "3501032010",
+    "d": "PLOSO",
+    "kc": "PUNUNG",
+    "kb": "KAB. PACITAN",
+    "j": 6,
+    "lat": -8.082777828689153,
+    "lng": 111.0599162097551
+  },
+  {
+    "k": "3501122006",
+    "d": "KLEPU",
+    "kc": "SUDIMORO",
+    "kb": "KAB. PACITAN",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502161001",
+    "d": "KERTOSARI",
+    "kc": "BABADAN",
+    "kb": "KAB. PONOROGO",
+    "j": 28,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502162007",
+    "d": "POLOREJO",
+    "kc": "BABADAN",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502132002",
+    "d": "KARANGAN",
+    "kc": "BADEGAN",
+    "kb": "KAB. PONOROGO",
+    "j": 29,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502132005",
+    "d": "TANJUNGREJO",
+    "kc": "BADEGAN",
+    "kb": "KAB. PONOROGO",
+    "j": 14,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502132008",
+    "d": "WATUBONANG",
+    "kc": "BADEGAN",
+    "kb": "KAB. PONOROGO",
+    "j": 30,
+    "lat": -7.863363,
+    "lng": 111.355472
+  },
+  {
+    "k": "3502112006",
+    "d": "SUMBEREJO",
+    "kc": "BALONG",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502032012",
+    "d": "BANCAR",
+    "kc": "BUNGKAL",
+    "kb": "KAB. PONOROGO",
+    "j": 12,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502032014",
+    "d": "BUNGU",
+    "kc": "BUNGKAL",
+    "kb": "KAB. PONOROGO",
+    "j": 11,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502032006",
+    "d": "MUNGGU",
+    "kc": "BUNGKAL",
+    "kb": "KAB. PONOROGO",
+    "j": 11,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502202007",
+    "d": "BULU LOR",
+    "kc": "JAMBON",
+    "kb": "KAB. PONOROGO",
+    "j": 6,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502202001",
+    "d": "JONGGOL",
+    "kc": "JAMBON",
+    "kb": "KAB. PONOROGO",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502202005",
+    "d": "KARANGLO KIDUL",
+    "kc": "JAMBON",
+    "kb": "KAB. PONOROGO",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502202003",
+    "d": "SENDANG",
+    "kc": "JAMBON",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": -8.14445,
+    "lng": 111.436342
+  },
+  {
+    "k": "3502182011",
+    "d": "PANJENG",
+    "kc": "JENANGAN",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502182004",
+    "d": "PLALANGAN",
+    "kc": "JENANGAN",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502182014",
+    "d": "TANJUNGSARI",
+    "kc": "JENANGAN",
+    "kb": "KAB. PONOROGO",
+    "j": 5,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502092003",
+    "d": "KUTU WETAN",
+    "kc": "JETIS",
+    "kb": "KAB. PONOROGO",
+    "j": 7,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502092001",
+    "d": "NGASINAN",
+    "kc": "JETIS",
+    "kb": "KAB. PONOROGO",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502092013",
+    "d": "TURI",
+    "kc": "JETIS",
+    "kb": "KAB. PONOROGO",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502082002",
+    "d": "CANDI",
+    "kc": "MLARAK",
+    "kb": "KAB. PONOROGO",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502082010",
+    "d": "JABUNG",
+    "kc": "MLARAK",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": -7.924471,
+    "lng": 111.4938
+  },
+  {
+    "k": "3502082006",
+    "d": "JORESAN",
+    "kc": "MLARAK",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": -7.927593,
+    "lng": 111.499484
+  },
+  {
+    "k": "3502082012",
+    "d": "MLARAK",
+    "kc": "MLARAK",
+    "kb": "KAB. PONOROGO",
+    "j": 3,
+    "lat": -7.927754,
+    "lng": 111.499429
+  },
+  {
+    "k": "3502082005",
+    "d": "SIWALAN",
+    "kc": "MLARAK",
+    "kb": "KAB. PONOROGO",
+    "j": 5,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502082014",
+    "d": "SUREN",
+    "kc": "MLARAK",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502192007",
+    "d": "NGEBEL",
+    "kc": "NGEBEL",
+    "kb": "KAB. PONOROGO",
+    "j": 10,
+    "lat": -7.797049,
+    "lng": 111.632722
+  },
+  {
+    "k": "3502192006",
+    "d": "PUPUS",
+    "kc": "NGEBEL",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502192004",
+    "d": "TALUN",
+    "kc": "NGEBEL",
+    "kb": "KAB. PONOROGO",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502192003",
+    "d": "WAGIR LOR",
+    "kc": "NGEBEL",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502022003",
+    "d": "BAOSAN KIDUL",
+    "kc": "NGRAYUN",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502022006",
+    "d": "BAOSAN LOR",
+    "kc": "NGRAYUN",
+    "kb": "KAB. PONOROGO",
+    "j": 10,
+    "lat": -8.089371,
+    "lng": 111.415028
+  },
+  {
+    "k": "3502022004",
+    "d": "BINADE",
+    "kc": "NGRAYUN",
+    "kb": "KAB. PONOROGO",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502022010",
+    "d": "CEPOKO",
+    "kc": "NGRAYUN",
+    "kb": "KAB. PONOROGO",
+    "j": 17,
+    "lat": -8.069138,
+    "lng": 111.469112
+  },
+  {
+    "k": "3502022005",
+    "d": "MRAYAN",
+    "kc": "NGRAYUN",
+    "kb": "KAB. PONOROGO",
+    "j": 5,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502022009",
+    "d": "NGRAYUN",
+    "kc": "NGRAYUN",
+    "kb": "KAB. PONOROGO",
+    "j": 6,
+    "lat": -8.093867,
+    "lng": 111.472225
+  },
+  {
+    "k": "3502171018",
+    "d": "JINGGLONG",
+    "kc": "PONOROGO",
+    "kb": "KAB. PONOROGO",
+    "j": 7,
+    "lat": -7.856766,
+    "lng": 111.460118
+  },
+  {
+    "k": "3502171005",
+    "d": "SURODIKRAMAN",
+    "kc": "PONOROGO",
+    "kb": "KAB. PONOROGO",
+    "j": 16,
+    "lat": -7.86811,
+    "lng": 111.470667
+  },
+  {
+    "k": "3502072012",
+    "d": "POMAHAN",
+    "kc": "PULUNG",
+    "kb": "KAB. PONOROGO",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502142008",
+    "d": "KUNTI",
+    "kc": "SAMPUNG",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502102006",
+    "d": "BRAHU",
+    "kc": "SIMAN",
+    "kb": "KAB. PONOROGO",
+    "j": 9,
+    "lat": -7.895935,
+    "lng": 111.489318
+  },
+  {
+    "k": "3502102001",
+    "d": "DEMANGAN",
+    "kc": "SIMAN",
+    "kb": "KAB. PONOROGO",
+    "j": 17,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502102012",
+    "d": "MANUK",
+    "kc": "SIMAN",
+    "kb": "KAB. PONOROGO",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3502012001",
+    "d": "TUGUREJO",
+    "kc": "SLAHUNG",
+    "kb": "KAB. PONOROGO",
+    "j": 10,
+    "lat": -8.073869,
+    "lng": 111.447626
+  },
+  {
+    "k": "3515072022",
+    "d": "BLIGO",
+    "kc": "CANDI",
+    "kb": "KAB. SIDOARJO",
+    "j": 7,
+    "lat": -7.474893,
+    "lng": 112.719409
+  },
+  {
+    "k": "3515032002",
+    "d": "KEPER",
+    "kc": "KREMBUNG",
+    "kb": "KAB. SIDOARJO",
+    "j": 17,
+    "lat": -7.537733,
+    "lng": 112.667247
+  },
+  {
+    "k": "3515172010",
+    "d": "SEDATIAGUNG",
+    "kc": "SEDATI",
+    "kb": "KAB. SIDOARJO",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3515172011",
+    "d": "SEDATIGEDE",
+    "kc": "SEDATI",
+    "kb": "KAB. SIDOARJO",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3515081005",
+    "d": "CELEP",
+    "kc": "SIDOARJO",
+    "kb": "KAB. SIDOARJO",
+    "j": 11,
+    "lat": -7.465055,
+    "lng": 112.717246
+  },
+  {
+    "k": "3515062004",
+    "d": "KALITENGAH",
+    "kc": "TANGGULANGIN",
+    "kb": "KAB. SIDOARJO",
+    "j": 10,
+    "lat": -7.51304,
+    "lng": 112.722524
+  },
+  {
+    "k": "3515062016",
+    "d": "KEDENSARI",
+    "kc": "TANGGULANGIN",
+    "kb": "KAB. SIDOARJO",
+    "j": 11,
+    "lat": -7.505206,
+    "lng": 112.689047
+  },
+  {
+    "k": "3515012008",
+    "d": "KLANTINGSARI",
+    "kc": "TARIK",
+    "kb": "KAB. SIDOARJO",
+    "j": 14,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3515092004",
+    "d": "GELANG",
+    "kc": "TULANGAN",
+    "kb": "KAB. SIDOARJO",
+    "j": 13,
+    "lat": -7.498201,
+    "lng": 112.651389
+  },
+  {
+    "k": "3515092005",
+    "d": "JIKEN",
+    "kc": "TULANGAN",
+    "kb": "KAB. SIDOARJO",
+    "j": 7,
+    "lat": -7.501998,
+    "lng": 112.662532
+  },
+  {
+    "k": "3515092014",
+    "d": "KEPUNTEN",
+    "kc": "TULANGAN",
+    "kb": "KAB. SIDOARJO",
+    "j": 1,
+    "lat": -7.459625,
+    "lng": 112.622078
+  },
+  {
+    "k": "3503092004",
+    "d": "SUMURUP",
+    "kc": "BENDUNGAN",
+    "kb": "KAB. TRENGGALEK",
+    "j": 14,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503042001",
+    "d": "CAKUL",
+    "kc": "DONGKO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 9,
+    "lat": -8.250511,
+    "lng": 111.458093
+  },
+  {
+    "k": "3503042007",
+    "d": "DONGKO",
+    "kc": "DONGKO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 11,
+    "lat": -8.133308,
+    "lng": 111.591812
+  },
+  {
+    "k": "3503042009",
+    "d": "NGERDANI",
+    "kc": "DONGKO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503042004",
+    "d": "PANDEAN",
+    "kc": "DONGKO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 6,
+    "lat": -8.098999,
+    "lng": 111.816724
+  },
+  {
+    "k": "3503042005",
+    "d": "PETUNG",
+    "kc": "DONGKO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 8,
+    "lat": -8.250511,
+    "lng": 111.458093
+  },
+  {
+    "k": "3503042010",
+    "d": "PRINGAPUS",
+    "kc": "DONGKO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503042006",
+    "d": "SALAMWATES",
+    "kc": "DONGKO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503042002",
+    "d": "SIKI",
+    "kc": "DONGKO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 7,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503042008",
+    "d": "SUMBERBENING",
+    "kc": "DONGKO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 10,
+    "lat": -8.096393,
+    "lng": 111.581564
+  },
+  {
+    "k": "3503042003",
+    "d": "WATUAGUNG",
+    "kc": "DONGKO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503102002",
+    "d": "WONOREJO",
+    "kc": "GANDUSARI",
+    "kb": "KAB. TRENGGALEK",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503012003",
+    "d": "KARANGTENGAH",
+    "kc": "PANGGUL",
+    "kb": "KAB. TRENGGALEK",
+    "j": 13,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503012015",
+    "d": "SAWAHAN",
+    "kc": "PANGGUL",
+    "kb": "KAB. TRENGGALEK",
+    "j": 10,
+    "lat": -8.213246,
+    "lng": 111.474594
+  },
+  {
+    "k": "3503122007",
+    "d": "GEMBLEB",
+    "kc": "POGALAN",
+    "kb": "KAB. TRENGGALEK",
+    "j": 7,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503122003",
+    "d": "NGADIRENGGO",
+    "kc": "POGALAN",
+    "kb": "KAB. TRENGGALEK",
+    "j": 8,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503032010",
+    "d": "SUKOKIDUL",
+    "kc": "PULE",
+    "kb": "KAB. TRENGGALEK",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503142007",
+    "d": "MLINJON",
+    "kc": "SURUH",
+    "kb": "KAB. TRENGGALEK",
+    "j": 11,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503142003",
+    "d": "NGLEBO",
+    "kc": "SURUH",
+    "kb": "KAB. TRENGGALEK",
+    "j": 14,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503142004",
+    "d": "NGRANDU",
+    "kc": "SURUH",
+    "kb": "KAB. TRENGGALEK",
+    "j": 12,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503142001",
+    "d": "PURU",
+    "kc": "SURUH",
+    "kb": "KAB. TRENGGALEK",
+    "j": 14,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503142006",
+    "d": "SURUH",
+    "kc": "SURUH",
+    "kb": "KAB. TRENGGALEK",
+    "j": 12,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503142002",
+    "d": "WONOKERTO",
+    "kc": "SURUH",
+    "kb": "KAB. TRENGGALEK",
+    "j": 9,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503082003",
+    "d": "DUKUH",
+    "kc": "WATULIMO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 12,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503082008",
+    "d": "GEMAHARJO",
+    "kc": "WATULIMO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 5,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503082005",
+    "d": "MARGOMULYO",
+    "kc": "WATULIMO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503082006",
+    "d": "NGEMBEL",
+    "kc": "WATULIMO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503082004",
+    "d": "PAKEL",
+    "kc": "WATULIMO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 10,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3503082009",
+    "d": "WATULIMO",
+    "kc": "WATULIMO",
+    "kb": "KAB. TRENGGALEK",
+    "j": 12,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3504122009",
+    "d": "DEMUK",
+    "kc": "PUCANGLABAN",
+    "kb": "KAB. TULUNGAGUNG",
+    "j": 16,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3504122002",
+    "d": "KALIDAWE",
+    "kc": "PUCANGLABAN",
+    "kb": "KAB. TULUNGAGUNG",
+    "j": 5,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3504122007",
+    "d": "PANGGUNGUNI",
+    "kc": "PUCANGLABAN",
+    "kb": "KAB. TULUNGAGUNG",
+    "j": 7,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3504122005",
+    "d": "SUMBERBENDO",
+    "kc": "PUCANGLABAN",
+    "kb": "KAB. TULUNGAGUNG",
+    "j": 18,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3504072010",
+    "d": "NGLURUP",
+    "kc": "SENDANG",
+    "kb": "KAB. TULUNGAGUNG",
+    "j": 19,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3504072008",
+    "d": "NYAWANGAN",
+    "kc": "SENDANG",
+    "kb": "KAB. TULUNGAGUNG",
+    "j": 18,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3504072007",
+    "d": "PICISAN",
+    "kc": "SENDANG",
+    "kb": "KAB. TULUNGAGUNG",
+    "j": 21,
+    "lat": null,
+    "lng": null
+  },
+  {
+    "k": "3504072003",
+    "d": "TALANG",
+    "kc": "SENDANG",
+    "kb": "KAB. TULUNGAGUNG",
+    "j": 20,
+    "lat": null,
+    "lng": null
+  }
+]

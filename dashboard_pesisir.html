@@ -397,7 +397,7 @@
     <header>
         <a href="index.html" class="back-btn"><span>←</span> Kembali</a>
         <h1><span>🌊</span> BSPS PESISIR 2026</h1>
-        <div class="header-badge">Jawa Timur</div>
+        <div class="header-badge" id="tahapBadge">Jawa Timur</div>
     </header>
     <div class="main-container">
         <div id="map-wrapper">
@@ -444,7 +444,22 @@
     </div>
     <script>
         let dataPesisir = [];
+
+        // URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const tahapParam = urlParams.get('tahap') || 'tahap1';
+        const badgeEl = document.getElementById('tahapBadge');
+        const badgeText = tahapParam === 'gabungan' ? 'Gabungan I+II' : 'Tahap I';
+        badgeEl.textContent = badgeText;
+
         document.addEventListener('DOMContentLoaded', async () => {
+            // Pesisir hanya ada di Tahap I
+            if (tahapParam === 'tahap2') {
+                document.getElementById('map-loading').innerHTML = `<div style="text-align:center;color:#94a3b8;"><div style="font-size:2.5rem;margin-bottom:10px;">🌊</div><div style="font-weight:600">Data Pesisir Belum Tersedia di Tahap II</div><div style="font-size:0.85rem;margin-top:6px;">Data pesisir akan ditambahkan jika tersedia</div></div>`;
+                document.getElementById('totalAlokasi').textContent = '0';
+                document.getElementById('totalDesa').textContent = '0';
+                return;
+            }
             try { const r = await fetch('data_pesisir.json'); if (!r.ok) throw new Error(); dataPesisir = await r.json(); } catch { document.getElementById('map-loading').innerHTML = '<div style="text-align:center;color:#ef4444;"><div style="font-size:2rem;margin-bottom:10px;">⚠️</div><div>Gagal memuat data.</div></div>'; return; }
             document.getElementById('totalAlokasi').textContent = dataPesisir.reduce((s, i) => s + i.j, 0).toLocaleString('id-ID');
             document.getElementById('totalDesa').textContent = dataPesisir.length;

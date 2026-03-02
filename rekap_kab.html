@@ -1,0 +1,766 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekapitulasi Per Kab/Kota — BSPS Jawa Timur 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --bg: #0f172a;
+            --bg2: #1e293b;
+            --card: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+            --text: #ffffff;
+            --muted: #94a3b8;
+            --dim: #64748b;
+            --green: #22c55e;
+            --purple: #a855f7;
+            --blue: #0ea5e9;
+            --amber: #f59e0b;
+            --radius: 12px;
+        }
+
+        [data-theme="light"] {
+            --bg: #f1f5f9;
+            --bg2: #e2e8f0;
+            --card: rgba(255, 255, 255, 0.9);
+            --border: rgba(0, 0, 0, 0.08);
+            --text: #0f172a;
+            --muted: #475569;
+            --dim: #64748b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            padding: 1rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .back-btn {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            color: white;
+            text-decoration: none;
+            padding: 7px 14px;
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.08);
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: background 0.2s;
+        }
+
+        .back-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        header h1 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .theme-btn {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: white;
+            cursor: pointer;
+            font-size: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.2s;
+        }
+
+        .theme-btn:hover {
+            transform: scale(1.1);
+        }
+
+        /* Controls */
+        .controls-bar {
+            background: var(--bg2);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .ctrl-group {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .ctrl-label {
+            font-size: 0.75rem;
+            color: var(--dim);
+            font-weight: 500;
+        }
+
+        .ctrl-select,
+        .ctrl-input {
+            appearance: none;
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.45rem 2rem 0.45rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            font-family: inherit;
+            cursor: pointer;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.2s;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2394a3b8' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 0.5rem center;
+        }
+
+        .ctrl-select:focus,
+        .ctrl-input:focus {
+            outline: none;
+            border-color: var(--blue);
+        }
+
+        .search-input {
+            background: var(--card);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 0.45rem 0.75rem;
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-family: inherit;
+            backdrop-filter: blur(10px);
+            width: 200px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--blue);
+        }
+
+        .search-input::placeholder {
+            color: var(--dim);
+        }
+
+        /* Summary bar */
+        .summary-bar {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            padding: 0.75rem 1.5rem;
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .sum-card {
+            display: flex;
+            flex-direction: column;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.6rem 1rem;
+            min-width: 120px;
+            flex: 1;
+        }
+
+        .sum-label {
+            font-size: 0.65rem;
+            color: var(--dim);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            font-weight: 600;
+        }
+
+        .sum-value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin-top: 2px;
+        }
+
+        .sum-green {
+            color: var(--green);
+        }
+
+        .sum-purple {
+            color: var(--purple);
+        }
+
+        .sum-blue {
+            color: var(--blue);
+        }
+
+        .sum-amber {
+            color: var(--amber);
+        }
+
+        /* Table */
+        .table-wrapper {
+            flex: 1;
+            overflow-x: auto;
+            padding: 1rem 1.5rem 2rem;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.875rem;
+        }
+
+        thead th {
+            background: var(--bg2);
+            color: var(--muted);
+            font-weight: 600;
+            padding: 0.875rem 1rem;
+            text-align: left;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            border-bottom: 2px solid var(--border);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            cursor: pointer;
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        thead th:hover {
+            color: var(--text);
+        }
+
+        thead th .sort-icon {
+            display: inline-block;
+            margin-left: 4px;
+            opacity: 0.4;
+        }
+
+        thead th.sort-asc .sort-icon,
+        thead th.sort-desc .sort-icon {
+            opacity: 1;
+        }
+
+        thead th.sort-desc .sort-icon {
+            transform: rotate(180deg);
+            display: inline-block;
+        }
+
+        tbody td {
+            padding: 0.75rem 1rem;
+            border-bottom: 1px solid var(--border);
+            color: var(--text);
+            transition: background 0.1s;
+        }
+
+        tbody tr:hover td {
+            background: rgba(255, 255, 255, 0.04);
+        }
+
+        tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .kab-name {
+            font-weight: 600;
+        }
+
+        .kab-rank {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            background: var(--border);
+            color: var(--dim);
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-right: 6px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            min-width: 42px;
+        }
+
+        .badge-green {
+            background: rgba(34, 197, 94, 0.15);
+            color: var(--green);
+            border: 1px solid rgba(34, 197, 94, 0.3);
+        }
+
+        .badge-purple {
+            background: rgba(168, 85, 247, 0.15);
+            color: var(--purple);
+            border: 1px solid rgba(168, 85, 247, 0.3);
+        }
+
+        .badge-blue {
+            background: rgba(14, 165, 233, 0.15);
+            color: var(--blue);
+            border: 1px solid rgba(14, 165, 233, 0.3);
+        }
+
+        .badge-amber {
+            background: rgba(245, 158, 11, 0.15);
+            color: var(--amber);
+            border: 1px solid rgba(245, 158, 11, 0.3);
+        }
+
+        .badge-grey {
+            background: rgba(148, 163, 184, 0.1);
+            color: var(--dim);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            font-size: 0.7rem;
+        }
+
+        .badge-zero {
+            background: transparent;
+            color: var(--dim);
+            font-size: 0.75rem;
+        }
+
+        /* Progress bar per baris */
+        .bar-cell {
+            min-width: 100px;
+        }
+
+        .bar-track {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 3px;
+            overflow: hidden;
+            margin-top: 4px;
+        }
+
+        .bar-fill {
+            height: 100%;
+            border-radius: 3px;
+            transition: width 0.3s;
+        }
+
+        /* Total row */
+        tfoot tr td {
+            padding: 0.875rem 1rem;
+            border-top: 2px solid var(--border);
+            font-weight: 700;
+            background: var(--bg2);
+            font-size: 0.875rem;
+        }
+
+        .no-data {
+            text-align: center;
+            padding: 3rem;
+            color: var(--dim);
+            font-size: 0.9rem;
+        }
+
+        /* Info tooltip */
+        .col-note {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 400;
+            color: var(--dim);
+            margin-top: 1px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .controls-bar {
+                padding: 0.75rem 1rem;
+            }
+
+            .summary-bar {
+                padding: 0.75rem 1rem;
+            }
+
+            .table-wrapper {
+                padding: 0.75rem 0.5rem 2rem;
+            }
+
+            thead th {
+                padding: 0.75rem 0.5rem;
+                font-size: 0.7rem;
+            }
+
+            tbody td {
+                padding: 0.6rem 0.5rem;
+                font-size: 0.82rem;
+            }
+
+            .search-input {
+                width: 150px;
+            }
+
+            .sum-card {
+                min-width: 90px;
+            }
+        }
+
+        footer {
+            text-align: center;
+            padding: 0.75rem;
+            color: var(--dim);
+            font-size: 0.65rem;
+            border-top: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<body data-theme="dark">
+    <header>
+        <div class="header-left">
+            <a href="index.html" class="back-btn">← Kembali</a>
+            <h1>📊 Rekapitulasi Per Kab/Kota</h1>
+        </div>
+        <div class="header-right">
+            <button class="theme-btn" onclick="toggleTheme()" title="Ganti Tema" id="themeBtn">🌙</button>
+        </div>
+    </header>
+
+    <div class="controls-bar">
+        <div class="ctrl-group">
+            <span class="ctrl-label">Tahap:</span>
+            <select class="ctrl-select" id="tahapFilter" onchange="applyFilters()">
+                <option value="semua">Tahap I + II (Gabungan)</option>
+                <option value="tahap1">Tahap I</option>
+                <option value="tahap2">Tahap II</option>
+            </select>
+        </div>
+        <div class="ctrl-group">
+            <span class="ctrl-label">Kategori:</span>
+            <select class="ctrl-select" id="kategoriFilter" onchange="applyFilters()">
+                <option value="semua">Semua Kategori</option>
+                <option value="desa">Perdesaan</option>
+                <option value="kota">Perkotaan</option>
+                <option value="pesisir">Pesisir (Tahap I)</option>
+            </select>
+        </div>
+        <div class="ctrl-group">
+            <input type="text" class="search-input" id="searchInput" placeholder="🔍 Cari Kabupaten/Kota..."
+                oninput="applyFilters()">
+        </div>
+    </div>
+
+    <!-- Summary -->
+    <div class="summary-bar">
+        <div class="sum-card">
+            <span class="sum-label">Total Unit</span>
+            <span class="sum-value sum-amber" id="sumTotal">-</span>
+        </div>
+        <div class="sum-card">
+            <span class="sum-label">Perdesaan</span>
+            <span class="sum-value sum-green" id="sumDesa">-</span>
+        </div>
+        <div class="sum-card">
+            <span class="sum-label">Perkotaan</span>
+            <span class="sum-value sum-purple" id="sumKota">-</span>
+        </div>
+        <div class="sum-card">
+            <span class="sum-label">Pesisir</span>
+            <span class="sum-value sum-blue" id="sumPesisir">-</span>
+        </div>
+        <div class="sum-card">
+            <span class="sum-label">Kab/Kota</span>
+            <span class="sum-value" id="sumKab" style="color:var(--text)">-</span>
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table id="rekapTable">
+            <thead>
+                <tr id="tableHead">
+                    <!-- will be populated by JS -->
+                </tr>
+            </thead>
+            <tbody id="tableBody"></tbody>
+            <tfoot id="tableFoot"></tfoot>
+        </table>
+        <div class="no-data" id="noData" style="display:none">Tidak ada data ditemukan</div>
+    </div>
+
+    <footer>
+        BSPS Jawa Timur 2026 · BP3KP Jawa IV, Surabaya
+    </footer>
+
+    <script>
+        // ─── Data Store ───────────────────────────────────────────
+        let rawData = {
+            desa_t1: [], kota_t1: [], pesisir_t1: [],
+            desa_t2: [], kota_t2: []
+        };
+
+        // ─── Load all data files ──────────────────────────────────
+        async function loadAll() {
+            const files = [
+                ['data_desa.json', 'desa_t1'],
+                ['data_kota.json', 'kota_t1'],
+                ['data_pesisir.json', 'pesisir_t1'],
+                ['data_desa_t2.json', 'desa_t2'],
+                ['data_kota_t2.json', 'kota_t2'],
+            ];
+            await Promise.all(files.map(async ([file, key]) => {
+                try {
+                    const r = await fetch(file);
+                    rawData[key] = await r.json();
+                } catch { rawData[key] = []; }
+            }));
+            applyFilters();
+        }
+
+        // ─── Build table ──────────────────────────────────────────
+        function groupByKab(arr) {
+            const map = {};
+            arr.forEach(i => {
+                map[i.kb] = (map[i.kb] || 0) + i.j;
+            });
+            return map;
+        }
+
+        let sortCol = 'total';
+        let sortDir = 1; // 1=desc, -1=asc
+
+        function applyFilters() {
+            const tahap = document.getElementById('tahapFilter').value;
+            const kategori = document.getElementById('kategoriFilter').value;
+            const search = document.getElementById('searchInput').value.toLowerCase();
+
+            // Determine which datasets to use
+            let desaData = [], kotaData = [], pesisirData = [];
+            if (tahap === 'tahap1' || tahap === 'semua') {
+                desaData = desaData.concat(rawData.desa_t1);
+                kotaData = kotaData.concat(rawData.kota_t1);
+                pesisirData = pesisirData.concat(rawData.pesisir_t1);
+            }
+            if (tahap === 'tahap2' || tahap === 'semua') {
+                desaData = desaData.concat(rawData.desa_t2);
+                kotaData = kotaData.concat(rawData.kota_t2);
+                // no pesisir tahap2 yet
+            }
+
+            // Apply kategori filter
+            if (kategori === 'desa') { kotaData = []; pesisirData = []; }
+            if (kategori === 'kota') { desaData = []; pesisirData = []; }
+            if (kategori === 'pesisir') { desaData = []; kotaData = []; }
+
+            // Group
+            const gDesa = groupByKab(desaData);
+            const gKota = groupByKab(kotaData);
+            const gPesisir = groupByKab(pesisirData);
+
+            // Collect all kab
+            const allKab = new Set([
+                ...Object.keys(gDesa),
+                ...Object.keys(gKota),
+                ...Object.keys(gPesisir)
+            ]);
+
+            // Build rows
+            let rows = [];
+            allKab.forEach(kb => {
+                const desa = gDesa[kb] || 0;
+                const kota = gKota[kb] || 0;
+                const pesisir = gPesisir[kb] || 0;
+                const total = desa + kota + pesisir;
+                rows.push({ kb, desa, kota, pesisir, total });
+            });
+
+            // Filter search
+            if (search) rows = rows.filter(r => r.kb.toLowerCase().includes(search));
+
+            // Sort
+            rows.sort((a, b) => {
+                const av = a[sortCol] || 0;
+                const bv = b[sortCol] || 0;
+                if (typeof av === 'string') return sortDir * av.localeCompare(bv);
+                return sortDir * (bv - av);
+            });
+
+            renderTable(rows, tahap, kategori);
+        }
+
+        function renderTable(rows, tahap, kategori) {
+            const showDesa = kategori === 'semua' || kategori === 'desa';
+            const showKota = kategori === 'semua' || kategori === 'kota';
+            const showPesisir = (kategori === 'semua' || kategori === 'pesisir') && tahap !== 'tahap2';
+
+            const maxTotal = rows.length ? Math.max(...rows.map(r => r.total)) : 1;
+
+            // Build header
+            const head = document.getElementById('tableHead');
+            const colDefs = [
+                { key: 'kb', label: 'Kabupaten / Kota', note: '', always: true },
+                { key: 'desa', label: '🏘️ Perdesaan', note: '', show: showDesa },
+                { key: 'kota', label: '🏙️ Perkotaan', note: '', show: showKota },
+                { key: 'pesisir', label: '🌊 Pesisir', note: '(Tahap I)', show: showPesisir },
+                { key: 'total', label: 'Total Unit', note: '', always: true },
+            ];
+            const visibleCols = colDefs.filter(c => c.always || c.show);
+
+            head.innerHTML = visibleCols.map(c => `
+                <th onclick="setSort('${c.key}')" class="${sortCol === c.key ? (sortDir === 1 ? 'sort-desc' : 'sort-asc') : ''}">
+                    ${c.label}
+                    ${c.note ? `<span class="col-note">${c.note}</span>` : ''}
+                    <span class="sort-icon">↓</span>
+                </th>
+            `).join('');
+
+            // Update header for tahap info
+            const tahapLabel = tahap === 'tahap1' ? '(Tahap I)' : tahap === 'tahap2' ? '(Tahap II)' : '';
+
+            const body = document.getElementById('tableBody');
+            const noData = document.getElementById('noData');
+
+            if (rows.length === 0) {
+                body.innerHTML = '';
+                noData.style.display = '';
+                document.getElementById('tableFoot').innerHTML = '';
+                updateSummary([], []);
+                return;
+            }
+            noData.style.display = 'none';
+
+            body.innerHTML = rows.map((r, idx) => {
+                const pct = maxTotal > 0 ? Math.round((r.total / maxTotal) * 100) : 0;
+                const barColor = r.desa > r.kota && r.desa > r.pesisir ? '#22c55e'
+                    : r.kota > r.desa && r.kota > r.pesisir ? '#a855f7'
+                        : '#0ea5e9';
+
+                const desaCell = showDesa ? `<td align="center"><span class="badge badge-green">${r.desa ? r.desa.toLocaleString('id-ID') : '<span style="opacity:.4">—</span>'}</span></td>` : '';
+                const kotaCell = showKota ? `<td align="center"><span class="badge badge-purple">${r.kota ? r.kota.toLocaleString('id-ID') : '<span style="opacity:.4">—</span>'}</span></td>` : '';
+                const pesisirCell = showPesisir ? `<td align="center"><span class="badge badge-blue">${r.pesisir ? r.pesisir.toLocaleString('id-ID') : '<span style="opacity:.4">—</span>'}</span></td>` : '';
+
+                return `<tr>
+                    <td>
+                        <span class="kab-rank">${idx + 1}</span>
+                        <span class="kab-name">${r.kb}</span>
+                        <div class="bar-track"><div class="bar-fill" style="width:${pct}%;background:${barColor}"></div></div>
+                    </td>
+                    ${desaCell}${kotaCell}${pesisirCell}
+                    <td align="center"><span class="badge badge-amber">${r.total.toLocaleString('id-ID')}</span></td>
+                </tr>`;
+            }).join('');
+
+            // Footer total row
+            const totDesa = rows.reduce((s, r) => s + r.desa, 0);
+            const totKota = rows.reduce((s, r) => s + r.kota, 0);
+            const totPesisir = rows.reduce((s, r) => s + r.pesisir, 0);
+            const totAll = rows.reduce((s, r) => s + r.total, 0);
+
+            const ftDesa = showDesa ? `<td align="center"><span class="badge badge-green">${totDesa.toLocaleString('id-ID')}</span></td>` : '';
+            const ftKota = showKota ? `<td align="center"><span class="badge badge-purple">${totKota.toLocaleString('id-ID')}</span></td>` : '';
+            const ftPesisir = showPesisir ? `<td align="center"><span class="badge badge-blue">${totPesisir.toLocaleString('id-ID')}</span></td>` : '';
+
+            document.getElementById('tableFoot').innerHTML = `<tr>
+                <td style="font-weight:800; font-size:0.85rem;">TOTAL (${rows.length} Kab/Kota)</td>
+                ${ftDesa}${ftKota}${ftPesisir}
+                <td align="center"><span class="badge badge-amber">${totAll.toLocaleString('id-ID')}</span></td>
+            </tr>`;
+
+            // Update summary cards
+            document.getElementById('sumTotal').textContent = totAll.toLocaleString('id-ID');
+            document.getElementById('sumDesa').textContent = showDesa ? totDesa.toLocaleString('id-ID') : '—';
+            document.getElementById('sumKota').textContent = showKota ? totKota.toLocaleString('id-ID') : '—';
+            document.getElementById('sumPesisir').textContent = showPesisir ? totPesisir.toLocaleString('id-ID') : '—';
+            document.getElementById('sumKab').textContent = rows.length;
+        }
+
+        function updateSummary(rows) {
+            document.getElementById('sumTotal').textContent = '0';
+            document.getElementById('sumDesa').textContent = '—';
+            document.getElementById('sumKota').textContent = '—';
+            document.getElementById('sumPesisir').textContent = '—';
+            document.getElementById('sumKab').textContent = '0';
+        }
+
+        function setSort(col) {
+            if (sortCol === col) { sortDir *= -1; }
+            else { sortCol = col; sortDir = 1; }
+            applyFilters();
+        }
+
+        // ─── Theme ────────────────────────────────────────────────
+        function toggleTheme() {
+            const body = document.body;
+            const btn = document.getElementById('themeBtn');
+            if (body.dataset.theme === 'dark') {
+                body.dataset.theme = 'light';
+                btn.textContent = '☀️';
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.dataset.theme = 'dark';
+                btn.textContent = '🌙';
+                localStorage.setItem('theme', 'dark');
+            }
+        }
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme) {
+            document.body.dataset.theme = savedTheme;
+            document.getElementById('themeBtn').textContent = savedTheme === 'light' ? '☀️' : '🌙';
+        }
+
+        // ─── Restore tahap from index selection ──────────────────
+        const savedTahap = localStorage.getItem('tahap');
+        if (savedTahap === 'tahap2') {
+            document.getElementById('tahapFilter').value = 'tahap2';
+        } else if (savedTahap === 'gabungan') {
+            document.getElementById('tahapFilter').value = 'semua';
+        }
+
+        loadAll();
+    </script>
+</body>
+
+</html>

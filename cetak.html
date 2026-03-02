@@ -662,7 +662,7 @@
                         <div class="subtitle">Bantuan Stimulan Perumahan Swadaya</div>
                     </div>
                 </div>
-                <span class="tahap-badge">📅 Tahap I</span>
+                <span class="tahap-badge" id="cetakTahapBadge">📅 Tahap I</span>
             </div>
         </div>
 
@@ -776,7 +776,7 @@
                     <span style="font-size: 1.8mm;">BP3KP Jawa IV | Jl. Gayung Kebonsari 50, Surabaya</span>
                 </div>
             </div>
-            <div class="footer-right">Dashboard BSPS Jawa Timur 2026 | Tahap I</div>
+            <div class="footer-right" id="cetakFooterRight">Dashboard BSPS Jawa Timur 2026 | Tahap I</div>
         </div>
     </div>
 
@@ -809,14 +809,41 @@
             'KAB. BANYUWANGI': 'blue', 'KAB. SITUBONDO': 'blue'
         };
 
+        // ─── URL Parameter ─────────────────────────────────
+        const urlParams = new URLSearchParams(window.location.search);
+        const tahapParam = urlParams.get('tahap') || 'tahap1';
+        const tahapLabel = tahapParam === 'tahap2' ? 'Tahap II'
+            : tahapParam === 'gabungan' ? 'Gabungan I+II'
+                : 'Tahap I';
+        document.getElementById('cetakTahapBadge').textContent = '📅 ' + tahapLabel;
+        document.getElementById('cetakFooterRight').textContent = 'Dashboard BSPS Jawa Timur 2026 | ' + tahapLabel;
+
+        async function fetchJ(file) {
+            try { const r = await fetch(file); if (!r.ok) return []; return await r.json(); } catch { return []; }
+        }
+
         async function loadAllData() {
             try {
-                const [d1, d2, d3] = await Promise.all([
-                    fetch('data_desa.json').then(r => r.json()),
-                    fetch('data_kota.json').then(r => r.json()),
-                    fetch('data_pesisir.json').then(r => r.json())
-                ]);
-                allData = { desa: d1, kota: d2, pesisir: d3 };
+                let desa, kota, pesisir;
+                if (tahapParam === 'tahap1') {
+                    [desa, kota, pesisir] = await Promise.all([
+                        fetchJ('data_desa.json'), fetchJ('data_kota.json'), fetchJ('data_pesisir.json')
+                    ]);
+                } else if (tahapParam === 'tahap2') {
+                    [desa, kota, pesisir] = await Promise.all([
+                        fetchJ('data_desa_t2.json'), fetchJ('data_kota_t2.json'), Promise.resolve([])
+                    ]);
+                } else { // gabungan
+                    const [d1, d2, k1, k2, p1] = await Promise.all([
+                        fetchJ('data_desa.json'), fetchJ('data_desa_t2.json'),
+                        fetchJ('data_kota.json'), fetchJ('data_kota_t2.json'),
+                        fetchJ('data_pesisir.json')
+                    ]);
+                    desa = [...d1, ...d2];
+                    kota = [...k1, ...k2];
+                    pesisir = p1;
+                }
+                allData = { desa, kota, pesisir };
                 initMap();
                 renderAll();
             } catch (e) { console.error(e); }

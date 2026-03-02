@@ -511,7 +511,7 @@
             <span>🏘️</span>
             BSPS PERDESAAN 2026
         </h1>
-        <div class="header-badge">Jawa Timur</div>
+        <div class="header-badge" id="tahapBadge">Jawa Timur</div>
     </header>
 
     <div class="main-container">
@@ -570,23 +570,54 @@
     </div>
 
     <script>
-        // Data will be loaded from external JSON file
         let dataDesa = [];
 
+        // Baca URL parameter
+        const urlParams = new URLSearchParams(window.location.search);
+        const tahapParam = urlParams.get('tahap') || 'tahap1';
+
+        // Set badge
+        const badgeEl = document.getElementById('tahapBadge');
+        const badgeText = tahapParam === 'tahap2' ? 'Tahap II'
+            : tahapParam === 'gabungan' ? 'Gabungan I+II'
+                : 'Tahap I';
+        badgeEl.textContent = badgeText;
+
+        // Tentukan file data
+        const dataFiles = tahapParam === 'tahap2' ? ['data_desa_t2.json']
+            : tahapParam === 'gabungan' ? ['data_desa.json', 'data_desa_t2.json']
+                : ['data_desa.json'];
+
         document.addEventListener('DOMContentLoaded', async () => {
-            // Fetch data from external JSON file
+            // Fetch + gabungkan data
             try {
-                const response = await fetch('data_desa.json');
-                if (!response.ok) throw new Error('Failed to load data');
-                dataDesa = await response.json();
+                const arrays = await Promise.all(dataFiles.map(async f => {
+                    const r = await fetch(f);
+                    if (!r.ok) return [];
+                    return await r.json();
+                }));
+                dataDesa = arrays.flat();
             } catch (error) {
                 console.error('Error loading data:', error);
                 document.getElementById('map-loading').innerHTML = `
                     <div style="text-align: center; color: #ef4444;">
                         <div style="font-size: 2rem; margin-bottom: 10px;">⚠️</div>
-                        <div>Gagal memuat data.<br><small>Pastikan file data_desa.json tersedia.</small></div>
+                        <div>Gagal memuat data.<br><small>Pastikan file JSON tersedia.</small></div>
                     </div>
                 `;
+                return;
+            }
+
+            if (dataDesa.length === 0) {
+                document.getElementById('map-loading').innerHTML = `
+                    <div style="text-align: center; color: #94a3b8;">
+                        <div style="font-size: 2.5rem; margin-bottom: 10px;">📂</div>
+                        <div style="font-weight:600">Data ${badgeText} Belum Tersedia</div>
+                        <div style="font-size:0.85rem; margin-top:6px;">Masukkan data ke file JSON yang sesuai</div>
+                    </div>
+                `;
+                document.getElementById('totalAlokasi').textContent = '0';
+                document.getElementById('totalDesa').textContent = '0';
                 return;
             }
 

@@ -550,7 +550,7 @@
 </head>
 
 <body>
-    <a href="cetak.html" class="print-btn" title="Cetak Laporan">🖨️</a>
+    <a href="cetak.html" class="print-btn" title="Cetak Laporan" id="cetakBtn">🖨️</a>
     <button class="theme-toggle" onclick="toggleTheme()" title="Ganti Tema">🌙</button>
 
     <div class="container">
@@ -569,15 +569,18 @@
             <div class="header-controls">
                 <span class="tahap-label">Periode:</span>
                 <select class="tahap-select" id="tahapSelect" onchange="changeTahap(this.value)">
-                    <option value="tahap1" selected>Tahap I</option>
-                    <option value="tahap2" disabled>Tahap II (Coming Soon)</option>
-                    <option value="tahap3" disabled>Tahap III (Coming Soon)</option>
+                    <option value="tahap1">Tahap I</option>
+                    <option value="tahap2">Tahap II</option>
+                    <option value="gabungan">Gabungan (I+II)</option>
                 </select>
+                <a href="rekap_kab.html" class="tahap-select"
+                    style="text-decoration:none; padding: 0.4rem 0.75rem; display:inline-flex; align-items:center; gap:5px;"
+                    title="Rekap Per Kab/Kota">📊 Rekap</a>
             </div>
         </header>
 
         <div class="cards">
-            <a href="dashboard_perdesaan.html" class="card card-perdesaan">
+            <a href="dashboard_perdesaan.html" class="card card-perdesaan" id="card-desa">
                 <span class="card-arrow">→</span>
                 <div class="card-header">
                     <div class="card-icon">🏘️</div>
@@ -596,7 +599,7 @@
                 </div>
             </a>
 
-            <a href="dashboard_perkotaan.html" class="card card-perkotaan">
+            <a href="dashboard_perkotaan.html" class="card card-perkotaan" id="card-kota">
                 <span class="card-arrow">→</span>
                 <div class="card-header">
                     <div class="card-icon">🏙️</div>
@@ -615,7 +618,7 @@
                 </div>
             </a>
 
-            <a href="dashboard_pesisir.html" class="card card-pesisir">
+            <a href="dashboard_pesisir.html" class="card card-pesisir" id="card-pesisir">
                 <span class="card-arrow">→</span>
                 <div class="card-header">
                     <div class="card-icon">🌊</div>
@@ -662,30 +665,44 @@
             document.querySelector('.theme-toggle').textContent = saved === 'light' ? '☀️' : '🌙';
         }
 
-        // Tahap/Period selector
+        // ─── Tahap Selector ──────────────────────────────────────
         function changeTahap(tahap) {
-            // Save selection
             localStorage.setItem('tahap', tahap);
-
-            // For future: load different data based on tahap
-            // Currently only Tahap I is available
-            if (tahap === 'tahap1') {
-                loadAllData();
-            }
-            // When tahap2/tahap3 data is available, add:
-            // else if (tahap === 'tahap2') { loadAllData('tahap2'); }
+            loadAllData(tahap);
+            updateCardLinks(tahap);
         }
 
-        // Load saved tahap
-        const savedTahap = localStorage.getItem('tahap');
-        if (savedTahap) {
-            document.getElementById('tahapSelect').value = savedTahap;
+        // Update href card + cetak link sesuai tahap
+        function updateCardLinks(tahap) {
+            const param = tahap === 'tahap1' ? '' : '?tahap=' + tahap;
+            document.getElementById('card-desa').href = 'dashboard_perdesaan.html' + param;
+            document.getElementById('card-kota').href = 'dashboard_perkotaan.html' + param;
+            document.getElementById('card-pesisir').href = 'dashboard_pesisir.html' + param;
+            document.getElementById('cetakBtn').href = 'cetak.html' + param;
         }
 
-        async function loadData(file, unitId, countId, kabId, breakdownId) {
+        // Load saved tahap on page load
+        const savedTahap = localStorage.getItem('tahap') || 'tahap1';
+        const sel = document.getElementById('tahapSelect');
+        if (['tahap1', 'tahap2', 'gabungan'].includes(savedTahap)) {
+            sel.value = savedTahap;
+        }
+
+        // ─── Data Loading ────────────────────────────────────────
+        async function fetchJSON(file) {
             try {
-                const res = await fetch(file);
-                const data = await res.json();
+                const r = await fetch(file);
+                if (!r.ok) return [];
+                return await r.json();
+            } catch { return []; }
+        }
+
+        async function loadData(files, unitId, countId, kabId, breakdownId) {
+            try {
+                // Load satu atau lebih file, gabungkan
+                const arrays = await Promise.all(files.map(f => fetchJSON(f)));
+                const data = arrays.flat();
+
                 const totalUnit = data.reduce((s, i) => s + i.j, 0);
                 const kabList = [...new Set(data.map(i => i.kb))];
                 const grouped = {};
@@ -698,19 +715,38 @@
                 document.getElementById(breakdownId).innerHTML = sorted.map(([kab, unit]) =>
                     `<div class="kab-row"><span class="kab-name">${kab.replace('KAB. ', '').replace('KOTA ', '')}</span><span class="kab-value">${unit}</span></div>`
                 ).join('');
-            } catch { document.getElementById(breakdownId).innerHTML = '<div class="loading">Error</div>'; }
+            } catch {
+                document.getElementById(breakdownId).innerHTML = '<div class="loading">Error</div>';
+            }
         }
 
-        function loadAllData(tahap = 'tahap1') {
-            // Future: use tahap to determine data source folder
-            const prefix = ''; // Could be 'tahap2/' etc
-            loadData(prefix + 'data_desa.json', 'desa-unit', 'desa-count', 'desa-kab', 'desa-breakdown');
-            loadData(prefix + 'data_kota.json', 'kota-unit', 'kota-count', 'kota-kab', 'kota-breakdown');
-            loadData(prefix + 'data_pesisir.json', 'pesisir-unit', 'pesisir-count', 'pesisir-kab', 'pesisir-breakdown');
+        function setPesisirPlaceholder() {
+            document.getElementById('pesisir-unit').textContent = '—';
+            document.getElementById('pesisir-count').textContent = '—';
+            document.getElementById('pesisir-kab').textContent = '—';
+            document.getElementById('pesisir-breakdown').innerHTML =
+                '<div class="loading" style="font-style:italic">Belum tersedia di Tahap II</div>';
+        }
+
+        function loadAllData(tahap) {
+            if (tahap === 'tahap1') {
+                loadData(['data_desa.json'], 'desa-unit', 'desa-count', 'desa-kab', 'desa-breakdown');
+                loadData(['data_kota.json'], 'kota-unit', 'kota-count', 'kota-kab', 'kota-breakdown');
+                loadData(['data_pesisir.json'], 'pesisir-unit', 'pesisir-count', 'pesisir-kab', 'pesisir-breakdown');
+            } else if (tahap === 'tahap2') {
+                loadData(['data_desa_t2.json'], 'desa-unit', 'desa-count', 'desa-kab', 'desa-breakdown');
+                loadData(['data_kota_t2.json'], 'kota-unit', 'kota-count', 'kota-kab', 'kota-breakdown');
+                setPesisirPlaceholder();
+            } else { // gabungan
+                loadData(['data_desa.json', 'data_desa_t2.json'], 'desa-unit', 'desa-count', 'desa-kab', 'desa-breakdown');
+                loadData(['data_kota.json', 'data_kota_t2.json'], 'kota-unit', 'kota-count', 'kota-kab', 'kota-breakdown');
+                loadData(['data_pesisir.json'], 'pesisir-unit', 'pesisir-count', 'pesisir-kab', 'pesisir-breakdown');
+            }
         }
 
         document.addEventListener('DOMContentLoaded', () => {
-            loadAllData();
+            loadAllData(savedTahap);
+            updateCardLinks(savedTahap);
         });
     </script>
 </body>

@@ -692,9 +692,17 @@
         async function fetchJSON(file) {
             try {
                 const r = await fetch(file);
-                if (!r.ok) return [];
-                return await r.json();
-            } catch { return []; }
+                if (!r.ok) {
+                    console.error(`Fetch failed for ${file}: ${r.status} ${r.statusText}`);
+                    return [];
+                }
+                const data = await r.json();
+                console.log(`Successfully loaded ${file}: ${data.length} items`);
+                return data;
+            } catch (e) {
+                console.error(`Error loading ${file}:`, e);
+                return [];
+            }
         }
 
         async function loadData(files, unitId, countId, kabId, breakdownId) {

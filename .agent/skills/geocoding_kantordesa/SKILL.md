@@ -70,7 +70,7 @@ out center 1;
             lat = el.get('lat') or el.get('center', {}).get('lat')
             lng = el.get('lon') or el.get('center', {}).get('lon')
             if lat and lng:
-                return round(float(lat), 6), round(float(lng), 6), 'overpass'
+                return round(float(lat), 10), round(float(lng), 10), 'overpass'
     except Exception as e:
         pass
     return None, None, None
@@ -91,7 +91,7 @@ def nominatim_search(query):
         with urllib.request.urlopen(req, timeout=10) as r:
             data = json.loads(r.read())
         if data:
-            return round(float(data[0]['lat']), 6), round(float(data[0]['lon']), 6)
+            return round(float(data[0]['lat']), 10), round(float(data[0]['lon']), 10)
     except:
         pass
     return None, None

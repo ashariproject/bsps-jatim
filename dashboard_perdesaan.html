@@ -518,12 +518,16 @@
         <!-- Map -->
         <div id="map-wrapper">
             <div id="map"></div>
+            <!-- Debug Info -->
+            <div id="debug-info"
+                style="position: absolute; bottom: 10px; left: 10px; z-index: 1000; background: rgba(0,0,0,0.7); color: #4ade80; padding: 5px 10px; border-radius: 4px; font-size: 10px; font-family: monospace; display: none;">
+            </div>
             <!-- Loading Overlay -->
             <div id="map-loading"
                 style="position: absolute; inset: 0; background: rgba(255,255,255,0.9); z-index: 1000; display: flex; align-items: center; justify-content: center; color: #64748b;">
                 <div style="text-align: center;">
                     <div style="font-size: 2rem; margin-bottom: 10px;">🌍</div>
-                    <div>Memuat Peta...</div>
+                    <div id="loading-text">Memuat Peta...</div>
                 </div>
             </div>
         </div>
@@ -570,199 +574,157 @@
     </div>
 
     <script>
-        let dataDesa = [];
+        // Global Error Tracker
+        window.onerror = function (m, u, l) {
+            alert("JS Error: " + m + " line " + l);
+            const d = document.getElementById('debug-info');
+            if (d) { d.style.display = 'block'; d.innerHTML += "ERR: " + m + "<br>"; }
+        };
 
-        // Baca URL parameter
+        function debug(msg) {
+            console.log(msg);
+            document.title = "LOG: " + msg;
+            const lt = document.getElementById('loading-text');
+            if (lt) lt.innerHTML = msg;
+            const d = document.getElementById('debug-info');
+            if (d) { d.style.display = 'block'; d.innerHTML += msg + "<br>"; }
+        }
+
+        let dataDesa = [];
         const urlParams = new URLSearchParams(window.location.search);
         const tahapParam = urlParams.get('tahap') || 'tahap1';
+        const badgeText = tahapParam === 'tahap2' ? 'Tahap II' : tahapParam === 'gabungan' ? 'Gabungan I+II' : 'Tahap I';
+        document.getElementById('tahapBadge').textContent = badgeText;
 
-        // Set badge
-        const badgeEl = document.getElementById('tahapBadge');
-        const badgeText = tahapParam === 'tahap2' ? 'Tahap II'
-            : tahapParam === 'gabungan' ? 'Gabungan I+II'
-                : 'Tahap I';
-        badgeEl.textContent = badgeText;
-
-        // Tentukan file data
-        const dataFiles = tahapParam === 'tahap2' ? ['data_desa_t2.json']
-            : tahapParam === 'gabungan' ? ['data_desa.json', 'data_desa_t2.json']
-                : ['data_desa.json'];
+        const dataFiles = tahapParam === 'tahap2' ? ['data_desa_t2.json'] :
+            tahapParam === 'gabungan' ? ['data_desa.json', 'data_desa_t2.json'] : ['data_desa.json'];
 
         document.addEventListener('DOMContentLoaded', async () => {
-            // Fetch + gabungkan data
+            debug("Page Loaded. Files: " + dataFiles.join(', '));
+
             try {
-                const arrays = await Promise.all(dataFiles.map(async f => {
+                // Fetch Data
+                for (let f of dataFiles) {
+                    debug("Fetching " + f + "...");
                     const r = await fetch(f);
-                    if (!r.ok) return [];
-                    return await r.json();
-                }));
-                dataDesa = arrays.flat();
-            } catch (error) {
-                console.error('Error loading data:', error);
-                document.getElementById('map-loading').innerHTML = `
-                    <div style="text-align: center; color: #ef4444;">
-                        <div style="font-size: 2rem; margin-bottom: 10px;">⚠️</div>
-                        <div>Gagal memuat data.<br><small>Pastikan file JSON tersedia.</small></div>
-                    </div>
-                `;
-                return;
-            }
+                    if (!r.ok) throw new Error("Gagal load " + f + " (HTTP " + r.status + ")");
+                    const json = await r.json();
+                    debug("Loaded " + f + ": " + json.length + " items");
+                    dataDesa = dataDesa.concat(json);
+                }
 
-            if (dataDesa.length === 0) {
-                document.getElementById('map-loading').innerHTML = `
-                    <div style="text-align: center; color: #94a3b8;">
-                        <div style="font-size: 2.5rem; margin-bottom: 10px;">📂</div>
-                        <div style="font-weight:600">Data ${badgeText} Belum Tersedia</div>
-                        <div style="font-size:0.85rem; margin-top:6px;">Masukkan data ke file JSON yang sesuai</div>
-                    </div>
-                `;
-                document.getElementById('totalAlokasi').textContent = '0';
-                document.getElementById('totalDesa').textContent = '0';
-                return;
-            }
-
-            // Update stats
-            const totalAlokasi = dataDesa.reduce((sum, i) => sum + i.j, 0);
-            document.getElementById('totalAlokasi').textContent = totalAlokasi.toLocaleString('id-ID');
-            document.getElementById('totalDesa').textContent = dataDesa.length;
-
-            const loadingEl = document.getElementById('map-loading');
-
-            // Initialize Map
-            // Center of East Java
-            const map = L.map('map', {
-                zoomControl: false,
-                attributionControl: false
-            }).setView([-7.7, 112.5], 8);
-
-            // Add Zoom Control to top-right
-            L.control.zoom({ position: 'topright' }).addTo(map);
-
-            // Attribution
-            L.control.attribution({ prefix: false }).addAttribution('&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>').addTo(map);
-
-            // Tile Layer - OpenStreetMap Standard
-            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                maxZoom: 19,
-                subdomains: 'abc'
-            }).on('load', () => {
-                loadingEl.style.display = 'none';
-            }).addTo(map);
-
-            const markers = {};
-            const tableBody = document.getElementById('tableBody');
-            const searchInput = document.getElementById('searchInput');
-            const filterKab = document.getElementById('filterKab');
-
-            // Populate Filter
-            const uniqueKab = [...new Set(dataDesa.map(i => i.kb))].sort();
-            uniqueKab.forEach(kb => {
-                const opt = document.createElement('option');
-                opt.value = kb;
-                opt.textContent = kb;
-                filterKab.appendChild(opt);
-            });
-
-            // Renderer
-            function render() {
-                const term = searchInput.value.toLowerCase();
-                const selKab = filterKab.value;
-                const filtered = dataDesa.filter(i => {
-                    const matchText = (i.d + ' ' + i.kc + ' ' + i.kb).toLowerCase().includes(term);
-                    const matchKab = selKab === "" || i.kb === selKab;
-                    return matchText && matchKab;
-                });
-
-                // Update stat cards based on filtered data
-                document.getElementById('totalAlokasi').textContent = filtered.reduce((s, i) => s + i.j, 0).toLocaleString('id-ID');
-                document.getElementById('totalDesa').textContent = filtered.length;
-
-                tableBody.innerHTML = "";
-
-                if (filtered.length === 0) {
-                    tableBody.innerHTML = `<tr><td colspan="3" style="text-align:center; padding: 2rem; color: #94a3b8;">Tidak ada data ditemukan</td></tr>`;
+                if (dataDesa.length === 0) {
+                    document.getElementById('map-loading').innerHTML = "Data Kosong";
                     return;
                 }
 
-                filtered.forEach(i => {
-                    const row = document.createElement('tr');
-                    row.innerHTML = `
-                        <td>
-                            <div class="location-main">${i.d}</div>
-                            <small class="location-sub">${i.kb}</small>
-                        </td>
-                        <td style="color: #475569;">${i.kc}</td>
-                        <td style="text-align: center;"><span class="unit-badge">${i.j}</span></td>
-                    `;
-                    row.addEventListener('click', () => {
-                        // Fly to location
-                        map.flyTo([i.lat, i.lng], 13, { duration: 1 });
-                        if (markers[i.k]) {
-                            markers[i.k].openPopup();
-                        }
-                    });
-                    tableBody.appendChild(row);
-                });
-            }
+                // Initial Stats
+                const totalU = dataDesa.reduce((s, i) => s + (i.j || 0), 0);
+                document.getElementById('totalAlokasi').textContent = totalU.toLocaleString('id-ID');
+                document.getElementById('totalDesa').textContent = dataDesa.length;
 
-            // Color palette for each kabupaten
-            const kabColors = {
-                'KAB. PACITAN': { fill: '#22c55e', border: '#16a34a' },      // Green
-                'KAB. MALANG': { fill: '#f97316', border: '#ea580c' },       // Orange
-                'KAB. PASURUAN': { fill: '#8b5cf6', border: '#7c3aed' },     // Purple
-                'KAB. JOMBANG': { fill: '#ec4899', border: '#db2777' },      // Pink
-                'KAB. NGANJUK': { fill: '#14b8a6', border: '#0d9488' },      // Teal
-                'KAB. MADIUN': { fill: '#f59e0b', border: '#d97706' },       // Amber
-                'KAB. BOJONEGORO': { fill: '#ef4444', border: '#dc2626' },   // Red
-                'KAB. JEMBER': { fill: '#06b6d4', border: '#0891b2' },       // Cyan
-                'KAB. GRESIK': { fill: '#84cc16', border: '#65a30d' },       // Lime
-            };
-            const defaultColor = { fill: '#22c55e', border: '#16a34a' };    // Green (fallback)
+                // Init Map
+                debug("Initializing Map...");
+                const map = L.map('map', { zoomControl: false, attributionControl: false }).setView([-7.7, 112.5], 8);
+                L.control.zoom({ position: 'topright' }).addTo(map);
+                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).addTo(map);
 
-            // Create Markers
-            dataDesa.forEach(i => {
-                // Circle Marker size calculation
-                const radius = Math.min(25, Math.max(6, Math.sqrt(i.j) * 1.5));
-                const colors = kabColors[i.kb] || defaultColor;
+                const markers = {};
+                const tableBody = document.getElementById('tableBody');
+                const searchInput = document.getElementById('searchInput');
+                const filterKab = document.getElementById('filterKab');
 
-                const m = L.circleMarker([i.lat, i.lng], {
-                    radius: radius,
-                    color: colors.border,
-                    weight: 2,
-                    fillColor: colors.fill,
-                    fillOpacity: 0.75
-                }).bindPopup(`
-                    <div style="min-width: 150px; text-align: center;">
-                        <div class="popup-title">${i.d}</div>
-                        <span class="popup-subtitle">Kec. ${i.kc}, ${i.kb}</span>
-                        <div class="popup-stat">${i.j} Unit</div>
-                        <a href="https://www.google.com/maps?q=${i.lat},${i.lng}" target="_blank" class="popup-maps-link" style="color: white !important;">📍 OpenMap</a>
-                    </div>
-                `);
-
-                m.addTo(map);
-                markers[i.k] = m;
-            });
-
-            // Listeners
-            searchInput.addEventListener('input', render);
-            filterKab.addEventListener('change', () => {
-                render();
-                const kab = filterKab.value;
-                if (kab) {
-                    const first = dataDesa.find(i => i.kb === kab);
-                    if (first) map.flyTo([first.lat, first.lng], 10, { duration: 1.5 });
-                } else {
-                    map.flyTo([-7.7, 112.5], 8, { duration: 1.5 });
+                // Fill Filter
+                const kabs = {};
+                for (let k = 0; k < dataDesa.length; k++) {
+                    const row = dataDesa[k];
+                    if (row && row.kb) kabs[row.kb] = true;
                 }
-            });
+                const kabList = Object.keys(kabs).sort();
+                debug("Kab: " + kabList.length);
 
-            // Initial Render
-            render();
+                let filterHtml = '<option value="">Semua Kabupaten/Kota</option>';
+                kabList.forEach(k => { filterHtml += `<option value="${k}">${k}</option>`; });
+                filterKab.innerHTML = filterHtml;
 
-            // Force map invalidate size
-            setTimeout(() => { map.invalidateSize(); }, 200);
+                // Renderer function
+                window.render = function () {
+                    const term = searchInput.value.toLowerCase();
+                    const selKab = filterKab.value;
+                    const filtered = dataDesa.filter(i => {
+                        const d = (i.d || "").toLowerCase();
+                        const kc = (i.kc || "").toLowerCase();
+                        const kb = (i.kb || "").toLowerCase();
+                        return (d.indexOf(term) !== -1 || kc.indexOf(term) !== -1) && (selKab === "" || i.kb === selKab);
+                    });
+
+                    document.getElementById('totalAlokasi').textContent = filtered.reduce((s, i) => s + (i.j || 0), 0).toLocaleString('id-ID');
+                    document.getElementById('totalDesa').textContent = filtered.length;
+
+                    let html = "";
+                    filtered.forEach(i => {
+                        html += `<tr onclick="flyToLoc('${i.k}')">
+                            <td><div class="location-main">${i.d || "N/A"}</div><small class="location-sub">${i.kb || "N/A"}</small></td>
+                            <td style="color:#475569;">${i.kc || "N/A"}</td>
+                            <td style="text-align:center;"><span class="unit-badge">${i.j || 0}</span></td>
+                        </tr>`;
+                    });
+                    tableBody.innerHTML = html || '<tr><td colspan="3" style="text-align:center;padding:2rem;">Tidak ada data</td></tr>';
+                };
+
+                window.flyToLoc = function (key) {
+                    const i = dataDesa.find(item => item.k === key);
+                    if (i && i.lat && i.lng) {
+                        map.flyTo([i.lat, i.lng], 13);
+                        if (markers[key]) markers[key].openPopup();
+                    } else if (i) {
+                        alert("Koordinat belum tersedia untuk " + i.d);
+                    }
+                };
+
+                // Markers Colors
+                const colors = {
+                    'KAB. PACITAN': '#22c55e', 'KAB. MALANG': '#f97316', 'KAB. PASURUAN': '#8b5cf6',
+                    'KAB. JOMBANG': '#ec4899', 'KAB. NGANJUK': '#14b8a6', 'KAB. MADIUN': '#f59e0b',
+                    'KAB. BOJONEGORO': '#ef4444', 'KAB. JEMBER': '#06b6d4', 'KAB. GRESIK': '#84cc16'
+                };
+
+                // Add Markers
+                let markerCount = 0;
+                dataDesa.forEach(i => {
+                    if (i.lat && i.lng) {
+                        const r = Math.min(20, Math.max(6, Math.sqrt(i.j || 0) * 1.5));
+                        const c = colors[i.kb] || '#22c55e';
+                        const m = L.circleMarker([i.lat, i.lng], {
+                            radius: r, color: c, weight: 2, fillColor: c, fillOpacity: 0.6
+                        }).bindPopup(`<b>${i.d}</b><br>${i.kc}, ${i.kb}<br>${i.j} Unit`);
+                        m.addTo(map);
+                        markers[i.k] = m;
+                        markerCount++;
+                    }
+                });
+                debug("Added " + markerCount + " markers to map.");
+
+                searchInput.addEventListener('input', render);
+                filterKab.addEventListener('change', () => {
+                    render();
+                    const kab = filterKab.value;
+                    if (kab) {
+                        const first = dataDesa.find(i => i.kb === kab && i.lat && i.lng);
+                        if (first) map.flyTo([first.lat, first.lng], 10);
+                    }
+                });
+
+                render();
+                document.getElementById('map-loading').style.display = 'none';
+                setTimeout(() => map.invalidateSize(), 500);
+
+            } catch (err) {
+                alert("CRITICAL ERROR: " + err.message);
+                debug("FATAL: " + err.message);
+            }
         });
+    </script>
     </script>
 </body>
 

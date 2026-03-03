@@ -583,11 +583,8 @@
 
         function debug(msg) {
             console.log(msg);
-            document.title = "LOG: " + msg;
-            const lt = document.getElementById('loading-text');
-            if (lt) lt.innerHTML = msg;
-            const d = document.getElementById('debug-info');
-            if (d) { d.style.display = 'block'; d.innerHTML += msg + "<br>"; }
+            // const d = document.getElementById('debug-info');
+            // if (d) { d.style.display = 'block'; d.innerHTML += msg + "<br>"; }
         }
 
         let dataDesa = [];
@@ -697,7 +694,12 @@
                         const c = colors[i.kb] || '#22c55e';
                         const m = L.circleMarker([i.lat, i.lng], {
                             radius: r, color: c, weight: 2, fillColor: c, fillOpacity: 0.6
-                        }).bindPopup(`<b>${i.d}</b><br>${i.kc}, ${i.kb}<br>${i.j} Unit`);
+                        }).bindPopup(`<div style="min-width: 150px; text-align: center;">
+                                <div class="popup-title">${i.d || "N/A"}</div>
+                                <span class="popup-subtitle">Kec. ${i.kc || "N/A"}, ${i.kb || "N/A"}</span>
+                                <div class="popup-stat">${i.j || 0} Unit</div>
+                                <a href="https://www.google.com/maps?q=${i.lat},${i.lng}" target="_blank" class="popup-maps-link" style="color: white !important;">📍 OpenMap</a>
+                            </div>`);
                         m.addTo(map);
                         markers[i.k] = m;
                         markerCount++;

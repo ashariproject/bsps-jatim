@@ -509,7 +509,7 @@
             <span class="sum-value sum-purple" id="sumKota">-</span>
         </div>
         <div class="sum-card">
-            <span class="sum-label">Pesisir</span>
+            <span class="sum-label" id="sumPesisirLabel">Pesisir</span>
             <span class="sum-value sum-blue" id="sumPesisir">-</span>
         </div>
         <div class="sum-card">
@@ -715,6 +715,9 @@
             document.getElementById('sumDesa').textContent = showDesa ? totDesa.toLocaleString('id-ID') : '—';
             document.getElementById('sumKota').textContent = showKota ? totKota.toLocaleString('id-ID') : '—';
             document.getElementById('sumPesisir').textContent = showPesisir ? totPesisir.toLocaleString('id-ID') : '—';
+            // Update label Pesisir sesuai tahap
+            const lbl = tahap === 'tahap1' ? 'Pesisir (I)' : tahap === 'tahap2' ? 'Pesisir (II)' : 'Pesisir (Gab)';
+            document.getElementById('sumPesisirLabel').textContent = lbl;
             document.getElementById('sumKab').textContent = rows.length;
         }
 

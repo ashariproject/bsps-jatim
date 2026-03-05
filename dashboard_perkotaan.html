@@ -10,8 +10,8 @@
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <style>
         :root {
-            --primary: #a855f7;
-            --primary-dark: #9333ea;
+            --primary: #7e22ce;
+            --primary-dark: #6b21a8;
             --bg-color: #f8fafc;
             --card-bg: #fff;
             --text-main: #1e293b;
@@ -45,7 +45,7 @@
         }
 
         header {
-            background: linear-gradient(135deg, #581c87 0%, #7c3aed 100%);
+            background: linear-gradient(135deg, #4c1d95 0%, #7e22ce 100%);
             color: white;
             padding: 1rem 1.5rem;
             display: flex;
@@ -161,7 +161,7 @@
         .stat-value {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #a855f7;
+            color: #7e22ce;
         }
 
         .controls {
@@ -246,9 +246,9 @@
             min-width: 32px;
             height: 24px;
             padding: 0 8px;
-            background: #f3e8ff;
-            color: #a855f7;
-            border: 1px solid #e9d5ff;
+            background: #f5f3ff;
+            color: #7e22ce;
+            border: 1px solid #ddd6fe;
             border-radius: 12px;
             font-weight: 600;
             font-size: 0.8rem;
@@ -363,8 +363,8 @@
         }
 
         .popup-stat {
-            background: #faf5ff;
-            color: #a855f7;
+            background: #f5f3ff;
+            color: #7e22ce;
             padding: 6px 10px;
             border-radius: 6px;
             font-weight: 600;
@@ -513,11 +513,35 @@
                     } catch (re) { console.error("Render error:", re); }
                 }
 
-                const kabColors = { 'KOTA MALANG': { fill: '#a855f7', border: '#9333ea' }, 'KOTA PASURUAN': { fill: '#ec4899', border: '#db2777' } }, defaultColor = { fill: '#a855f7', border: '#9333ea' };
+                const kabColors = {
+                    'KOTA MALANG': { fill: '#7e22ce', border: '#6b21a8' },
+                    'KOTA PASURUAN': { fill: '#ec4899', border: '#db2777' },
+                    'KOTA KEDIRI': { fill: '#0ea5e9', border: '#0284c7' },
+                    'KOTA SURABAYA': { fill: '#f59e0b', border: '#d97706' },
+                    'KOTA BLITAR': { fill: '#10b981', border: '#059669' },
+                    'KOTA PROBOLINGGO': { fill: '#ef4444', border: '#dc2626' },
+                    'KOTA MOJOKERTO': { fill: '#8b5cf6', border: '#7c3aed' },
+                    'KOTA MADIUN': { fill: '#06b6d4', border: '#0891b2' },
+                    'KOTA BATU': { fill: '#84cc16', border: '#65a30d' }
+                };
+                const defaultColor = { fill: '#7e22ce', border: '#581c87' };
+
+                // Auto-fit peta ke bounding box data aktual
+                const validPoints = dataKota.filter(i => i.lat && i.lng);
+                if (validPoints.length > 0) {
+                    const lats = validPoints.map(i => i.lat);
+                    const lngs = validPoints.map(i => i.lng);
+                    const bounds = L.latLngBounds(
+                        [Math.min(...lats) - 0.05, Math.min(...lngs) - 0.05],
+                        [Math.max(...lats) + 0.05, Math.max(...lngs) + 0.05]
+                    );
+                    setTimeout(() => map.fitBounds(bounds, { padding: [30, 30] }), 300);
+                }
+
                 dataKota.forEach(i => {
                     if (i.lat && i.lng) {
                         const r = Math.min(25, Math.max(8, Math.sqrt(i.j || 0) * 2)), c = kabColors[i.kb] || defaultColor;
-                        const m = L.circleMarker([i.lat, i.lng], { radius: r, color: c.border, weight: 2, fillColor: c.fill, fillOpacity: 0.75 }).bindPopup(`<div style="min-width:150px;text-align:center;"><div class="popup-title">${i.d || "N/A"}</div><span class="popup-subtitle">Kec. ${i.kc || "N/A"}, ${i.kb || "N/A"}</span><div class="popup-stat">${i.j || 0} Unit</div><a href="https://www.google.com/maps?q=${i.lat},${i.lng}" target="_blank" class="popup-maps-link" style="color: white !important;">📍 OpenMap</a></div>`);
+                        const m = L.circleMarker([i.lat, i.lng], { radius: r, color: c.border, weight: 3, fillColor: c.fill, fillOpacity: 0.85 }).bindPopup(`<div style="min-width:150px;text-align:center;"><div class="popup-title">${i.d || "N/A"}</div><span class="popup-subtitle">Kec. ${i.kc || "N/A"}, ${i.kb || "N/A"}</span><div class="popup-stat">${i.j || 0} Unit</div><a href="https://www.google.com/maps?q=${i.lat},${i.lng}" target="_blank" class="popup-maps-link" style="color: white !important;">📍 Buka Maps</a></div>`);
                         m.addTo(map);
                         markers[i.k] = m;
                     }

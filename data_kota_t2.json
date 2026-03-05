@@ -1,1 +1,407 @@
-[]
+[
+  {
+    "k": "3571021012",
+    "d": "BANJARAN",
+    "kc": "KOTA",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.8189258,
+    "lng": 112.0243727
+  },
+  {
+    "k": "3571021003",
+    "d": "DANDANGAN",
+    "kc": "KOTA",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.8108973,
+    "lng": 112.0193241
+  },
+  {
+    "k": "3571021013",
+    "d": "KALIOMBO",
+    "kc": "KOTA",
+    "kb": "KOTA KEDIRI",
+    "j": 2,
+    "lat": -7.8318934,
+    "lng": 112.0122943
+  },
+  {
+    "k": "3571021010",
+    "d": "KEMASAN",
+    "kc": "KOTA",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.8187505,
+    "lng": 112.0159276
+  },
+  {
+    "k": "3571021004",
+    "d": "NGADIREJO",
+    "kc": "KOTA",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.8068671,
+    "lng": 112.0275273
+  },
+  {
+    "k": "3571021014",
+    "d": "NGRONGGO",
+    "kc": "KOTA",
+    "kb": "KOTA KEDIRI",
+    "j": 11,
+    "lat": -7.8425657,
+    "lng": 112.0204207
+  },
+  {
+    "k": "3571021017",
+    "d": "REJOMULYO",
+    "kc": "KOTA",
+    "kb": "KOTA KEDIRI",
+    "j": 2,
+    "lat": -7.8525431,
+    "lng": 112.0194597
+  },
+  {
+    "k": "3571021006",
+    "d": "SETONOPANDE",
+    "kc": "KOTA",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.8237846,
+    "lng": 112.0147688
+  },
+  {
+    "k": "3571011002",
+    "d": "BANDAR KIDUL",
+    "kc": "MOJOROTO",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.8284645,
+    "lng": 112.0021935
+  },
+  {
+    "k": "3571011001",
+    "d": "BANDAR LOR",
+    "kc": "MOJOROTO",
+    "kb": "KOTA KEDIRI",
+    "j": 10,
+    "lat": -7.8195312,
+    "lng": 112.002524
+  },
+  {
+    "k": "3571011003",
+    "d": "BANJARMLATI",
+    "kc": "MOJOROTO",
+    "kb": "KOTA KEDIRI",
+    "j": 2,
+    "lat": -7.8343426,
+    "lng": 112.0045442
+  },
+  {
+    "k": "3571011012",
+    "d": "CAMPUREJO",
+    "kc": "MOJOROTO",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.8253864,
+    "lng": 111.9864324
+  },
+  {
+    "k": "3571011013",
+    "d": "LIRBOYO",
+    "kc": "MOJOROTO",
+    "kb": "KOTA KEDIRI",
+    "j": 10,
+    "lat": -7.8213595,
+    "lng": 111.9946913
+  },
+  {
+    "k": "3571011011",
+    "d": "MOJOROTO",
+    "kc": "MOJOROTO",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.8039082,
+    "lng": 112.0029514
+  },
+  {
+    "k": "3571011008",
+    "d": "MRICAN",
+    "kc": "MOJOROTO",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.7805806,
+    "lng": 111.999441
+  },
+  {
+    "k": "3571011004",
+    "d": "POJOK",
+    "kc": "MOJOROTO",
+    "kb": "KOTA KEDIRI",
+    "j": 10,
+    "lat": -7.8132031,
+    "lng": 111.9777533
+  },
+  {
+    "k": "3571011005",
+    "d": "SUKORAME",
+    "kc": "MOJOROTO",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.810756,
+    "lng": 111.990473
+  },
+  {
+    "k": "3571031014",
+    "d": "BANARAN",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.8308001,
+    "lng": 112.0340006
+  },
+  {
+    "k": "3571031007",
+    "d": "BETET",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 2,
+    "lat": -7.8509124,
+    "lng": 112.0364795
+  },
+  {
+    "k": "3571031006",
+    "d": "BLABAK",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 4,
+    "lat": -7.8405945,
+    "lng": 112.0305506
+  },
+  {
+    "k": "3571031015",
+    "d": "BURENGAN",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 10,
+    "lat": -7.823423,
+    "lng": 112.029585
+  },
+  {
+    "k": "3571031004",
+    "d": "JAMSAREN",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 1,
+    "lat": -7.8241986,
+    "lng": 112.0199384
+  },
+  {
+    "k": "3571031010",
+    "d": "NGLETIH",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 10,
+    "lat": -7.8405945,
+    "lng": 112.0305506
+  },
+  {
+    "k": "3571031002",
+    "d": "PAKUNDEN",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 9,
+    "lat": -7.8280052,
+    "lng": 112.0236039
+  },
+  {
+    "k": "3571031013",
+    "d": "PESANTREN",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 2,
+    "lat": -7.8199134,
+    "lng": 112.0246513
+  },
+  {
+    "k": "3571031005",
+    "d": "SINGONEGARAN",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 10,
+    "lat": -7.8273217,
+    "lng": 112.0200143
+  },
+  {
+    "k": "3571031011",
+    "d": "TEMPUREJO",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 10,
+    "lat": -7.8403804,
+    "lng": 112.0644952
+  },
+  {
+    "k": "3571031008",
+    "d": "TINALAN",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 3,
+    "lat": -7.8280758,
+    "lng": 112.0284352
+  },
+  {
+    "k": "3571031003",
+    "d": "TOSAREN",
+    "kc": "PESANTREN",
+    "kb": "KOTA KEDIRI",
+    "j": 10,
+    "lat": -7.8318673,
+    "lng": 112.0247478
+  },
+  {
+    "k": "3573011010",
+    "d": "POLEHAN",
+    "kc": "BLIMBING",
+    "kb": "KOTA MALANG",
+    "j": 3,
+    "lat": -7.9873745,
+    "lng": 112.6423511
+  },
+  {
+    "k": "3573011004",
+    "d": "PURWODADI",
+    "kc": "BLIMBING",
+    "kb": "KOTA MALANG",
+    "j": 11,
+    "lat": -7.94007,
+    "lng": 112.6383321
+  },
+  {
+    "k": "3573031005",
+    "d": "BURING",
+    "kc": "KEDUNGKANDANG",
+    "kb": "KOTA MALANG",
+    "j": 9,
+    "lat": -8.0070891,
+    "lng": 112.6544995
+  },
+  {
+    "k": "3573031010",
+    "d": "CEMOROKANDANG",
+    "kc": "KEDUNGKANDANG",
+    "kb": "KOTA MALANG",
+    "j": 12,
+    "lat": -7.989738,
+    "lng": 112.684252
+  },
+  {
+    "k": "3573031001",
+    "d": "KOTALAMA",
+    "kc": "KEDUNGKANDANG",
+    "kb": "KOTA MALANG",
+    "j": 9,
+    "lat": -7.9940622,
+    "lng": 112.6357596
+  },
+  {
+    "k": "3573031012",
+    "d": "TLOGOWARU",
+    "kc": "KEDUNGKANDANG",
+    "kb": "KOTA MALANG",
+    "j": 10,
+    "lat": -8.0373508,
+    "lng": 112.6565798
+  },
+  {
+    "k": "3573021006",
+    "d": "KASIN",
+    "kc": "KLOJEN",
+    "kb": "KOTA MALANG",
+    "j": 8,
+    "lat": -7.9904557,
+    "lng": 112.6257891
+  },
+  {
+    "k": "3573051009",
+    "d": "MOJOLANGU",
+    "kc": "LOWOKWARU",
+    "kb": "KOTA MALANG",
+    "j": 9,
+    "lat": -7.9383552,
+    "lng": 112.6312995
+  },
+  {
+    "k": "3578131003",
+    "d": "GUNDIH",
+    "kc": "BUBUTAN",
+    "kb": "KOTA SURABAYA",
+    "j": 19,
+    "lat": -7.248415,
+    "lng": 112.7266499
+  },
+  {
+    "k": "3578151004",
+    "d": "DUPAK",
+    "kc": "KREMBANGAN",
+    "kb": "KOTA SURABAYA",
+    "j": 17,
+    "lat": -7.2416242,
+    "lng": 112.7183759
+  },
+  {
+    "k": "3578151005",
+    "d": "MOROKREMBANGAN",
+    "kc": "KREMBANGAN",
+    "kb": "KOTA SURABAYA",
+    "j": 11,
+    "lat": -7.2266832,
+    "lng": 112.7141704
+  },
+  {
+    "k": "3578031006",
+    "d": "MEDOKAN AYU",
+    "kc": "RUNGKUT",
+    "kb": "KOTA SURABAYA",
+    "j": 8,
+    "lat": -7.3227552,
+    "lng": 112.8146096
+  },
+  {
+    "k": "3578161004",
+    "d": "UJUNG",
+    "kc": "SEMAMPIR",
+    "kb": "KOTA SURABAYA",
+    "j": 10,
+    "lat": -7.210727,
+    "lng": 112.7495417
+  },
+  {
+    "k": "3578111004",
+    "d": "SIMOLAWANG",
+    "kc": "SIMOKERTO",
+    "kb": "KOTA SURABAYA",
+    "j": 15,
+    "lat": -7.2332524,
+    "lng": 112.7479119
+  },
+  {
+    "k": "3578101006",
+    "d": "PACARKELING",
+    "kc": "TAMBAKSARI",
+    "kb": "KOTA SURABAYA",
+    "j": 10,
+    "lat": -7.2613668,
+    "lng": 112.7553135
+  },
+  {
+    "k": "3578101001",
+    "d": "TAMBAKSARI",
+    "kc": "TAMBAKSARI",
+    "kb": "KOTA SURABAYA",
+    "j": 140,
+    "lat": -7.2525354,
+    "lng": 112.7556503
+  }
+]

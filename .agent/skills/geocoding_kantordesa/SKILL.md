@@ -185,10 +185,59 @@ if __name__ == '__main__':
    python geocode_kantordesa.py
    ```
 4. Script akan membuat checkpoint otomatis setiap 10 entri — aman jika diinterupsi
-5. Setelah selesai, push hasilnya ke GitHub:
+5. **Lakukan verifikasi Google Maps** (lihat section di bawah) — wajib sebelum push!
+6. Setelah terverifikasi, push hasilnya ke GitHub:
    ```
    git add data_desa_t2.json; git commit -m "data: Update koordinat kantor desa Tahap II"; git push
    ```
+
+## Verifikasi Wajib via Google Maps
+
+> **Penting!** Nominatim sering mengembalikan titik tengah *wilayah* desa/kelurahan, bukan titik *gedung* kantor. Dari pengalaman: 6 dari 8 kelurahan Kota Malang melenceng setelah geocoding otomatis. Verifikasi Google Maps adalah langkah wajib setelah script selesai.
+
+### Cara Verifikasi
+
+Gunakan `browser_subagent` untuk membuka Google Maps dan mencari kantor desa/kelurahan satu per satu:
+
+```
+Untuk setiap desa/kelurahan:
+1. Buka Google Maps: https://www.google.com/maps/search/Kantor+Desa+[NAMA]+[KECAMATAN]+[KABUPATEN]
+2. Klik marker yang muncul (pastikan itu kantor desa, bukan tempat lain)
+3. Ambil koordinat dari URL (format @-lat,lng,zoom)
+4. Bandingkan dengan koordinat di JSON — jika bergeser > 200 meter, update
+
+Alternatif query pencarian (dari paling spesifik ke umum):
+- "Kantor Kelurahan [NAMA] [KECAMATAN] Malang"
+- "Balai Desa [NAMA] [KECAMATAN] [KABUPATEN]"
+- "Kantor Kepala Desa [NAMA] [KABUPATEN]"
+```
+
+### Panduan Instruksi untuk Browser Subagent
+
+Gunakan prompt berikut saat memanggil browser_subagent:
+
+```
+Verifikasi koordinat kantor desa/kelurahan berikut via Google Maps. 
+Untuk setiap entri:
+1. Buka Google Maps dan cari "Kantor Desa/Kelurahan [NAMA], [KEC], [KAB]"
+2. Klik marker/hasil yang paling relevan (pastikan betul kantor desa/kel)
+3. Catat koordinat dari URL (format @lat,lng)
+4. Bandingkan dengan koordinat lama
+
+Daftar yang perlu dicek:
+[tempel daftar dari file JSON: nama desa, kecamatan, kab, lat_lama, lng_lama]
+
+Return tabel: | Desa | Lat Lama | Lng Lama | Lat Baru | Lng Baru | Berubah? |
+```
+
+### Kriteria Update
+
+| Kondisi | Tindakan |
+|--------|----------|
+| Beda < 50 meter | Biarkan (cukup akurat) |
+| Beda 50–500 meter | Update dengan koordinat Google Maps |
+| Beda > 500 meter | Update wajib, kemungkinan titik wilayah bukan gedung |
+| Tidak ditemukan di Google Maps | Cari manual, update file JSON langsung |
 
 ## Catatan
 
@@ -199,3 +248,4 @@ if __name__ == '__main__':
   3. `nominatim-desa` — koordinat wilayah desa
   4. `nominatim-kecamatan` — koordinat kecamatan (perkiraan, kurang akurat)
 - Desa yang masih `null` setelah dijalankan bisa diisi manual di file JSON
+- **Validasi akhir**: selalu cek di dashboard map setelah push untuk memastikan marker tampil di lokasi yang benar

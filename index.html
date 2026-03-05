@@ -744,11 +744,11 @@
             } else if (tahap === 'tahap2') {
                 loadData(['data_desa_t2.json'], 'desa-unit', 'desa-count', 'desa-kab', 'desa-breakdown');
                 loadData(['data_kota_t2.json'], 'kota-unit', 'kota-count', 'kota-kab', 'kota-breakdown');
-                setPesisirPlaceholder();
+                loadData(['data_pesisir_t2.json'], 'pesisir-unit', 'pesisir-count', 'pesisir-kab', 'pesisir-breakdown');
             } else { // gabungan
                 loadData(['data_desa.json', 'data_desa_t2.json'], 'desa-unit', 'desa-count', 'desa-kab', 'desa-breakdown');
                 loadData(['data_kota.json', 'data_kota_t2.json'], 'kota-unit', 'kota-count', 'kota-kab', 'kota-breakdown');
-                loadData(['data_pesisir.json'], 'pesisir-unit', 'pesisir-count', 'pesisir-kab', 'pesisir-breakdown');
+                loadData(['data_pesisir.json', 'data_pesisir_t2.json'], 'pesisir-unit', 'pesisir-count', 'pesisir-kab', 'pesisir-breakdown');
             }
         }
 

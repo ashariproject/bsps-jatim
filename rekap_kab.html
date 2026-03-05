@@ -485,7 +485,7 @@
                 <option value="semua">Semua Kategori</option>
                 <option value="desa">Perdesaan</option>
                 <option value="kota">Perkotaan</option>
-                <option value="pesisir">Pesisir (Tahap I)</option>
+                <option value="pesisir">Pesisir</option>
             </select>
         </div>
         <div class="ctrl-group">
@@ -539,7 +539,7 @@
         // ─── Data Store ───────────────────────────────────────────
         let rawData = {
             desa_t1: [], kota_t1: [], pesisir_t1: [],
-            desa_t2: [], kota_t2: []
+            desa_t2: [], kota_t2: [], pesisir_t2: []
         };
 
         // ─── Load all data files ──────────────────────────────────
@@ -550,6 +550,7 @@
                 ['data_pesisir.json', 'pesisir_t1'],
                 ['data_desa_t2.json', 'desa_t2'],
                 ['data_kota_t2.json', 'kota_t2'],
+                ['data_pesisir_t2.json', 'pesisir_t2'],
             ];
             await Promise.all(files.map(async ([file, key]) => {
                 try {
@@ -587,7 +588,7 @@
             if (tahap === 'tahap2' || tahap === 'semua') {
                 desaData = desaData.concat(rawData.desa_t2);
                 kotaData = kotaData.concat(rawData.kota_t2);
-                // no pesisir tahap2 yet
+                pesisirData = pesisirData.concat(rawData.pesisir_t2);
             }
 
             // Apply kategori filter
@@ -634,7 +635,7 @@
         function renderTable(rows, tahap, kategori) {
             const showDesa = kategori === 'semua' || kategori === 'desa';
             const showKota = kategori === 'semua' || kategori === 'kota';
-            const showPesisir = (kategori === 'semua' || kategori === 'pesisir') && tahap !== 'tahap2';
+            const showPesisir = (kategori === 'semua' || kategori === 'pesisir');
 
             const maxTotal = rows.length ? Math.max(...rows.map(r => r.total)) : 1;
 
@@ -644,7 +645,7 @@
                 { key: 'kb', label: 'Kabupaten / Kota', note: '', always: true },
                 { key: 'desa', label: '🏘️ Perdesaan', note: '', show: showDesa },
                 { key: 'kota', label: '🏙️ Perkotaan', note: '', show: showKota },
-                { key: 'pesisir', label: '🌊 Pesisir', note: '(Tahap I)', show: showPesisir },
+                { key: 'pesisir', label: '🌊 Pesisir', note: '', show: showPesisir },
                 { key: 'total', label: 'Total Unit', note: '', always: true },
             ];
             const visibleCols = colDefs.filter(c => c.always || c.show);

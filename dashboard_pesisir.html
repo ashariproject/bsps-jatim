@@ -454,8 +454,24 @@
 
         document.addEventListener('DOMContentLoaded', async () => {
             // Pilih file data sesuai tahap
-            const dataFile = tahapParam === 'tahap2' ? 'data_pesisir_t2.json' : 'data_pesisir.json';
-            try { const r = await fetch(dataFile); if (!r.ok) throw new Error(); dataPesisir = await r.json(); } catch { document.getElementById('map-loading').innerHTML = '<div style="text-align:center;color:#ef4444;"><div style="font-size:2rem;margin-bottom:10px;">⚠️</div><div>Gagal memuat data.</div></div>'; return; }
+            const dataFiles = tahapParam === 'tahap2' ? ['data_pesisir_t2.json'] :
+                tahapParam === 'gabungan' ? ['data_pesisir.json', 'data_pesisir_t2.json'] :
+                    ['data_pesisir.json'];
+
+            try {
+                for (const file of dataFiles) {
+                    const r = await fetch(file);
+                    if (!r.ok) throw new Error();
+                    const json = await r.json();
+                    const t = file.includes('_t2') ? 2 : 1;
+                    json.forEach(item => item.tahap = t);
+                    dataPesisir = dataPesisir.concat(json);
+                }
+            } catch {
+                document.getElementById('map-loading').innerHTML = '<div style="text-align:center;color:#ef4444;"><div style="font-size:2rem;margin-bottom:10px;">⚠️</div><div>Gagal memuat data.</div></div>';
+                return;
+            }
+
             document.getElementById('totalAlokasi').textContent = dataPesisir.reduce((s, i) => s + i.j, 0).toLocaleString('id-ID');
             document.getElementById('totalDesa').textContent = dataPesisir.length;
             const loadingEl = document.getElementById('map-loading');
@@ -465,16 +481,50 @@
             L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19 }).on('load', () => { loadingEl.style.display = 'none'; }).addTo(map);
             const markers = {}, tableBody = document.getElementById('tableBody'), searchInput = document.getElementById('searchInput'), filterKab = document.getElementById('filterKab');
             [...new Set(dataPesisir.map(i => i.kb))].sort().forEach(kb => { const o = document.createElement('option'); o.value = kb; o.textContent = kb; filterKab.appendChild(o); });
+
             function render() {
                 const t = searchInput.value.toLowerCase(), k = filterKab.value;
                 const f = dataPesisir.filter(i => (i.d + ' ' + i.kc + ' ' + i.kb).toLowerCase().includes(t) && (k === "" || i.kb === k));
                 document.getElementById('totalAlokasi').textContent = f.reduce((s, i) => s + i.j, 0).toLocaleString('id-ID');
                 document.getElementById('totalDesa').textContent = f.length;
                 tableBody.innerHTML = f.length === 0 ? '<tr><td colspan="3" style="text-align:center;padding:2rem;color:#94a3b8;">Tidak ada data</td></tr>' : '';
-                f.forEach(i => { const row = document.createElement('tr'); row.innerHTML = `<td><div class="location-main">${i.d}</div><small class="location-sub">${i.kb}</small></td><td style="color:#475569;">${i.kc}</td><td style="text-align:center;"><span class="unit-badge">${i.j}</span></td>`; row.addEventListener('click', () => { if (i.lat && i.lng) { map.flyTo([i.lat, i.lng], 13, { duration: 1 }); if (markers[i.k]) markers[i.k].openPopup(); } else { alert('Koordinat belum tersedia untuk desa ' + i.d); } }); tableBody.appendChild(row); });
+                f.forEach(i => {
+                    const row = document.createElement('tr');
+                    const tBadge = i.tahap === 2 ? '<span style="font-size:0.6rem;background:#f59e0b;color:white;padding:1px 4px;border-radius:4px;margin-left:5px;vertical-align:middle;">T2</span>' : '';
+                    row.innerHTML = `<td><div class="location-main">${i.d}${tBadge}</div><small class="location-sub">${i.kb}</small></td><td style="color:#475569;">${i.kc}</td><td style="text-align:center;"><span class="unit-badge" style="${i.tahap === 2 ? 'background:#fef3c7;color:#d97706;border-color:#fde68a;' : ''}">${i.j}</span></td>`;
+                    row.addEventListener('click', () => { if (i.lat && i.lng) { map.flyTo([i.lat, i.lng], 13, { duration: 1 }); if (markers[i.k]) markers[i.k].openPopup(); } else { alert('Koordinat belum tersedia untuk desa ' + i.d); } });
+                    tableBody.appendChild(row);
+                });
             }
-            const kabColors = { 'KAB. BANYUWANGI': { fill: '#0ea5e9', border: '#0284c7' }, 'KAB. SITUBONDO': { fill: '#06b6d4', border: '#0891b2' } }, defaultColor = { fill: '#0ea5e9', border: '#0369a1' };
-            dataPesisir.forEach(i => { if (i.lat && i.lng) { const r = Math.min(25, Math.max(6, Math.sqrt(i.j) * 1.5)), c = kabColors[i.kb] || defaultColor; const m = L.circleMarker([i.lat, i.lng], { radius: r, color: c.border, weight: 2, fillColor: c.fill, fillOpacity: 0.75 }).bindPopup(`<div style="min-width:150px;text-align:center;"><div class="popup-title">${i.d}</div><span class="popup-subtitle">Kec. ${i.kc}, ${i.kb}</span><div class="popup-stat">${i.j} Unit</div><a href="https://www.google.com/maps?q=${i.lat},${i.lng}" target="_blank" class="popup-maps-link" style="color: white !important;">📍 OpenMap</a></div>`); m.addTo(map); markers[i.k] = m; } });
+
+            dataPesisir.forEach(i => {
+                if (i.lat && i.lng) {
+                    const r = Math.min(25, Math.max(6, Math.sqrt(i.j) * 1.5));
+                    let fillColor, borderColor, weight, fillOpacity;
+
+                    if (i.tahap === 2) {
+                        fillColor = '#f59e0b'; // Amber (Tahap II)
+                        borderColor = '#ffffff'; // White border for high contrast
+                        weight = 3;
+                        fillOpacity = 0.95;
+                    } else {
+                        fillColor = '#0ea5e9'; // Sky Blue (Tahap I)
+                        borderColor = '#0369a1';
+                        weight = 2;
+                        fillOpacity = 0.75;
+                    }
+
+                    const m = L.circleMarker([i.lat, i.lng], {
+                        radius: r,
+                        color: borderColor,
+                        weight: weight,
+                        fillColor: fillColor,
+                        fillOpacity: fillOpacity
+                    }).bindPopup(`<div style="min-width:150px;text-align:center;"><div class="popup-title">${i.d}</div><span class="popup-subtitle">Kec. ${i.kc}, ${i.kb} ${i.tahap === 2 ? '(Tahap II)' : '(Tahap I)'}</span><div class="popup-stat" style="${i.tahap === 2 ? 'background:#fef3c7;color:#d97706;' : ''}">${i.j} Unit</div><a href="https://www.google.com/maps?q=${i.lat},${i.lng}" target="_blank" class="popup-maps-link" style="color: white !important;">📍 OpenMap</a></div>`);
+                    m.addTo(map);
+                    markers[i.k] = m;
+                }
+            });
             searchInput.addEventListener('input', render);
             filterKab.addEventListener('change', () => { render(); const k = filterKab.value; if (k) { const f = dataPesisir.find(i => i.kb === k); if (f) map.flyTo([f.lat, f.lng], 10, { duration: 1.5 }); } else { map.flyTo([-7.9, 113.5], 8, { duration: 1.5 }); } });
             render();

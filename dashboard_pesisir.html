@@ -497,21 +497,33 @@
                 });
             }
 
+            const kabColors = {
+                'KAB. BANGKALAN': '#f59e0b', // Amber
+                'KAB. SAMPANG': '#e11d48',    // Rose
+                'KAB. BANYUWANGI': '#0ea5e9', // Sky Blue
+                'KAB. SITUBONDO': '#0d9488',  // Teal
+                'KAB. PROBOLINGGO': '#4f46e5', // Indigo
+                'KAB. TUBAN': '#16a34a',      // Green
+                'KAB. PASURUAN': '#7c3aed',   // Violet
+                'KAB. GRESIK': '#ea580c'       // Orange-Red
+            };
+
             dataPesisir.forEach(i => {
                 if (i.lat && i.lng) {
                     const r = Math.min(25, Math.max(6, Math.sqrt(i.j) * 1.5));
+                    const baseColor = kabColors[i.kb] || '#64748b';
                     let fillColor, borderColor, weight, fillOpacity;
 
                     if (i.tahap === 2) {
-                        fillColor = '#f59e0b'; // Amber (Tahap II)
-                        borderColor = '#ffffff'; // White border for high contrast
+                        fillColor = baseColor;
+                        borderColor = '#ffffff'; // White border for T2 high contrast
                         weight = 3;
                         fillOpacity = 0.95;
                     } else {
-                        fillColor = '#0ea5e9'; // Sky Blue (Tahap I)
-                        borderColor = '#0369a1';
-                        weight = 2;
-                        fillOpacity = 0.75;
+                        fillColor = baseColor;
+                        borderColor = baseColor;
+                        weight = 1;
+                        fillOpacity = 0.7;
                     }
 
                     const m = L.circleMarker([i.lat, i.lng], {
@@ -520,7 +532,7 @@
                         weight: weight,
                         fillColor: fillColor,
                         fillOpacity: fillOpacity
-                    }).bindPopup(`<div style="min-width:150px;text-align:center;"><div class="popup-title">${i.d}</div><span class="popup-subtitle">Kec. ${i.kc}, ${i.kb} ${i.tahap === 2 ? '(Tahap II)' : '(Tahap I)'}</span><div class="popup-stat" style="${i.tahap === 2 ? 'background:#fef3c7;color:#d97706;' : ''}">${i.j} Unit</div><a href="https://www.google.com/maps?q=${i.lat},${i.lng}" target="_blank" class="popup-maps-link" style="color: white !important;">📍 OpenMap</a></div>`);
+                    }).bindPopup(`<div style="min-width:150px;text-align:center;"><div class="popup-title">${i.d}</div><span class="popup-subtitle">Kec. ${i.kc}, ${i.kb} ${i.tahap === 2 ? '(Tahap II)' : '(Tahap I)'}</span><div class="popup-stat" style="${i.tahap === 2 ? 'background:#f1f5f9;color:' + baseColor + ';' : ''}">${i.j} Unit</div><a href="https://www.google.com/maps?q=${i.lat},${i.lng}" target="_blank" class="popup-maps-link" style="color: white !important;">📍 OpenMap</a></div>`);
                     m.addTo(map);
                     markers[i.k] = m;
                 }
